@@ -1,0 +1,99 @@
+/**
+ * ═══════════════════════════════════════════
+ *  ACO 農民曆色彩計畫 — Tailwind 4 @theme
+ *  承襲 tfa-v3_23.html 的色彩 token，單一真相來源
+ *  元件一律透過 className 使用 token，禁止 inline hex
+ * ═══════════════════════════════════════════
+ */
+@import "tailwindcss";
+
+@theme {
+  /* ── 底色系（紙質溫潤） ── */
+  --color-paper:        #f8f4ec;   /* 米紙白，主底色 */
+  --color-paper-warm:   #f2ece0;   /* 稍深米，section 交替 */
+  --color-paper-card:   #fdfaf4;   /* 最亮，商品卡背景 */
+
+  /* ── 松墨綠（主色：農耕、田野、自然） ── */
+  --color-pine:         #2c4a35;
+  --color-pine-mid:     #3d6148;
+  --color-pine-light:   #e8efe9;
+  --color-leaf:         #618f5e;
+
+  /* ── 朱紅（Accent 1：印章、喜慶、CTA） ── */
+  --color-vermillion:   #c8402a;
+  --color-vermillion-mid:  #d4563e;
+  --color-vermillion-pale: #faede9;
+
+  /* ── 稻金（Accent 2：豐收、秋陽、活潑點綴） ── */
+  --color-gold:         #c49428;
+  --color-gold-mid:     #d9a942;
+  --color-gold-pale:    #fdf6e3;
+
+  /* ── 嫩葉淡底（節氣、有機、春天） ── */
+  --color-leaf-pale:    #eef3ea;
+  --color-moss:         #8fa883;
+
+  /* ── 泥土褐（溫潤中性、木刻印感） ── */
+  --color-earth:        #8b6f4f;
+  --color-earth-mid:    #a58968;
+  --color-earth-pale:   #f0e8dc;
+
+  /* ── 墨色（文字） ── */
+  --color-ink:          #1e2820;
+  --color-ink-mid:      #4a5448;
+  --color-ink-light:    #8a9488;
+
+  /* ── 印刷線條感 ── */
+  --color-rule:         #d8d0c0;
+  --color-rule-dark:    #bdb5a4;
+
+  /* ── 字體 ── */
+  --font-serif:  "Noto Serif TC", ui-serif, serif;
+  --font-sans:   "Noto Sans TC", "DM Sans", ui-sans-serif, sans-serif;
+  --font-latin:  "DM Sans", ui-sans-serif, sans-serif;
+
+  /* ── 節奏（承襲原檔：17px、1.85、0.04em） ── */
+  --leading-prose: 1.85;
+  --tracking-prose: 0.04em;
+  --tracking-latin: 0.08em;
+
+  /* ── 陰影 / 圓角 ── */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --shadow-paper: 0 1px 0 rgba(0,0,0,0.04), 0 8px 24px -12px rgba(30,40,32,0.08);
+}
+
+@layer base {
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: var(--leading-prose);
+    letter-spacing: var(--tracking-prose);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* 英數字 token 用 DM Sans */
+  .font-latin { font-family: var(--font-latin); letter-spacing: var(--tracking-latin); }
+}
+
+/* ── 朱紅印章裝飾（可用在 Separator / Badge） ── */
+@layer components {
+  .stamp-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #fff;
+    background: var(--color-vermillion);
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    letter-spacing: 0;
+    border-radius: var(--radius-sm);
+    transform: rotate(-4deg);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  }
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "slug": "posesha-akan",
+    "name": "甘誌棠",
+    "nickname": "阿甘",
+    "farm_name": "波瑟沙植善農場",
+    "location": { "region": "台南", "coords": [23.0, 120.2] },
+    "years": 12,
+    "tags": ["MOA 有機驗證", "慈心綠保", "澳洲茶樹", "自然農法"],
+    "hero_quote": "我種田，是為了讓弟弟好起來。",
+    "story": {
+      "intro": "2014 年，阿甘為了罹癌的弟弟踏進這塊地。他沒有農業背景，只有一個念頭——用最乾淨的土地，種出能療癒身體的植物。十二年後，這塊田種下了 5,000 棵澳洲茶樹，取得 MOA 有機驗證與慈心綠保標章，農場裡的動物一隻也沒有被賣掉或宰殺。",
+      "chapters": [
+        { "title": "為什麼是茶樹", "body": "弟弟治療期間免疫力下降，阿甘研究過各種抗菌植物，最後選了澳洲茶樹——它既能蒸餾成精油，葉子還能萃取純露，從頭到腳都用得上。他把這塊田，當成弟弟的藥園。" },
+        { "title": "不殺生的農場", "body": "農場以佛法為原則，動物不賣不殺。雞、鴨、羊、狗，在這裡都有名字。訪客常問這樣怎麼賺錢？阿甘笑說，田養我們，我們養田。" },
+        { "title": "從種植到蒸餾", "body": "茶樹要變成精油，需要自建蒸餾設備。那一年他把積蓄全砸進去，自己焊管、自己調火侯，前三次蒸出來的都不能用。第四次，味道對了。" }
+      ]
+    },
+    "portrait": "/images/farmers/akan/portrait.jpg",
+    "photos": [
+      "/images/farmers/akan/tea-field.jpg",
+      "/images/farmers/akan/still.jpg",
+      "/images/farmers/akan/soap-slice.jpg",
+      "/images/farmers/akan/animals.jpg"
+    ],
+    "videos": [
+      {
+        "src": "/videos/akan-tea-tree.mp4",
+        "poster": "/images/farmers/akan/v1-poster.jpg",
+        "duration": 28,
+        "caption": "清晨的茶樹林",
+        "ratio": "9:16"
+      }
+    ],
+    "timeline": [
+      { "date": "2026-03", "label": "春季修剪", "note": "茶樹冬眠結束，開始新一輪生長" },
+      { "date": "2026-05", "label": "首採與蒸餾" },
+      { "date": "2026-07", "label": "夏季皂品上架" },
+      { "date": "2026-10", "label": "秋季回蒸潤膚油" },
+      { "date": "2026-12", "label": "年末禮盒檔期" }
+    ],
+    "product_ids": ["posesha-soap-cinnamon", "posesha-soap-tea", "posesha-shampoo-rose"],
+    "follower_count": 1243,
+    "social": { "fb": "poseshafarm", "ig": "posesha999" },
+    "status": "published"
+  },
+  {
+    "slug": "fengyuan-huang",
+    "name": "黃建迪",
+    "nickname": "羊頭目",
+    "farm_name": "豐園羊牧場",
+    "location": { "region": "彰化 田尾", "coords": [23.89, 120.52] },
+    "years": 8,
+    "tags": ["努比亞山羊", "高床飼養", "自種牧草", "科技人返鄉"],
+    "hero_quote": "我離開科技業，回來當 380 隻羊的頭目。",
+    "story": {
+      "intro": "黃建迪原本在科技業工作，三十多歲那年決定返鄉接下家裡的羊牧場。第二代接班，他沒走回溫體羊的老路，而是用科學化管理、高床飼養、自種無毒牧草，把 380 頭努比亞山羊養成台灣最健康的一群。然後——他把羊肉，做成了拉麵。",
+      "chapters": [
+        { "title": "科技人為什麼養羊", "body": "離開竹科那天，父親沒說話。黃建迪知道父親心裡在想什麼——養羊苦，他不想兒子走這條路。但他回來了，還帶著一整套用在半導體產業的流程管理思維。" },
+        { "title": "500 坪的高床羊舍", "body": "傳統羊舍悶、臭、濕，羊容易病。黃建迪砍掉重練，設計高床通風舍、科學化餵飼紀錄，每一頭羊都有自己的編號。羊住得好，肉質才穩定。" },
+        { "title": "為什麼做拉麵", "body": "台灣人一年吃羊肉不到 1 公斤。他想讓羊肉走進日常——不是節慶才吃，而是加班晚上也能煮一碗。於是他把自家羊肉熬成湯底，配當歸或紅燒，做成即食拉麵包。" }
+      ]
+    },
+    "portrait": "/images/farmers/huang/portrait.jpg",
+    "photos": [
+      "/images/farmers/huang/flock.jpg",
+      "/images/farmers/huang/high-bed.jpg",
+      "/images/farmers/huang/grass.jpg",
+      "/images/farmers/huang/broth.jpg",
+      "/images/farmers/huang/ramen.jpg"
+    ],
+    "videos": [
+      { "src": "/videos/fengyuan-morning.mp4", "poster": "/images/farmers/huang/v1-poster.jpg", "duration": 30, "caption": "清晨餵牧", "ratio": "9:16" },
+      { "src": "/videos/fengyuan-noodle.mp4", "poster": "/images/farmers/huang/v2-poster.jpg", "duration": 22, "caption": "一碗拉麵的 12 小時", "ratio": "9:16" }
+    ],
+    "timeline": [
+      { "date": "2026-02", "label": "冬季牧草收割" },
+      { "date": "2026-04", "label": "小羊出生季" },
+      { "date": "2026-06", "label": "夏季冰鎮羊湯上架" },
+      { "date": "2026-10", "label": "秋冬當歸拉麵檔期" }
+    ],
+    "product_ids": ["fengyuan-ramen-redbraise", "fengyuan-ramen-angelica"],
+    "follower_count": 2891,
+    "social": { "fb": "fengyuans" },
+    "status": "published"
+  },
+  {
+    "slug": "loverhoney-huang",
+    "name": "黃金木",
+    "nickname": "追花的人",
+    "farm_name": "情人蜂蜜",
+    "location": { "region": "雲林 土庫", "coords": [23.68, 120.39] },
+    "years": 35,
+    "tags": ["龍眼蜜", "全台最大蜂蜜收購", "GMP 認證", "HACCP"],
+    "hero_quote": "花不等人，我追三十五年了。",
+    "story": {
+      "intro": "黃金木從父親手中接下蜂箱，一做就是三十五年。情人蜂蜜是全台灣收購量最大的蜂蜜品牌，也是第一家通過 HACCP、ISO 22000、以及國家食品 GMP 三項認證的蜂蜜公司。每年龍眼花開的 10 天，他跟蜂群一起睡在車上，追著花香北上。",
+      "chapters": [
+        { "title": "龍眼花只開 10 天", "body": "台灣龍眼蜜產季短，全年收成就看那 10 天。花開得早或晚、雨下得多或少——差一點，蜂就飛不回來。黃金木說，養蜂三十五年，還是會緊張。" },
+        { "title": "為什麼要做 GMP", "body": "市面太多假蜜。糖漿調色、香精加味、進口蜜混台灣標。黃金木說，認證不是做給消費者看，是做給自己看——我不想我兒子接手的時候，還要解釋什麼是真的蜜。" },
+        { "title": "家族第二代", "body": "父親從養幾箱蜂開始，到現在成為全台最大收購商。第二代接手，壓力比第一代重——因為規模大了，任何一個環節的誠實，都會被放大檢視。" }
+      ]
+    },
+    "portrait": "/images/farmers/honey/portrait.jpg",
+    "photos": [
+      "/images/farmers/honey/hives.jpg",
+      "/images/farmers/honey/longan-flower.jpg",
+      "/images/farmers/honey/extracting.jpg",
+      "/images/farmers/honey/lab.jpg"
+    ],
+    "videos": [],
+    "timeline": [
+      { "date": "2026-03", "label": "荔枝花期" },
+      { "date": "2026-04", "label": "龍眼花期（年度重頭戲）" },
+      { "date": "2026-05", "label": "龍眼蜜上市" },
+      { "date": "2026-09", "label": "百花蜜收成" }
+    ],
+    "product_ids": ["loverhoney-longan", "loverhoney-vinegar", "loverhoney-giftbox"],
+    "follower_count": 5624,
+    "social": {},
+    "status": "published"
+  },
+  {
+    "slug": "haojiaomi-dongkang",
+    "name": "東港社區合作社",
+    "nickname": "布袋阿嬤的老菜脯",
+    "farm_name": "好呷覓｜保證責任嘉義縣布袋鎮東港社區合作社",
+    "location": { "region": "嘉義 布袋", "coords": [23.38, 120.17] },
+    "years": 15,
+    "tags": ["社區合作社", "老菜脯", "鹽分地帶", "群像職人"],
+    "hero_quote": "一條老菜脯，要等十年才入湯。",
+    "story": {
+      "intro": "布袋是靠海的鹽分地帶，土地鹹、風強、夏天毒辣——偏偏這種環境長出的白蘿蔔最適合做菜脯。東港社區合作社串起在地阿嬤們家釀多年的老菜脯，把它做成能送人、能獨享的湯包。這不是一個人的故事，是一整個社區的味道。",
+      "chapters": [
+        { "title": "老菜脯怎麼變黑", "body": "白蘿蔔曬乾、醃鹽、壓罐，一年、五年、十年——顏色越深，味道越像藥。阿嬤們家中的陶甕，是整個社區的時間膠囊。" },
+        { "title": "為什麼做成湯包", "body": "阿嬤做得出，但賣不出去。合作社把它標準化、檢驗化、包裝化，讓布袋的味道能走出布袋。" },
+        { "title": "一個社區的節奏", "body": "布袋每年冬天曬菜脯，路邊鋪滿像地毯。遊客來拍照，阿嬤們一邊翻菜脯一邊聊天——那是社區最安靜也最滿的時候。" }
+      ]
+    },
+    "portrait": "/images/farmers/dongkang/group-portrait.jpg",
+    "photos": [
+      "/images/farmers/dongkang/drying.jpg",
+      "/images/farmers/dongkang/pot.jpg",
+      "/images/farmers/dongkang/hands.jpg",
+      "/images/farmers/dongkang/soup.jpg",
+      "/images/farmers/dongkang/seascape.jpg"
+    ],
+    "videos": [
+      { "src": "/videos/dongkang-salt-land.mp4", "poster": "/images/farmers/dongkang/v1-poster.jpg", "duration": 45, "caption": "鹽分地帶的冬天", "ratio": "9:16" }
+    ],
+    "timeline": [
+      { "date": "2026-01", "label": "白蘿蔔採收" },
+      { "date": "2026-02", "label": "曝曬醃製" },
+      { "date": "2026-06", "label": "端午禮盒檔期" },
+      { "date": "2026-09", "label": "中秋鳳語酥藏禮" }
+    ],
+    "product_ids": ["haojiaomi-soup-7", "haojiaomi-soup-14", "haojiaomi-fengyu-gift"],
+    "follower_count": 847,
+    "social": {},
+    "status": "published"
+  },
+  { "slug": "coming-soon-1", "name": "待上架", "nickname": "", "farm_name": "", "location": { "region": "" }, "years": 0, "tags": [], "hero_quote": "", "story": { "intro": "", "chapters": [] }, "portrait": "", "photos": [], "videos": [], "timeline": [], "product_ids": [], "status": "coming_soon" },
+  { "slug": "coming-soon-2", "name": "待上架", "nickname": "", "farm_name": "", "location": { "region": "" }, "years": 0, "tags": [], "hero_quote": "", "story": { "intro": "", "chapters": [] }, "portrait": "", "photos": [], "videos": [], "timeline": [], "product_ids": [], "status": "coming_soon" },
+  { "slug": "coming-soon-3", "name": "待上架", "nickname": "", "farm_name": "", "location": { "region": "" }, "years": 0, "tags": [], "hero_quote": "", "story": { "intro": "", "chapters": [] }, "portrait": "", "photos": [], "videos": [], "timeline": [], "product_ids": [], "status": "coming_soon" },
+  { "slug": "coming-soon-4", "name": "待上架", "nickname": "", "farm_name": "", "location": { "region": "" }, "years": 0, "tags": [], "hero_quote": "", "story": { "intro": "", "chapters": [] }, "portrait": "", "photos": [], "videos": [], "timeline": [], "product_ids": [], "status": "coming_soon" },
+  { "slug": "coming-soon-5", "name": "待上架", "nickname": "", "farm_name": "", "location": { "region": "" }, "years": 0, "tags": [], "hero_quote": "", "story": { "intro": "", "chapters": [] }, "portrait": "", "photos": [], "videos": [], "timeline": [], "product_ids": [], "status": "coming_soon" }
+]

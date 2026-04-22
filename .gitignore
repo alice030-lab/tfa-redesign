@@ -1,0 +1,18 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Claude session data
+.claude/
+
+# Node (若日後引入)
+node_modules/
+.env
+.env.local
+dist/
+build/

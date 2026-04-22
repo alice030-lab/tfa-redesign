@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台灣鮮農 — 改版預覽（首頁視覺）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ═══ SCROLL THREAD — 左側直向進度線 ═══ -->
+<aside class="scroll-thread" aria-hidden="true">
+  <span class="scroll-thread-line"></span>
+  <span class="scroll-thread-fill"></span>
+  <ul class="scroll-thread-chapters">
+    <li data-target="farmers"><span class="dot"></span><span class="lbl"><b>01</b>Farmers · 農友</span></li>
+    <li data-target="shorts"><span class="dot"></span><span class="lbl"><b>02</b>Shorts · 一分鐘農事</span></li>
+    <li data-target="seasonal"><span class="dot"></span><span class="lbl"><b>03</b>Seasonal · 節氣</span></li>
+    <li data-target="products"><span class="dot"></span><span class="lbl"><b>04</b>Categories · 分類</span></li>
+    <li data-target="article"><span class="dot"></span><span class="lbl"><b>05</b>Journal · 日誌</span></li>
+    <li data-target="films"><span class="dot"></span><span class="lbl"><b>06</b>Films · 紀錄</span></li>
+    <li data-target="selected"><span class="dot"></span><span class="lbl"><b>07</b>Selected · 精選</span></li>
+    <li data-target="b2b"><span class="dot"></span><span class="lbl"><b>08</b>B2B · 企業</span></li>
+  </ul>
+</aside>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">滿 <strong style="color:var(--pine)">NT$ 999</strong> 免運<span class="dot"></span>全台產地直送<span class="dot"></span><a href="#">成為農友</a></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="main">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <img src="images/logo.png" alt="台灣鮮農 Taiwan Freshness Agriculture" class="brand-logo">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-has-sub">
+        <a href="brand.html">品牌故事</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-col-title">About · 關於</p>
+            <ul>
+              <li><a href="brand.html">台灣鮮農</a></li>
+              <li><a href="brand.html#origin">我們的起點 <span class="en">Origin</span></a></li>
+              <li><a href="brand.html#mission">品牌信念 <span class="en">Mission</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Promise · 承諾</p>
+            <ul>
+              <li><a href="brand.html#mit">堅持 MIT</a></li>
+              <li><a href="brand.html#coop">合作社夥伴</a></li>
+              <li><a href="brand.html#safety">食安把關</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Service · 服務</p>
+            <ul>
+              <li><a href="brand.html#consumer">一般消費</a></li>
+              <li><a href="brand.html#coop-biz">社間互助</a></li>
+              <li><a href="#">聯絡我們 <span class="en">Contact</span></a></li>
+            </ul>
+          </div>
+        </div></div>
+      </li>
+
+      <li class="nav-has-sub">
+        <a href="farmers.html">農友夥伴</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-col-title">Browse · 瀏覽</p>
+            <ul>
+              <li><a href="farmers.html">全部農友 <span class="en">All</span></a></li>
+              <li><a href="#">本月農友誌 <span class="pill">New</span></a></li>
+              <li><a href="#">最新加入 <span class="en">Latest</span></a></li>
+              <li><a href="#">成為農友 <span class="en">Join</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">所事 · 做什麼</p>
+            <ul>
+              <li><a href="#">種茶 <span class="en">Tea</span></a></li>
+              <li><a href="#">養蜂 <span class="en">Bees</span></a></li>
+              <li><a href="#">畜養 <span class="en">Livestock</span></a></li>
+              <li><a href="#">米麥 <span class="en">Grains</span></a></li>
+              <li><a href="#">蔬果 <span class="en">Produce</span></a></li>
+              <li><a href="#">討海 <span class="en">Sea</span></a></li>
+              <li><a href="#">加工職人 <span class="en">Artisan</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">所做 · 怎麼做</p>
+            <ul>
+              <li><a href="#">有機驗證 <span class="en">Organic</span></a></li>
+              <li><a href="#">自然農法 <span class="en">Natural</span></a></li>
+              <li><a href="#">友善耕作 <span class="en">Eco</span></a></li>
+              <li><a href="#">傳統工法 <span class="en">Heritage</span></a></li>
+            </ul>
+            <p class="mega-col-title mega-col-title-sub">所為 · 為何而做</p>
+            <ul>
+              <li><a href="#">返鄉青農 <span class="en">Homecoming</span></a></li>
+              <li><a href="#">接班二代 <span class="en">2nd Gen</span></a></li>
+              <li><a href="#">家族傳承 <span class="en">Legacy</span></a></li>
+              <li><a href="#">匠人職人 <span class="en">Mastery</span></a></li>
+            </ul>
+          </div>
+        </div></div>
+      </li>
+
+      <li class="nav-has-sub">
+        <a href="products.html">在地產品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-col-title">Browse · 瀏覽</p>
+            <ul>
+              <li><a href="#">全部商品 <span class="en">All</span></a></li>
+              <li><a href="#">本週新品 <span class="pill">New</span></a></li>
+              <li><a href="#">熱銷排行 <span class="en">Popular</span></a></li>
+              <li><a href="#">限時優惠 <span class="en">Sale</span></a></li>
+              <li><a href="#">禮盒專區 <span class="en">Gift</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Fresh · 農產</p>
+            <ul>
+              <li><a href="#">米糧五穀</a></li>
+              <li><a href="#">當季蔬果</a></li>
+              <li><a href="#">肉品海鮮</a></li>
+              <li><a href="#">蜂蜜果醬</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Pantry · 廚房</p>
+            <ul>
+              <li><a href="#">油品醬料</a></li>
+              <li><a href="#">加工食品</a></li>
+              <li><a href="#">飲品茶葉</a></li>
+              <li><a href="#">個人清潔</a></li>
+            </ul>
+          </div>
+        </div></div>
+      </li>
+
+      <li class="nav-has-sub">
+        <a href="spring.html">節氣選品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-col-title">This Term · 本節氣</p>
+            <ul>
+              <li><a href="spring.html#guyu">穀雨 <span class="en">Apr 20</span> <span class="pill">當節氣</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Upcoming · 近期</p>
+            <ul>
+              <li><a href="summer.html#lixia">立夏 <span class="en">May 5</span></a></li>
+              <li><a href="summer.html#xiaoman">小滿 <span class="en">May 20</span></a></li>
+              <li><a href="summer.html#mangzhong">芒種 <span class="en">Jun 5</span></a></li>
+              <li><a href="summer.html#xiazhi">夏至 <span class="en">Jun 21</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Archive · 總覽</p>
+            <ul>
+              <li><a href="spring.html">春 <span class="en">Spring</span></a></li>
+              <li><a href="summer.html">夏 <span class="en">Summer</span></a></li>
+              <li><a href="autumn.html">秋 <span class="en">Autumn</span></a></li>
+              <li><a href="winter.html">冬 <span class="en">Winter</span></a></li>
+            </ul>
+          </div>
+        </div></div>
+      </li>
+
+      <li class="nav-has-sub">
+        <a href="#">農友日誌</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-col-title">Stories · 故事</p>
+            <ul>
+              <li><a href="#">農友專訪</a></li>
+              <li><a href="#">產地報導</a></li>
+              <li><a href="#">食譜廚房</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Films · 影音</p>
+            <ul>
+              <li><a href="#">Films 紀錄片</a></li>
+              <li><a href="#">Shorts 短影音</a></li>
+              <li><a href="#">直播預告 <span class="pill">Live</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-col-title">Topics · 專題</p>
+            <ul>
+              <li><a href="#">永續議題</a></li>
+              <li><a href="#">產地風土</a></li>
+              <li><a href="#">料理日常</a></li>
+              <li><a href="#">農事知識</a></li>
+            </ul>
+          </div>
+        </div></div>
+      </li>
+
+      <li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">企業採購</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="搜尋"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg></button>
+      <a href="#" class="cart-wrap" aria-label="購物車">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="cart-count">2</span>
+      </a>
+      <a href="#" class="show-lg" style="font-size:.88rem">登入</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ SCROLL STAGE — sticky hero + wave overlay ═══ -->
+<div class="scroll-stage">
+
+<!-- ═══ HERO — 滿屏農夫圖（100vw 滿版） ═══ -->
+<section class="hero">
+  <!-- 滿版主圖（天空+麥田+山丘+農夫） -->
+  <img class="hero-img-full" src="images/farmer-feature.jpg" alt="陳金發 · 在麥田">
+
+  <!-- 疊層：text 在 container 寬度內定位 -->
+  <div class="hero-overlay-wrap">
+    <div class="hero-overlay-inner">
+      <!-- 左上文字疊層（label 緊貼 H1 上方） -->
+      <div class="hero-overlay">
+        <div class="hero-top-line">
+          <span class="line"></span>
+          <span class="label">Farmer · Story</span>
+        </div>
+
+        <h1 class="hero-h1">
+          每一份食材<br>
+          背後都有一個<span class="accent">名字</span>
+        </h1>
+
+        <p class="hero-lead">
+          我們的農友不只是供應商，<br>
+          是擁有名字、土地、故事的人。<br>
+          台灣鮮農讓你認識每一位種下食物的手。
+        </p>
+
+        <dl class="hero-stats">
+          <div class="hero-stat">
+            <dt><span class="num" data-countup="200" data-countup-duration="1600">0</span><span class="sup">+</span></dt>
+            <dd>認證農友</dd>
+          </div>
+          <div class="hero-stat">
+            <dt><span class="num" data-countup="18" data-countup-duration="1200">0</span></dt>
+            <dd>縣市產地</dd>
+          </div>
+          <div class="hero-stat">
+            <dt><span class="num" data-countup="7" data-countup-duration="1000">0</span><span class="sup">yr</span></dt>
+            <dd>深耕年資</dd>
+          </div>
+        </dl>
+
+        <div class="hero-cta">
+          <a href="#farmers">
+            <span>認識所有農友</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FARMER STORY SECTION ═══ -->
+<section class="farmers-section" id="farmers">
+  <div class="container">
+    <div class="farmers-head" data-reveal>
+      <div>
+        <p class="farmers-label" style="color:var(--gold)">Farmers · 本月農友誌</p>
+        <h2 class="farmers-title">每一份商品<em>—</em>都是一個人的故事</h2>
+      </div>
+      <a href="#" class="farmers-seeall show-lg">看全部農友 →</a>
+    </div>
+    <div class="farmers-stage">
+      <nav class="farmers-nav">
+        <ul class="farmers-nav-ul" id="farmersNav"></ul>
+      </nav>
+      <div class="farmers-portrait">
+        <div class="farmers-portrait-box" id="portraitBox">
+          <img src="images/farmer-roses-solo.jpg" alt="阿甘" class="active">
+          <img src="images/farmer-huang.png" alt="黃建迪">
+          <img src="images/farmer-feature.jpg" alt="黃金木">
+          <img src="images/farmer-roses-duo.jpg" alt="東港社區合作社">
+        </div>
+        <span class="stamp lg" id="portraitStamp">阿甘</span>
+      </div>
+      <div class="farmers-text" id="farmersText"></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /scroll-stage -->
+
+<!-- ═══ SHORTS — 短影音（一分鐘認識農友） ═══ -->
+<section class="shorts" id="shorts">
+  <div class="container">
+    <div class="shorts-head" data-reveal>
+      <div>
+        <p class="shorts-label">Shorts · 一分鐘農事</p>
+        <h2 class="shorts-h2">來他田裡看一眼</h2>
+        <p class="shorts-lead">農友用自己的手機、在田裡拍給你看——沒有腳本，只有當下。</p>
+      </div>
+      <a href="#" class="farmers-seeall show-lg" style="color:var(--vermillion);border-color:rgba(200,64,42,.4)">看全部短影音 →</a>
+    </div>
+
+    <div class="shorts-grid" data-reveal data-reveal-delay="1">
+      <a href="#" class="short-card">
+        <img src="images/farmer-feature.jpg" alt="阿甘的茶樹田">
+        <span class="short-duration">0:45</span>
+        <span class="short-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="short-meta">
+          <p class="short-sub">阿甘 · 台南</p>
+          <h3 class="short-title">今天茶樹長出新芽</h3>
+        </div>
+      </a>
+      <a href="#" class="short-card">
+        <img src="images/farmer-huang.png" alt="羊頭目餵羊">
+        <span class="short-duration">0:32</span>
+        <span class="short-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="short-meta">
+          <p class="short-sub">羊頭目 · 彰化</p>
+          <h3 class="short-title">每隻羊都有名字</h3>
+        </div>
+      </a>
+      <a href="#" class="short-card">
+        <img src="images/farmer-lily.jpg" alt="追花凌晨">
+        <span class="short-duration">1:12</span>
+        <span class="short-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="short-meta">
+          <p class="short-sub">追花的人 · 雲林</p>
+          <h3 class="short-title">凌晨三點，蜂場</h3>
+        </div>
+      </a>
+      <a href="#" class="short-card">
+        <img src="images/farmer-roses-duo.jpg" alt="東港合作社">
+        <span class="short-duration">0:58</span>
+        <span class="short-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="short-meta">
+          <p class="short-sub">好呷覓 · 東港</p>
+          <h3 class="short-title">菜脯甕開封那一刻</h3>
+        </div>
+      </a>
+      <a href="#" class="short-card">
+        <img src="images/farmer-fruit.jpg" alt="果農早晨">
+        <span class="short-duration">0:41</span>
+        <span class="short-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="short-meta">
+          <p class="short-sub">果農 · 南投</p>
+          <h3 class="short-title">果園第一束陽光</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SEASONAL PICKS ═══ -->
+<section class="seasonal" id="seasonal">
+  <!-- 水墨食材裝飾（左上：茶葉枝 / 右下：蘿蔔/葉 / 左下：穀穗） -->
+  <svg class="seasonal-deco tl" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+    <path d="M60 20 Q50 40 40 55 Q30 70 28 90" />
+    <path d="M50 38 Q38 36 30 28" /><path d="M44 50 Q30 50 22 45" />
+    <path d="M36 64 Q22 66 16 62" /><path d="M32 78 Q18 82 14 80" />
+    <ellipse cx="30" cy="28" rx="5" ry="3" transform="rotate(-30 30 28)"/>
+    <ellipse cx="22" cy="45" rx="6" ry="3.2" transform="rotate(-20 22 45)"/>
+    <ellipse cx="16" cy="62" rx="6" ry="3.2" transform="rotate(-10 16 62)"/>
+    <ellipse cx="14" cy="80" rx="6" ry="3.2" transform="rotate(5 14 80)"/>
+  </svg>
+  <svg class="seasonal-deco br" viewBox="0 0 140 140" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+    <!-- 蘿蔔 -->
+    <path d="M70 60 Q55 70 50 90 Q50 115 70 122 Q90 115 90 90 Q85 70 70 60 Z" fill="currentColor" fill-opacity=".08"/>
+    <path d="M70 60 Q55 70 50 90 Q50 115 70 122 Q90 115 90 90 Q85 70 70 60 Z"/>
+    <!-- 葉子 -->
+    <path d="M70 60 Q65 45 55 35" /><path d="M70 60 Q72 42 80 30" /><path d="M70 60 Q80 48 95 42" />
+    <path d="M58 38 Q52 34 48 28" /><path d="M76 32 Q78 22 76 15" /><path d="M92 44 Q100 40 108 36" />
+    <!-- 鬚根 -->
+    <path d="M70 122 Q68 128 66 135" /><path d="M75 120 Q78 128 76 134" />
+  </svg>
+  <svg class="seasonal-deco bl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+    <!-- 穀穗 -->
+    <path d="M50 10 L50 92" />
+    <g stroke-linecap="round">
+      <path d="M50 20 Q42 18 38 14" /><path d="M50 20 Q58 18 62 14" />
+      <path d="M50 30 Q40 28 34 24" /><path d="M50 30 Q60 28 66 24" />
+      <path d="M50 42 Q38 40 30 36" /><path d="M50 42 Q62 40 70 36" />
+      <path d="M50 54 Q36 52 28 48" /><path d="M50 54 Q64 52 72 48" />
+      <path d="M50 66 Q38 64 32 60" /><path d="M50 66 Q62 64 68 60" />
+    </g>
+  </svg>
+  <div class="container">
+    <div class="seasonal-head" data-reveal>
+      <div>
+        <p class="farmers-label" style="color:var(--gold)">Grain Rain · 節氣限定</p>
+        <h2 class="seasonal-h2"><span class="term">穀雨</span><span class="en">seasonal picks</span></h2>
+        <p class="seasonal-lead">雨生百穀。這個節氣，阿甘在修剪茶樹、黃建迪的小羊出生了、情人蜂蜜進入龍眼花期——這五樣東西，是他們這週剛從田裡送出的。</p>
+      </div>
+      <a href="#" class="farmers-seeall">看本季所有新品 →</a>
+    </div>
+    <div class="product-grid" data-reveal data-reveal-delay="1">
+      <a href="#" class="product-card">
+        <div class="product-img">
+          <img src="images/tfa/posesha-01.jpg" alt="茶樹精油植萃皂">
+          <span class="badge ver product-tag">本週新到</span>
+        </div>
+        <div class="product-body">
+          <span class="product-farmer">阿甘 · 波瑟沙</span>
+          <h3 class="product-name">茶樹精油植萃皂 100g</h3>
+          <p class="product-price">NT$ 340</p>
+        </div>
+      </a>
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/fengyuan-01.jpg" alt="紅燒羊肉拉麵"></div>
+        <div class="product-body">
+          <span class="product-farmer">羊頭目 · 豐園</span>
+          <h3 class="product-name">國產羊台式紅燒拉麵</h3>
+          <p class="product-price">NT$ 230 <span class="strike">NT$ 280</span></p>
+        </div>
+      </a>
+      <a href="#" class="product-card">
+        <div class="product-img">
+          <img src="images/tfa/honey-01.jpg" alt="龍眼蜜">
+          <span class="badge ver product-tag">金牌得獎</span>
+        </div>
+        <div class="product-body">
+          <span class="product-farmer">追花的人 · 情人蜂蜜</span>
+          <h3 class="product-name">行家獻藝・龍眼蜜 420g</h3>
+          <p class="product-price">NT$ 580</p>
+        </div>
+      </a>
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/findfood-01.jpg" alt="老菜脯雞湯"></div>
+        <div class="product-body">
+          <span class="product-farmer">好呷覓 · 東港合作社</span>
+          <h3 class="product-name">老菜脯雞湯 7 包組</h3>
+          <p class="product-price">NT$ 1,000 <span class="strike">NT$ 1,400</span></p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST ═══ -->
+<section class="trust">
+  <div class="container">
+    <p class="trust-label">Certifications · 安心與信任</p>
+    <ul class="trust-list" data-reveal>
+      <li class="trust-item"><span class="trust-seal">GM</span><span class="trust-text">國家食品 GMP 認證</span></li>
+      <li class="trust-item"><span class="trust-seal">HA</span><span class="trust-text">HACCP 食安驗證</span></li>
+      <li class="trust-item"><span class="trust-seal">MO</span><span class="trust-text">MOA 有機驗證</span></li>
+      <li class="trust-item"><span class="trust-seal">慈心</span><span class="trust-text">慈心綠保標章</span></li>
+      <li class="trust-item"><span class="trust-seal">TG</span><span class="trust-text">TGAP 產銷履歷</span></li>
+      <li class="trust-item"><span class="trust-seal">合作</span><span class="trust-text">合作社聯合授權</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ CATEGORY PRODUCTS ═══ -->
+<section class="category" id="products">
+  <!-- 水墨風背景裝飾：左下迷迭香枝 / 右上穀穗 -->
+  <svg class="category-brush" viewBox="0 0 280 280" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+    <path d="M20 260 Q80 180 140 120 Q200 60 260 20" />
+    <g><path d="M60 210 L48 198"/><path d="M68 202 L56 190"/><path d="M80 188 L66 174"/><path d="M92 174 L78 160"/>
+    <path d="M106 158 L92 144"/><path d="M120 144 L106 130"/><path d="M136 128 L122 114"/><path d="M152 112 L136 98"/>
+    <path d="M168 96 L152 82"/><path d="M186 78 L170 64"/><path d="M204 62 L188 48"/>
+    <path d="M54 222 L42 232"/><path d="M72 212 L58 222"/><path d="M88 196 L74 206"/><path d="M102 180 L88 190"/>
+    <path d="M118 164 L104 174"/><path d="M134 146 L118 156"/><path d="M150 130 L134 140"/><path d="M168 112 L152 122"/>
+    <path d="M186 94 L170 104"/></g>
+  </svg>
+  <svg class="category-brush bl" viewBox="0 0 280 280" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+    <!-- 穀穗群 -->
+    <g><path d="M60 20 L60 200"/><path d="M60 40 Q48 40 42 32"/><path d="M60 40 Q72 40 78 32"/>
+    <path d="M60 58 Q46 56 38 48"/><path d="M60 58 Q74 56 82 48"/><path d="M60 78 Q44 76 34 66"/>
+    <path d="M60 78 Q76 76 86 66"/><path d="M60 100 Q42 96 30 86"/><path d="M60 100 Q78 96 90 86"/>
+    <path d="M60 122 Q42 118 28 108"/><path d="M60 122 Q78 118 92 108"/></g>
+    <g transform="translate(100 40)"><path d="M60 20 L60 200"/><path d="M60 40 Q48 40 42 32"/><path d="M60 40 Q72 40 78 32"/>
+    <path d="M60 60 Q46 58 38 50"/><path d="M60 60 Q74 58 82 50"/><path d="M60 82 Q44 80 34 70"/>
+    <path d="M60 82 Q76 80 86 70"/><path d="M60 104 Q42 100 30 90"/><path d="M60 104 Q78 100 90 90"/></g>
+  </svg>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="category-head" data-reveal>
+      <p class="farmers-label">Categories · 台灣土地的滋味</p>
+      <h2 class="category-h2">從田裡到餐桌</h2>
+    </div>
+    <div class="category-tabs" data-reveal data-reveal-delay="1" id="catTabs">
+      <button class="cat-tab active" data-cat="all">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+        <span class="zh">全部</span><span class="en">All</span>
+      </button>
+      <button class="cat-tab" data-cat="soup">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 12h16l-1 6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3z"/><path d="M9 8c0-1.5 1-2.5 1-4"/><path d="M13 8c0-1.5 1-2.5 1-4"/></svg>
+        <span class="zh">湯品</span><span class="en">Soup</span>
+      </button>
+      <button class="cat-tab" data-cat="meat">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 6c4-4 10-1 10 4 0 4-4 5-5 8-1 3-5 4-7 2s-1-6 2-7c2 0 3-4 0-7z"/><circle cx="11" cy="11" r="1.5"/></svg>
+        <span class="zh">肉品</span><span class="en">Meat</span>
+      </button>
+      <button class="cat-tab" data-cat="honey">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l7 4v10l-7 4-7-4V7z"/><path d="M12 8l3 1.5v5L12 16l-3-1.5v-5z"/></svg>
+        <span class="zh">蜂蜜</span><span class="en">Honey</span>
+      </button>
+      <button class="cat-tab" data-cat="care">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3c-5 4-7 8-7 11a7 7 0 0 0 14 0c0-3-2-7-7-11z"/><path d="M12 8v9"/></svg>
+        <span class="zh">植萃保養</span><span class="en">Wellness</span>
+      </button>
+      <button class="cat-tab" data-cat="gift">
+        <svg class="cat-emblem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12"/><path d="M2 8h20"/><path d="M12 8v12"/><path d="M12 8c-2-3 1-5 2-3s-1 3-2 3zm0 0c2-3-1-5-2-3s1 3 2 3z"/></svg>
+        <span class="zh">禮盒</span><span class="en">Gift</span>
+      </button>
+    </div>
+    <div class="product-grid" id="catGrid">
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="拾年鳳語酥藏禮"></div><div class="product-body"><span class="product-farmer">好呷覓 · 東港合作社</span><h3 class="product-name">拾年鳳語・酥藏禮</h3><p class="product-price">NT$ 27,000 起</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/fengyuan-02.jpg" alt="當歸羊肉拉麵"></div><div class="product-body"><span class="product-farmer">羊頭目 · 豐園</span><h3 class="product-name">當歸羊肉拉麵 515g</h3><p class="product-price">NT$ 230</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="土肉桂植萃皂"></div><div class="product-body"><span class="product-farmer">阿甘 · 波瑟沙</span><h3 class="product-name">土肉桂植萃皂 100g</h3><p class="product-price">NT$ 650</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/honey-02.jpg" alt="蜂蜜禮盒"></div><div class="product-body"><span class="product-farmer">追花的人</span><h3 class="product-name">蜂蜜酢禮盒組</h3><p class="product-price">NT$ 1,200</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-04.jpg" alt="玫瑰植萃皂"></div><div class="product-body"><span class="product-farmer">阿甘 · 波瑟沙</span><h3 class="product-name">玫瑰植萃皂 100g</h3><p class="product-price">NT$ 550</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-03.jpg" alt="老菜脯雞湯 14 包組"></div><div class="product-body"><span class="product-farmer">好呷覓 · 東港合作社</span><h3 class="product-name">老菜脯雞湯 14 包組</h3><p class="product-price">NT$ 2,000</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-05.jpg" alt="茶樹一條根皂"></div><div class="product-body"><span class="product-farmer">阿甘 · 波瑟沙</span><h3 class="product-name">茶樹一條根植萃皂</h3><p class="product-price">NT$ 350</p></div></a>
+      <a href="#" class="product-card sq"><div class="product-img"><img src="images/tfa/calendar-01.jpg" alt="2026 臺灣水果月曆"></div><div class="product-body"><span class="product-farmer">農聯社</span><h3 class="product-name">2026 臺灣水果月曆</h3><p class="product-price">NT$ 250</p></div></a>
+    </div>
+    <div class="category-more"><a href="#">看全部商品</a></div>
+  </div>
+</section>
+
+<!-- ═══ ARTICLE HERO ═══ -->
+<section class="article" id="article">
+  <div class="container">
+    <a href="#" class="article-grid" data-reveal>
+      <div class="article-img-wrap">
+        <div class="article-img"><img src="https://picsum.photos/seed/journal-cover/1200/900" alt=""></div>
+        <span class="article-tag">Journal</span>
+      </div>
+      <div>
+        <p class="farmers-label" style="color:var(--earth)">Journal · 農友日誌</p>
+        <h2 class="article-h2">守護在地農業的使命——<br>台南有機農友的一天</h2>
+        <p class="article-lead">清晨四點半，阿甘已經在茶樹林裡。他不是急著採收，而是彎腰看葉面上有沒有新的蟲蛀——這塊田沒有噴藥，每片葉子都要靠眼睛顧。我們跟著他走了一整天，把這份「慢」寫下來。</p>
+        <div class="article-meta"><time>2026-04-18</time><span class="dot"></span><span>約 8 分鐘</span></div>
+        <span class="article-cta">讀這篇長文 →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ FILMS — 長影音紀錄 ═══ -->
+<section class="films" id="films">
+  <div class="container">
+    <div class="films-head" data-reveal>
+      <div>
+        <p class="films-label">Films · 農友紀錄</p>
+        <h2 class="films-h2">坐下來，看一段土地的時間</h2>
+      </div>
+      <p class="films-lead">15 分鐘、30 分鐘、有時一整個小時。<br>我們把攝影機放在田埂上，讓他說自己的話。</p>
+    </div>
+
+    <div class="films-grid" data-reveal data-reveal-delay="1">
+      <a href="https://youtu.be/ipbtixPrth4" target="_blank" rel="noopener" class="film-featured">
+        <img src="https://i.ytimg.com/vi/ipbtixPrth4/maxresdefault.jpg" alt="結交筍友" onerror="this.src='https://i.ytimg.com/vi/ipbtixPrth4/hqdefault.jpg'">
+        <span class="film-duration">YouTube</span>
+        <span class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <div class="film-meta">
+          <span class="film-tag">雲林 · 筍農故事</span>
+          <h3 class="film-title">結交「筍友」：品嚐在地傳承的好味道</h3>
+          <p class="film-sub">台灣鮮農 · YouTube 頻道</p>
+        </div>
+      </a>
+
+      <div class="film-side">
+        <a href="https://youtu.be/ejgHe9oOyEg" target="_blank" rel="noopener" class="film-card">
+          <img src="https://i.ytimg.com/vi/ejgHe9oOyEg/hqdefault.jpg" alt="嘉義羊肉爐">
+          <span class="film-duration">YouTube</span>
+          <span class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="film-meta">
+            <span class="film-tag">嘉義 · 畜牧</span>
+            <h3 class="film-title">全台限量羊肉爐：用心飼養，品質更安心</h3>
+          </div>
+        </a>
+        <a href="https://youtu.be/AOYnp0di7aQ" target="_blank" rel="noopener" class="film-card">
+          <img src="https://i.ytimg.com/vi/AOYnp0di7aQ/hqdefault.jpg" alt="東山蜂蜜">
+          <span class="film-duration">YouTube</span>
+          <span class="film-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="film-meta">
+            <span class="film-tag">台南 · 東山蜂蜜</span>
+            <h3 class="film-title">「蜂」靡全台：傳承三代的在地老字號</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="films-foot">
+      <a href="https://www.youtube.com/@%E5%8F%B0%E7%81%A3%E9%AE%AE%E8%BE%B2" target="_blank" rel="noopener">看完整片單 · 台灣鮮農 YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SELECTED — 精選產品（故事版） ═══ -->
+<section class="selected" id="selected">
+  <div class="container">
+    <div class="selected-head" data-reveal>
+      <p class="selected-label">Selected · 為你挑選</p>
+      <h2 class="selected-h2">他們的心意<br>都珍藏在這裡</h2>
+      <p class="selected-lead">
+        一塊皂裡有一片茶樹林，一甕蜜裡有兩千公里的追花路。<br>
+        這裡不是貨架，是四位農友最想讓你嚐到的，他們這一季的一件事。
+      </p>
+    </div>
+
+    <div class="product-grid">
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="冷壓茶樹精油"></div>
+        <div class="product-body">
+          <span class="product-farmer">阿甘 · 台南茶樹田</span>
+          <h3 class="product-name">冷壓茶樹純露</h3>
+          <p class="product-story">自種十二年的茶樹，低溫慢蒸；一瓶要等三天，他不願讓機器趕時間。</p>
+          <p class="product-reason"><span>為你推薦</span>你上週看過阿甘的茶樹田 · 本週新採</p>
+          <p class="product-price-quiet">NT$ 680</p>
+        </div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/fengyuan-02.jpg" alt="國產羊肉片"></div>
+        <div class="product-body">
+          <span class="product-farmer">羊頭目 · 彰化豐園</span>
+          <h3 class="product-name">手切國產羊肉片</h3>
+          <p class="product-story">從牧場到餐桌，羊頭目都不假手他人——四十年來，只為了讓你吃到的是一隻有名字的羊。</p>
+          <p class="product-reason"><span>為你推薦</span>穀雨轉涼 · 台式羊肉的季節剛剛好</p>
+          <p class="product-price-quiet">NT$ 320</p>
+        </div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/honey-02.jpg" alt="龍眼蜜禮盒"></div>
+        <div class="product-body">
+          <span class="product-farmer">追花的人 · 中南部蜂場</span>
+          <h3 class="product-name">追花·龍眼蜜禮盒</h3>
+          <p class="product-story">追著花季走了兩千公里，一年只做這一批。「蜜不是產出的，」他說，「是等出來的。」</p>
+          <p class="product-reason"><span>為你推薦</span>龍眼花期剛開始 · 一年只有這一批</p>
+          <p class="product-price-quiet">NT$ 1,280</p>
+        </div>
+      </a>
+
+      <a href="#" class="product-card">
+        <div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="陳年老菜脯"></div>
+        <div class="product-body">
+          <span class="product-farmer">好呷覓 · 屏東東港</span>
+          <h3 class="product-name">阿嬤的陳年老菜脯</h3>
+          <p class="product-story">在陶甕裡睡了二十年——合作社把它一甕一甕抱出來，阿嬤的味道沒走遠。</p>
+          <p class="product-reason"><span>為你推薦</span>你關注的合作社剛上新 · 每甕限量</p>
+          <p class="product-price-quiet">NT$ 480</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="selected-foot">
+      <a href="#products">看更多為你推薦 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ B2B ═══ -->
+<section class="b2b" id="b2b">
+  <div class="container">
+    <div class="b2b-inner" data-reveal>
+      <div>
+        <p class="b2b-label">B2B · 企業採購</p>
+        <h2 class="b2b-h2">學校午餐、企業贈禮、團膳採購<br><span class="gold">我們有另一條通路</span></h2>
+        <p class="b2b-lead">月結、PO 單、階梯定價、食安履歷一鍵查詢——台灣鮮農 B2B 子站為企業客戶而生。</p>
+        <a href="#" class="b2b-btn">前往企業採購 →</a>
+      </div>
+      <ul class="b2b-kpi">
+        <li><p class="k">月結帳期</p><p class="v">30 / 60 天彈性</p></li>
+        <li><p class="k">階梯定價</p><p class="v">依量自動折扣</p></li>
+        <li><p class="k">食安履歷</p><p class="v">每批可溯</p></li>
+        <li><p class="k">專屬窗口</p><p class="v">1 對 1 客服</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-brand">
+          <span class="mark"><span class="zh">鮮農</span><span class="en">TFA</span></span>
+          <span class="foot-brand-name">台灣鮮農</span>
+        </div>
+        <p class="foot-desc">台灣農業合作社聯合授權平台<br>串連在地農友，把人的故事與土地的味道，送到每一個家。</p>
+        <address class="foot-addr">台南市東區 東門路三段 31 號 4F-1<br>+886-6-234-0161</address>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><p class="foot-col-title">關於</p><ul><li><a href="brand.html">品牌故事</a></li><li><a href="#">合作農友</a></li><li><a href="#">溯源理念</a></li><li><a href="#">媒體報導</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">購物</p><ul><li><a href="#">全部商品</a></li><li><a href="summer.html">節氣選品</a></li><li><a href="#">禮盒專區</a></li><li><a href="#">運送與退換</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">企業</p><ul><li><a href="#">B2B 採購</a></li><li><a href="#">學校午餐</a></li><li><a href="#">企業贈禮</a></li><li><a href="#">聯絡窗口</a></li></ul></div>
+      </div>
+      <div class="foot-news">
+        <p class="foot-col-title">Newsletter</p>
+        <p>訂閱我們，每月一封，告訴你本季誰家的田裡有新消息。</p>
+        <form class="foot-news-form" onsubmit="event.preventDefault()"><input type="email" placeholder="你的 email"><button type="submit">訂閱</button></form>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="container foot-bottom-inner">
+      <span>© 2026 Taiwan Freshness Agriculture · All rights reserved.</span>
+      <span class="links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Facebook</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ FARMERS DATA + CAROUSEL ═══ -->
+<script>
+const FARMERS = [
+  {
+    slug:"posesha-akan", nickname:"阿甘", name:"甘誌棠", farm_name:"波瑟沙植善農場",
+    region:"台南", portrait:"images/farmer-roses-solo.jpg",
+    hero_quote:"我種田，是為了讓弟弟好起來。",
+    intro:"2014 年，阿甘為了罹癌的弟弟踏進這塊地。他沒有農業背景，只有一個念頭——用最乾淨的土地，種出能療癒身體的植物。十二年後，這塊田種下了 5,000 棵澳洲茶樹，取得 MOA 有機驗證與慈心綠保標章，農場裡的動物一隻也沒有被賣掉或宰殺。",
+    tags:["MOA 有機驗證","慈心綠保","澳洲茶樹"]
+  },
+  {
+    slug:"fengyuan-huang", nickname:"羊頭目", name:"黃建迪", farm_name:"豐園羊牧場",
+    region:"彰化 田尾", portrait:"images/farmer-huang.png",
+    hero_quote:"我離開科技業，回來當 380 隻羊的頭目。",
+    intro:"黃建迪原本在科技業工作，三十多歲那年決定返鄉接下家裡的羊牧場。第二代接班，他沒走回溫體羊的老路，而是用科學化管理、高床飼養、自種無毒牧草，把 380 頭努比亞山羊養成台灣最健康的一群。然後——他把羊肉，做成了拉麵。",
+    tags:["努比亞山羊","高床飼養","科技人返鄉"]
+  },
+  {
+    slug:"loverhoney-huang", nickname:"追花的人", name:"黃金木", farm_name:"情人蜂蜜",
+    region:"雲林 土庫", portrait:"images/farmer-feature.jpg",
+    hero_quote:"花不等人，我追三十五年了。",
+    intro:"黃金木從父親手中接下蜂箱，一做就是三十五年。情人蜂蜜是全台灣收購量最大的蜂蜜品牌，也是第一家通過 HACCP、ISO 22000、以及國家食品 GMP 三項認證的蜂蜜公司。每年龍眼花開的 10 天，他跟蜂群一起睡在車上，追著花香北上。",
+    tags:["龍眼蜜","GMP 認證","HACCP"]
+  },
+  {
+    slug:"haojiaomi-dongkang", nickname:"阿嬤的老菜脯", name:"東港社區合作社", farm_name:"好呷覓 · 東港社區合作社",
+    region:"嘉義 布袋", portrait:"images/farmer-roses-duo.jpg",
+    hero_quote:"一條老菜脯，要等十年才入湯。",
+    intro:"布袋是靠海的鹽分地帶，土地鹹、風強、夏天毒辣——偏偏這種環境長出的白蘿蔔最適合做菜脯。東港社區合作社串起在地阿嬤們家釀多年的老菜脯，把它做成能送人、能獨享的湯包。這不是一個人的故事，是一整個社區的味道。",
+    tags:["社區合作社","老菜脯","鹽分地帶"]
+  }
+];
+
+let current = 0;
+let timer = null;
+const INTERVAL = 8000;
+
+function renderText(i) {
+  const f = FARMERS[i];
+  const el = document.getElementById("farmersText");
+  el.innerHTML = `
+    <div class="loc"><span>${f.region}</span><span class="line"></span><span>${f.farm_name}</span></div>
+    <h3 class="nick">${f.nickname}</h3>
+    <blockquote><p>「${f.hero_quote}」</p></blockquote>
+    <p class="intro">${f.intro}</p>
+    <div class="tags">${f.tags.map(t=>`<span class="badge pine">${t}</span>`).join("")}</div>
+    <div class="ctas">
+      <a href="#" class="btn btn-solid">看他的故事</a>
+      <a href="#" class="btn btn-outline">買他種的</a>
+    </div>
+  `;
+  document.getElementById("portraitStamp").textContent = f.nickname.slice(0, 2);
+  document.querySelectorAll("#portraitBox img").forEach((img, idx) => {
+    img.classList.toggle("active", idx === i);
+  });
+  document.querySelectorAll(".farmers-nav-btn").forEach((b, idx) => {
+    b.classList.toggle("active", idx === i);
+  });
+}
+
+function renderNav() {
+  const ul = document.getElementById("farmersNav");
+  ul.innerHTML = FARMERS.map((f, i) => `
+    <li>
+      <button class="farmers-nav-btn ${i===0?'active':''}" data-i="${i}">
+        <span class="farmers-nav-avatar"><img src="${f.portrait}" alt=""></span>
+        <span class="farmers-nav-info">
+          <span class="nk">${f.nickname}</span>
+          <span class="rg">${f.region}</span>
+        </span>
+      </button>
+    </li>
+  `).join("");
+  ul.querySelectorAll(".farmers-nav-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      current = Number(btn.dataset.i);
+      renderText(current);
+      restart();
+    });
+  });
+}
+
+function tick() {
+  current = (current + 1) % FARMERS.length;
+  renderText(current);
+}
+
+function restart() {
+  if (timer) clearInterval(timer);
+  timer = setInterval(tick, INTERVAL);
+}
+
+// hover 暫停
+document.querySelector(".farmers-section").addEventListener("mouseenter", () => {
+  if (timer) clearInterval(timer);
+});
+document.querySelector(".farmers-section").addEventListener("mouseleave", restart);
+
+renderNav();
+renderText(0);
+restart();
+
+// 分類 Tabs（視覺示意）
+document.querySelectorAll(".cat-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+  });
+});
+</script>
+
+<!-- ═══ SCROLL STORYTELLING · reveal + hero progress ═══ -->
+<script>
+(() => {
+  // 1) Intersection-observer 漸入
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // 2) Count-up 數字動畫 — 元素進入視窗才啟動，only once
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.countup;
+      const dur = +el.dataset.countupDuration || 1400;
+      const t0 = performance.now();
+      function tick(now) {
+        const p = Math.min(1, (now - t0) / dur);
+        el.textContent = Math.round(easeOut(p) * target);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('[data-countup]').forEach(el => countObs.observe(el));
+
+  // 3) 左側進度線 — scroll 進度 + 章節 active 狀態
+  const thread = document.querySelector('.scroll-thread');
+  if (thread) {
+    const fill = thread.querySelector('.scroll-thread-fill');
+    const chapters = Array.from(thread.querySelectorAll('[data-target]'));
+    const sections = chapters.map(c => document.getElementById(c.dataset.target)).filter(Boolean);
+    let ticking2 = false;
+    function updateThread() {
+      const sy = window.scrollY;
+      const vh = window.innerHeight;
+      const docH = document.documentElement.scrollHeight - vh;
+      const p = docH > 0 ? sy / docH : 0;
+      fill.style.setProperty('--p', p.toFixed(4));
+      // active chapter：離 viewport 中線最近的 section
+      const mid = sy + vh * 0.4;
+      let activeIdx = -1, bestDist = Infinity;
+      sections.forEach((s, i) => {
+        if (!s) return;
+        const top = s.getBoundingClientRect().top + sy;
+        const dist = Math.abs(top - mid);
+        if (top <= mid + vh * 0.3 && dist < bestDist) {
+          bestDist = dist; activeIdx = i;
+        }
+      });
+      chapters.forEach((c, i) => c.classList.toggle('is-active', i === activeIdx));
+      // 滾動時才顯示（離開 hero 區塊後）
+      thread.classList.toggle('is-visible', sy > vh * 0.4);
+      ticking2 = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking2) { requestAnimationFrame(updateThread); ticking2 = true; }
+    }, { passive: true });
+    // 點擊跳轉
+    chapters.forEach(c => c.addEventListener('click', () => {
+      const s = document.getElementById(c.dataset.target);
+      if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+    updateThread();
+  }
+
+  // 4) Hero scroll-progress (0 → 1)，驅動 hero 文字 / 圖的細微位移
+  const hero = document.querySelector('.scroll-stage .hero');
+  const stage = document.querySelector('.scroll-stage');
+  if (hero && stage && matchMedia('(min-width:900px)').matches) {
+    let ticking = false;
+    function update() {
+      const rect = hero.getBoundingClientRect();
+      const h = hero.offsetHeight || 1;
+      // 當 hero top 從 0 → -h 時，progress 從 0 → 1
+      const p = Math.min(1, Math.max(0, -rect.top / h));
+      hero.style.setProperty('--hero-progress', p.toFixed(3));
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+})();
+</script>
+<script src="js/nav-actions.js" defer></script>
+</body>
+</html>
