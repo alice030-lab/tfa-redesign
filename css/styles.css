@@ -3409,9 +3409,13 @@ body.na-locked{overflow:hidden}
 .tw-map-lead{color:var(--muted);line-height:1.8;font-size:1rem}
 .tw-map-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:2.4rem;align-items:center;max-width:900px;margin:0 auto}
 @media(max-width:760px){.tw-map-wrap{grid-template-columns:1fr;gap:1.6rem}}
-.tw-map{width:100%;height:auto;max-height:600px;display:block}
-.tw-county{transition:transform .25s ease}
-.tw-county:hover circle{fill:#a02d1f;r:10;filter:drop-shadow(0 0 6px rgba(200,64,42,.5))}
+.tw-map-stage{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:1000/1400;background:transparent}
+.tw-map-sketch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.05) saturate(.9);pointer-events:none;user-select:none;-webkit-user-drag:none}
+.tw-map-overlay{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2}
+.tw-county{transition:transform .25s ease;cursor:pointer}
+.tw-county circle{transition:r .25s ease,fill .25s ease,filter .3s ease}
+.tw-county:hover circle{fill:#a02d1f;filter:drop-shadow(0 0 10px rgba(200,64,42,.6))}
+.tw-county:hover circle:first-of-type{r:18}
 .tw-county:hover text{font-weight:500}
 .tw-map-legend{background:var(--paper);border:1px solid var(--rule);padding:1.6rem 1.4rem}
 .tw-map-legend .legend-title{font-family:var(--font-serif);font-size:.82rem;color:var(--vermillion);letter-spacing:.1em;text-transform:uppercase;margin:0 0 .9rem}

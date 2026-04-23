@@ -227,45 +227,42 @@
       <p class="tw-map-lead">每一個紅點背後，是一個人、一塊地、一種堅持。點一下任一個縣市，看看那裡的農友。</p>
     </div>
     <div class="tw-map-wrap">
-      <svg class="tw-map" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-label="台灣農友分布地圖">
-        <!-- Taiwan outline (stylized) -->
-        <path d="M195,40 C210,45 225,55 235,72 C245,88 252,108 258,130 C262,150 265,172 268,195 C270,220 272,248 275,278 C278,308 283,338 290,365 C297,392 305,418 308,445 C310,470 305,495 295,518 C282,540 265,555 245,562 C225,568 205,565 188,555 C172,545 160,528 152,510 C145,488 140,465 135,440 C130,412 125,382 122,350 C118,315 115,280 112,245 C110,215 108,185 110,158 C113,130 120,105 132,85 C145,65 165,50 185,42 Z"
-              fill="#e8efe9" stroke="#2c4a35" stroke-width="1.5" stroke-linejoin="round" opacity=".85"/>
-        <!-- Terrain shading (central mountain ridge) -->
-        <path d="M180,120 C185,150 190,200 195,260 C200,320 205,380 200,430 C195,470 190,490 185,500" fill="none" stroke="#2c4a35" stroke-width="1" opacity=".25" stroke-linecap="round"/>
+      <div class="tw-map-stage">
+        <img class="tw-map-sketch" src="images/tfa/taiwan-sketch.png" alt="台灣手繪地圖" aria-hidden="true">
+        <svg class="tw-map-overlay" viewBox="0 0 1000 1400" xmlns="http://www.w3.org/2000/svg" aria-label="台灣農友分布地圖" preserveAspectRatio="xMidYMid meet">
+          <!-- 18 County Dots positioned on the sketch outline -->
+          <!-- Northern cluster -->
+          <g class="tw-county" data-county="台北／新北／基隆"><circle cx="820" cy="200" r="14" fill="#c8402a"/><circle cx="820" cy="200" r="22" fill="none" stroke="#c8402a" stroke-width="1.5" opacity=".4"/><text x="850" y="196" font-size="22" fill="#1e2820" font-family="Noto Serif TC, serif" font-weight="500">雙北基隆</text><text x="850" y="222" font-size="18" fill="#c8402a" font-family="DM Sans" font-weight="500">18 位</text></g>
+          <g class="tw-county" data-county="桃園"><circle cx="720" cy="290" r="12" fill="#c8402a"/><text x="590" y="296" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">桃園 12</text></g>
+          <g class="tw-county" data-county="新竹"><circle cx="700" cy="360" r="11" fill="#c8402a"/><text x="590" y="366" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">新竹 8</text></g>
+          <g class="tw-county" data-county="苗栗"><circle cx="680" cy="430" r="11" fill="#c8402a"/><text x="580" y="436" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">苗栗 9</text></g>
+          <!-- Central -->
+          <g class="tw-county" data-county="台中"><circle cx="670" cy="510" r="14" fill="#c8402a"/><text x="570" y="516" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">台中 14</text></g>
+          <g class="tw-county" data-county="彰化"><circle cx="630" cy="590" r="12" fill="#c8402a"/><text x="540" y="596" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">彰化 11</text></g>
+          <g class="tw-county" data-county="南投"><circle cx="740" cy="620" r="14" fill="#c8402a"/><text x="770" y="626" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">南投 16</text></g>
+          <g class="tw-county" data-county="雲林"><circle cx="610" cy="690" r="14" fill="#c8402a"/><text x="520" y="696" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">雲林 22</text></g>
+          <!-- Southern -->
+          <g class="tw-county" data-county="嘉義"><circle cx="620" cy="790" r="14" fill="#c8402a"/><text x="530" y="796" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">嘉義 15</text></g>
+          <g class="tw-county" data-county="台南"><circle cx="610" cy="890" r="16" fill="#c8402a"/><text x="510" y="896" font-size="22" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end" font-weight="500">台南 24</text></g>
+          <g class="tw-county" data-county="高雄"><circle cx="640" cy="990" r="15" fill="#c8402a"/><text x="550" y="996" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">高雄 19</text></g>
+          <g class="tw-county" data-county="屏東"><circle cx="690" cy="1100" r="13" fill="#c8402a"/><text x="760" y="1106" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">屏東 13</text></g>
+          <!-- Eastern -->
+          <g class="tw-county" data-county="宜蘭"><circle cx="880" cy="330" r="12" fill="#c8402a"/><text x="910" y="336" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">宜蘭 7</text></g>
+          <g class="tw-county" data-county="花蓮"><circle cx="870" cy="600" r="14" fill="#c8402a"/><text x="900" y="606" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">花蓮 10</text></g>
+          <g class="tw-county" data-county="台東"><circle cx="820" cy="870" r="13" fill="#c8402a"/><text x="850" y="876" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">台東 8</text></g>
+          <!-- Islands (left of main island, matching sketch layout) -->
+          <g class="tw-county" data-county="澎湖"><circle cx="200" cy="820" r="10" fill="#d4a332"/><text x="145" y="800" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">澎湖 3</text></g>
+          <g class="tw-county" data-county="金門"><circle cx="165" cy="920" r="10" fill="#d4a332"/><text x="110" y="952" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">金門 2</text></g>
+          <g class="tw-county" data-county="馬祖"><circle cx="220" cy="720" r="10" fill="#d4a332"/><text x="160" y="700" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">馬祖 1</text></g>
 
-        <!-- 18 County Dots with labels -->
-        <!-- Northern -->
-        <g class="tw-county" data-county="台北／新北／基隆"><circle cx="218" cy="88" r="7" fill="#c8402a"/><text x="235" y="92" font-size="11" fill="#1e2820" font-family="Noto Serif TC, serif">雙北基隆　18</text></g>
-        <g class="tw-county" data-county="桃園"><circle cx="195" cy="115" r="6" fill="#c8402a"/><text x="70" y="120" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">桃園 12</text></g>
-        <g class="tw-county" data-county="新竹"><circle cx="180" cy="142" r="6" fill="#c8402a"/><text x="55" y="146" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">新竹 8</text></g>
-        <g class="tw-county" data-county="苗栗"><circle cx="175" cy="170" r="6" fill="#c8402a"/><text x="55" y="174" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">苗栗 9</text></g>
-        <!-- Central -->
-        <g class="tw-county" data-county="台中"><circle cx="170" cy="210" r="7" fill="#c8402a"/><text x="55" y="214" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">台中 14</text></g>
-        <g class="tw-county" data-county="彰化"><circle cx="158" cy="245" r="6" fill="#c8402a"/><text x="50" y="249" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">彰化 11</text></g>
-        <g class="tw-county" data-county="南投"><circle cx="200" cy="260" r="7" fill="#c8402a"/><text x="220" y="264" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">南投 16</text></g>
-        <g class="tw-county" data-county="雲林"><circle cx="150" cy="290" r="7" fill="#c8402a"/><text x="40" y="294" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">雲林 22</text></g>
-        <!-- Southern -->
-        <g class="tw-county" data-county="嘉義"><circle cx="155" cy="330" r="7" fill="#c8402a"/><text x="40" y="334" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">嘉義 15</text></g>
-        <g class="tw-county" data-county="台南"><circle cx="155" cy="380" r="8" fill="#c8402a"/><text x="40" y="384" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">台南 24</text></g>
-        <g class="tw-county" data-county="高雄"><circle cx="170" cy="425" r="8" fill="#c8402a"/><text x="55" y="429" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">高雄 19</text></g>
-        <g class="tw-county" data-county="屏東"><circle cx="185" cy="475" r="7" fill="#c8402a"/><text x="70" y="479" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">屏東 13</text></g>
-        <!-- Eastern -->
-        <g class="tw-county" data-county="宜蘭"><circle cx="245" cy="130" r="6" fill="#c8402a"/><text x="265" y="134" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">宜蘭 7</text></g>
-        <g class="tw-county" data-county="花蓮"><circle cx="258" cy="255" r="7" fill="#c8402a"/><text x="278" y="259" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">花蓮 10</text></g>
-        <g class="tw-county" data-county="台東"><circle cx="240" cy="380" r="7" fill="#c8402a"/><text x="260" y="384" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">台東 8</text></g>
-        <!-- Islands -->
-        <g class="tw-county" data-county="澎湖"><circle cx="60" cy="380" r="5" fill="#d4a332"/><text x="30" y="370" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">澎湖</text><text x="45" y="400" font-size="9" fill="#8a9488">3</text></g>
-        <g class="tw-county" data-county="金門"><circle cx="32" cy="300" r="5" fill="#d4a332"/><text x="10" y="290" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">金門</text><text x="22" y="320" font-size="9" fill="#8a9488">2</text></g>
-        <g class="tw-county" data-county="馬祖"><circle cx="55" cy="80" r="5" fill="#d4a332"/><text x="30" y="70" font-size="10" fill="#1e2820" font-family="Noto Serif TC, serif">馬祖</text><text x="48" y="100" font-size="9" fill="#8a9488">1</text></g>
-
-        <!-- Compass -->
-        <g transform="translate(350,540)" opacity=".55">
-          <circle r="22" fill="none" stroke="#2c4a35" stroke-width="1"/>
-          <path d="M0,-18 L4,0 L0,18 L-4,0 Z" fill="#c8402a"/>
-          <text x="0" y="-26" font-size="9" fill="#2c4a35" text-anchor="middle" font-family="DM Sans">N</text>
-        </g>
-      </svg>
+          <!-- Compass -->
+          <g transform="translate(100,150)" opacity=".55">
+            <circle r="38" fill="none" stroke="#2c4a35" stroke-width="1.5"/>
+            <path d="M0,-32 L7,0 L0,32 L-7,0 Z" fill="#c8402a"/>
+            <text x="0" y="-46" font-size="16" fill="#2c4a35" text-anchor="middle" font-family="DM Sans" font-weight="500">N</text>
+          </g>
+        </svg>
+      </div>
       <aside class="tw-map-legend">
         <p class="legend-title">產地密度</p>
         <ul class="legend-list">
