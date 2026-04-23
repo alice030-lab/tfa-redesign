@@ -3,11 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>阿甘 · 波瑟沙茶樹田 — 台灣鮮農</title>
-<meta name="description" content="台南山上，阿甘種了十二年的茶樹。不用除草劑、不趕機器——他說，茶樹跟人一樣，急不得。">
+<title>阿甘的全部商品 · 波瑟沙茶樹田 — 台灣鮮農</title>
+<meta name="description" content="台南山上，阿甘十二年的茶——烏龍、紅茶、白毫烏龍、金萱、包種，還有茶樹衍生品。一個人的全部。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── Farmer Shop Banner ── */
+.fs-banner{background:var(--paper);padding:2.4rem 0 1.8rem;border-bottom:1px solid var(--rule)}
+.fs-banner-inner{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap}
+.fs-thumb{width:84px;height:84px;flex-shrink:0;position:relative}
+.fs-thumb img{width:100%;height:100%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 18px -8px rgba(28,51,42,.4);transform:rotate(-2deg)}
+.fs-banner-body{flex:1;min-width:240px}
+.fs-banner-kicker{font-family:var(--font-serif);font-size:.82rem;letter-spacing:.12em;color:var(--vermillion);margin:0 0 .3rem;text-transform:uppercase}
+.fs-banner-h1{font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--ink);font-weight:500;margin:0 0 .4rem}
+.fs-banner-h1 .en{font-family:var(--font-serif);font-style:italic;color:var(--pine);opacity:.7;font-size:.7em;margin-left:.4em}
+.fs-banner-meta{font-size:.92rem;color:var(--muted);margin:0}
+.fs-banner-meta a{color:var(--vermillion);text-decoration:none;border-bottom:1px dotted var(--vermillion);padding-bottom:1px}
+.fs-banner-meta a:hover{background:var(--vermillion);color:#fff;border-color:var(--vermillion)}
+.fs-seal{display:inline-flex;align-items:center;justify-content:center;width:2.6rem;height:2.6rem;background:var(--vermillion);color:#fff;font-family:var(--font-serif);font-size:.85rem;font-weight:500;transform:rotate(-4deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+
+/* ── Toolbar ── */
+.fs-toolbar{background:var(--paper-card);border-bottom:1px solid var(--rule);padding:1rem 0;position:sticky;top:0;z-index:30}
+.fs-toolbar-inner{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.fs-chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.fs-chip{background:transparent;border:1px solid var(--rule);color:var(--ink);font-family:var(--font-serif);font-size:.9rem;padding:.45rem 1rem;cursor:pointer;transition:all .25s ease;letter-spacing:.04em}
+.fs-chip:hover{border-color:var(--pine);color:var(--pine)}
+.fs-chip.active{background:var(--pine);border-color:var(--pine);color:var(--paper)}
+.fs-chip .count{opacity:.6;font-size:.78rem;margin-left:.25rem}
+.fs-chip.active .count{opacity:.85}
+.fs-sort{display:flex;align-items:center;gap:.6rem;font-size:.92rem;color:var(--muted)}
+.fs-sort select{font-family:var(--font-serif);font-size:.95rem;padding:.4rem .8rem;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer}
+
+/* ── Shop Grid ── */
+.fs-shop{background:var(--paper);padding:2.6rem 0 3.4rem}
+.fs-count{font-size:.9rem;color:var(--muted);margin:0 0 1.4rem;font-family:var(--font-serif)}
+.fs-count strong{color:var(--vermillion);font-weight:500}
+.fs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+@media(max-width:960px){.fs-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.fs-grid{grid-template-columns:1fr}}
+
+/* Badge variants on product stamp area */
+.fs-badge{position:absolute;right:.9rem;top:.9rem;background:var(--gold-mid);color:var(--ink);padding:.2rem .55rem;font-family:var(--font-serif);font-size:.72rem;letter-spacing:.06em;font-weight:500}
+.fs-badge.hot{background:var(--vermillion);color:#fff}
+.fs-badge.sold{background:#9aa19a;color:#fff}
+
+/* Back-to-story CTA */
+.fs-back-cta{background:var(--pine);color:var(--paper);padding:2.8rem 0;text-align:center}
+.fs-back-cta h2{font-family:var(--font-serif);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:500;margin:0 0 .6rem;color:var(--paper)}
+.fs-back-cta p{color:rgba(245,240,225,.78);margin:0 0 1.4rem}
+.fs-back-cta .btn{background:var(--gold-mid);color:var(--ink);border:none;padding:.85rem 2rem;font-family:var(--font-serif);font-size:1rem;letter-spacing:.05em;text-decoration:none;display:inline-block;transition:transform .3s ease}
+.fs-back-cta .btn:hover{transform:translateY(-2px)}
+</style>
 </head>
 <body>
 
@@ -177,155 +224,67 @@
       <li class="sep">/</li>
       <li><a href="farmers.html">農友夥伴</a></li>
       <li class="sep">/</li>
-      <li class="current">阿甘 · 波瑟沙</li>
+      <li><a href="farmer-detail.html">阿甘 · 波瑟沙</a></li>
+      <li class="sep">/</li>
+      <li class="current">全部商品</li>
     </ol>
   </div>
 </nav>
 
-<!-- ═══ FARMER HERO ═══ -->
-<section class="farmer-hero">
+<!-- ═══ FARMER BANNER ═══ -->
+<section class="fs-banner">
   <div class="container">
-    <div class="fh-grid">
-      <figure class="fh-portrait">
-        <img src="images/tfa/posesha-portrait.jpg" alt="阿甘在茶園裡採茶" loading="eager">
-        <figcaption class="fh-portrait-cap">清晨六點，阿甘巡茶園</figcaption>
-      </figure>
+    <div class="fs-banner-inner">
+      <div class="fs-thumb">
+        <img src="images/tfa/posesha-portrait.jpg" alt="阿甘">
+      </div>
+      <div class="fs-banner-body">
+        <p class="fs-banner-kicker">Agan's Shop · 阿甘的店</p>
+        <h1 class="fs-banner-h1">阿甘種的全部<span class="en">All by Agan</span></h1>
+        <p class="fs-banner-meta">波瑟沙茶樹田 · 台南山上　／　<a href="farmer-detail.html">← 回到阿甘的故事</a></p>
+      </div>
+      <div class="fs-seal" aria-label="農友印章">阿甘</div>
+    </div>
+  </div>
+</section>
 
-      <div class="fh-body">
-        <p class="fh-kicker"><span class="line"></span>Farmer No. 001 · 台南 · 山上區</p>
-        <div class="fh-name-row">
-          <h1 class="fh-name">阿甘</h1>
-          <span class="stamp fh-seal">波<br>瑟沙</span>
-        </div>
-        <p class="fh-farm">Posesha · 波瑟沙茶樹田</p>
-        <blockquote class="fh-quote">
-          「自種十二年的茶樹，<br>我不願讓機器趕時間。」
-        </blockquote>
-        <dl class="fh-meta">
-          <div><dt>合作年資</dt><dd>7 年</dd></div>
-          <div><dt>種植年資</dt><dd>12 年</dd></div>
-          <div><dt>耕作方式</dt><dd>自然農法</dd></div>
-          <div><dt>分類</dt><dd>匠人職人</dd></div>
-        </dl>
-        <div class="fh-actions">
-          <a href="#products" class="btn btn-cta">看阿甘種的茶 →</a>
-          <a href="#story" class="btn btn-outline">讀他的故事</a>
-        </div>
+<!-- ═══ TOOLBAR ═══ -->
+<div class="fs-toolbar">
+  <div class="container">
+    <div class="fs-toolbar-inner">
+      <div class="fs-chips" role="tablist" aria-label="商品分類">
+        <button class="fs-chip active" data-cat="all">全部 <span class="count">8</span></button>
+        <button class="fs-chip" data-cat="oolong">烏龍 <span class="count">3</span></button>
+        <button class="fs-chip" data-cat="black">紅茶 <span class="count">2</span></button>
+        <button class="fs-chip" data-cat="beauty">白毫烏龍 <span class="count">1</span></button>
+        <button class="fs-chip" data-cat="derivative">茶樹衍生 <span class="count">2</span></button>
+      </div>
+      <div class="fs-sort">
+        <label for="sort">排序</label>
+        <select id="sort">
+          <option>熱銷排行</option>
+          <option>最新上架</option>
+          <option>價格 低 → 高</option>
+          <option>價格 高 → 低</option>
+        </select>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ═══ AT-A-GLANCE STRIP ═══ -->
-<section class="fd-glance">
+<!-- ═══ SHOP GRID ═══ -->
+<section class="fs-shop">
   <div class="container">
-    <div class="fd-glance-row">
-      <div class="fd-glance-item"><span class="num">12</span><span class="lbl">年樹齡茶樹</span></div>
-      <span class="sep"></span>
-      <div class="fd-glance-item"><span class="num">0</span><span class="lbl">除草劑 · 殺蟲劑</span></div>
-      <span class="sep"></span>
-      <div class="fd-glance-item"><span class="num">3.2</span><span class="lbl">公頃茶園</span></div>
-      <span class="sep"></span>
-      <div class="fd-glance-item"><span class="num">560</span><span class="lbl">公尺海拔</span></div>
-      <span class="sep"></span>
-      <div class="fd-glance-item"><span class="num">4</span><span class="lbl">季手採</span></div>
-    </div>
-  </div>
-</section>
+    <p class="fs-count">一共 <strong>8</strong> 件商品 · 全部出自阿甘一個人的手</p>
 
-<!-- ═══ STORY · 專訪 ═══ -->
-<section class="fd-story" id="story">
-  <div class="container">
-    <div class="fd-story-grid">
-      <aside class="fd-toc">
-        <p class="fd-toc-title">訪談目次</p>
-        <ol>
-          <li><a href="#q1">為什麼選擇種茶？</a></li>
-          <li><a href="#q2">「自然農法」到底怎麼做？</a></li>
-          <li><a href="#q3">十二年來最難的一天</a></li>
-          <li><a href="#q4">想對喝茶的人說的話</a></li>
-        </ol>
-      </aside>
+    <div class="fs-grid">
 
-      <article class="fd-article">
-        <span class="fd-kicker">專訪 · Interview</span>
-        <h2 class="fd-h2">茶樹跟人一樣，<br>急不得。</h2>
-
-        <section id="q1" class="fd-qa">
-          <h3 class="fd-q">Q｜為什麼選擇種茶？</h3>
-          <p class="fd-a fd-dropcap">我爸種了一輩子的茶。小時候我最討厭那片山，覺得又熱又累，同學都去台北我還在山上採茶菁。二十八歲那年從台北回來，看到老爸蹲在茶樹旁邊拔雜草，那個畫面我突然就哭出來了。</p>
-          <p class="fd-a">後來我就留下來了。不是因為多愛茶，是因為**怕有一天沒有人記得這片山本來的樣子**。</p>
-        </section>
-
-        <section id="q2" class="fd-qa">
-          <h3 class="fd-q">Q｜「自然農法」到底怎麼做？</h3>
-          <p class="fd-a">就是不做的事比做的事多。不用除草劑，所以要彎腰拔；不用殺蟲劑，所以要學會跟蟲共處；不趕收成，所以一年只採四次，別家採八次。</p>
-          <blockquote class="fd-pull">「你讓茶樹自己長，它會告訴你什麼時候該採。<br>機器不會聽，但人會。」</blockquote>
-          <p class="fd-a">很多人問我這樣賺得到錢嗎？老實說不多。但我吃得下飯、睡得著覺，這就夠了。</p>
-        </section>
-
-        <section id="q3" class="fd-qa">
-          <h3 class="fd-q">Q｜十二年來最難的一天？</h3>
-          <p class="fd-a">2019 年的颱風。一個晚上，山坡垮了三分之一，兩百多棵茶樹連根拔起。我站在那邊，想說完了，十二年白做了。</p>
-          <p class="fd-a">隔天早上六點，我爸已經在挖土扶樹根。他沒跟我說話，只說了一句：「茶樹斷了會再長，人站起來就好。」那天我學到的事情，比前面十二年加起來還多。</p>
-        </section>
-
-        <section id="q4" class="fd-qa">
-          <h3 class="fd-q">Q｜想對喝茶的人說的話？</h3>
-          <p class="fd-a">喝快一點沒關係，忙一點沒關係。但如果有一天你想慢下來，泡一壺、坐著、什麼都不做——我希望那壺裡是我種的茶。</p>
-          <p class="fd-a fd-sign">—— 阿甘，寫於 2025 年冬，台南山上</p>
-        </section>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GALLERY · 農場一日 ═══ -->
-<section class="fd-gallery">
-  <div class="container">
-    <div class="fd-section-head">
-      <span class="fd-kicker">A Day at Posesha · 農場一日</span>
-      <h2 class="fd-h2">從日出到日落，<br>茶園裡在發生什麼事</h2>
-    </div>
-    <div class="fd-gallery-grid">
-      <figure class="fd-photo fd-photo-lg">
-        <img src="images/tfa/posesha-02.jpg" alt="茶園晨霧" loading="lazy">
-        <figcaption><span class="fd-time">05:40</span>山上的霧還沒散，茶菁上的露水最重。</figcaption>
-      </figure>
-      <figure class="fd-photo">
-        <img src="images/tfa/posesha-03.jpg" alt="手採茶葉" loading="lazy">
-        <figcaption><span class="fd-time">08:20</span>一心二葉，手指採的比剪刀準。</figcaption>
-      </figure>
-      <figure class="fd-photo">
-        <img src="images/tfa/posesha-04.jpg" alt="萎凋室" loading="lazy">
-        <figcaption><span class="fd-time">14:00</span>萎凋室裡，茶菁慢慢失水、慢慢發香。</figcaption>
-      </figure>
-      <figure class="fd-photo fd-photo-lg">
-        <img src="images/tfa/posesha-05.jpg" alt="揉捻成形" loading="lazy">
-        <figcaption><span class="fd-time">21:30</span>揉捻、靜置、焙火——整晚的事。</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PRODUCTS · 他種的 ═══ -->
-<section class="fd-products" id="products">
-  <div class="container">
-    <div class="fd-section-head fd-section-head-inline">
-      <div>
-        <span class="fd-kicker">What He Grows · 他種的</span>
-        <h2 class="fd-h2">阿甘種的 3 款茶</h2>
-      </div>
-      <a href="farmer-products.html" class="cat-view-all" aria-label="看全部商品">
-        <span>看全部商品</span>
-        <span class="cv-wheat"><svg viewBox="0 0 44 22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6M4 12c-2.4 0-3.6-1.2-3.6-3.6M4 12c2.4 0 3.6-1.2 3.6-3.6M4 8.4c-2 0-3-1-3-3M4 8.4c2 0 3-1 3-3 M15 20V6M15 12c-2.4 0-3.6-1.2-3.6-3.6M15 12c2.4 0 3.6-1.2 3.6-3.6M15 8.4c-2 0-3-1-3-3M15 8.4c2 0 3-1 3-3 M26 20V6M26 12c-2.4 0-3.6-1.2-3.6-3.6M26 12c2.4 0 3.6-1.2 3.6-3.6M26 8.4c-2 0-3-1-3-3M26 8.4c2 0 3-1 3-3 M37 20V6M37 12c-2.4 0-3.6-1.2-3.6-3.6M37 12c2.4 0 3.6-1.2 3.6-3.6M37 8.4c-2 0-3-1-3-3M37 8.4c2 0 3-1 3-3"/></svg></span>
-        <span class="cv-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="fd-product-grid">
       <a href="product-detail.html" class="fd-product-card">
-        <div class="fd-product-img"><img src="images/tfa/posesha-02.jpg" alt="山上烏龍" loading="lazy"><span class="fd-product-stamp">阿甘</span></div>
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-02.jpg" alt="山上烏龍" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+          <span class="fs-badge hot">熱銷</span>
+        </div>
         <div class="fd-product-body">
           <p class="fd-product-cat">烏龍茶 · Oolong</p>
           <h3 class="fd-product-name">山上烏龍　春摘手採</h3>
@@ -338,7 +297,11 @@
       </a>
 
       <a href="product-detail.html" class="fd-product-card">
-        <div class="fd-product-img"><img src="images/tfa/posesha-03.jpg" alt="蜜香紅茶" loading="lazy"><span class="fd-product-stamp">阿甘</span></div>
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-03.jpg" alt="蜜香紅茶" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+          <span class="fs-badge hot">熱銷</span>
+        </div>
         <div class="fd-product-body">
           <p class="fd-product-cat">紅茶 · Black Tea</p>
           <h3 class="fd-product-name">蜜香紅茶　夏日限定</h3>
@@ -351,7 +314,11 @@
       </a>
 
       <a href="product-detail.html" class="fd-product-card">
-        <div class="fd-product-img"><img src="images/tfa/posesha-04.jpg" alt="東方美人" loading="lazy"><span class="fd-product-stamp">阿甘</span></div>
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-04.jpg" alt="東方美人" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+          <span class="fs-badge">限量</span>
+        </div>
         <div class="fd-product-body">
           <p class="fd-product-cat">白毫烏龍 · Oriental Beauty</p>
           <h3 class="fd-product-name">東方美人　白露採</h3>
@@ -362,109 +329,98 @@
           </div>
         </div>
       </a>
+
+      <a href="product-detail.html" class="fd-product-card">
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-05.jpg" alt="高冷金萱" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+        </div>
+        <div class="fd-product-body">
+          <p class="fd-product-cat">烏龍茶 · Jin Xuan</p>
+          <h3 class="fd-product-name">高冷金萱　奶香款</h3>
+          <p class="fd-product-desc">560 公尺坡地種出來的金萱，天然奶香，不加一滴香料。</p>
+          <div class="fd-product-foot">
+            <span class="fd-product-price">NT$ 620<span class="unit">／75g</span></span>
+            <span class="fd-product-cta">加入購物車 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="fd-product-card">
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-02.jpg" alt="白露包種" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+          <span class="fs-badge">新品</span>
+        </div>
+        <div class="fd-product-body">
+          <p class="fd-product-cat">烏龍茶 · Baozhong</p>
+          <h3 class="fd-product-name">白露包種　清香條索</h3>
+          <p class="fd-product-desc">輕發酵，花香細緻——適合午後一個人，慢慢泡一壺。</p>
+          <div class="fd-product-foot">
+            <span class="fd-product-price">NT$ 580<span class="unit">／75g</span></span>
+            <span class="fd-product-cta">加入購物車 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="fd-product-card">
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-03.jpg" alt="日月潭紅玉" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+        </div>
+        <div class="fd-product-body">
+          <p class="fd-product-cat">紅茶 · Ruby #18</p>
+          <h3 class="fd-product-name">台茶 18 號　紅玉</h3>
+          <p class="fd-product-desc">台灣原生山茶母系後代，天然肉桂與薄荷香氣。</p>
+          <div class="fd-product-foot">
+            <span class="fd-product-price">NT$ 880<span class="unit">／75g</span></span>
+            <span class="fd-product-cta">加入購物車 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="fd-product-card">
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-04.jpg" alt="茶樹植萃皂" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+        </div>
+        <div class="fd-product-body">
+          <p class="fd-product-cat">茶樹衍生 · Tea Tree</p>
+          <h3 class="fd-product-name">茶樹植萃手工皂</h3>
+          <p class="fd-product-desc">修剪下來的茶樹枝葉煉成精油，再冷製成皂——一片葉都不浪費。</p>
+          <div class="fd-product-foot">
+            <span class="fd-product-price">NT$ 280<span class="unit">／100g</span></span>
+            <span class="fd-product-cta">加入購物車 →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="fd-product-card">
+        <div class="fd-product-img">
+          <img src="images/tfa/posesha-05.jpg" alt="茶籽洗滌液" loading="lazy">
+          <span class="fd-product-stamp">阿甘</span>
+        </div>
+        <div class="fd-product-body">
+          <p class="fd-product-cat">茶樹衍生 · Tea Seed</p>
+          <h3 class="fd-product-name">冷壓茶籽洗滌液</h3>
+          <p class="fd-product-desc">茶樹每三年開花結籽，收下來冷壓，是阿嬤年代就在用的天然洗劑。</p>
+          <div class="fd-product-foot">
+            <span class="fd-product-price">NT$ 420<span class="unit">／500ml</span></span>
+            <span class="fd-product-cta">加入購物車 →</span>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- ═══ LOCATION · 產地位置 ═══ -->
-<section class="fd-location">
+<!-- ═══ BACK TO STORY CTA ═══ -->
+<section class="fs-back-cta">
   <div class="container">
-    <div class="fd-loc-grid">
-      <div class="fd-loc-body">
-        <span class="fd-kicker">Where · 產地位置</span>
-        <h2 class="fd-h2">台南市山上區<br>海拔 560 公尺</h2>
-        <p class="fd-loc-lead">曾文溪上游、烏山頭水庫上方。這裡早晚溫差大、雲霧多，是台南少數能種出高山茶風味的坡地。</p>
-        <ul class="fd-loc-list">
-          <li><strong>氣候</strong>　年均溫 22°C，春秋濕潤多霧</li>
-          <li><strong>土壤</strong>　紅壤酸性，適合茶樹深根</li>
-          <li><strong>水源</strong>　山泉自流灌溉，無農地汙染</li>
-          <li><strong>鄰居</strong>　隔壁是一片老龍眼林與竹林</li>
-        </ul>
-      </div>
-      <div class="fd-loc-map" aria-label="台南山上區地圖示意">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="400" fill="#f2ece0"/>
-          <path d="M0,240 Q100,200 180,230 T400,210 L400,400 L0,400 Z" fill="#e8efe9"/>
-          <path d="M0,260 Q120,230 200,250 T400,240" stroke="#2c4a35" stroke-width="1" fill="none" opacity=".3"/>
-          <path d="M0,280 Q120,260 200,270 T400,260" stroke="#2c4a35" stroke-width="1" fill="none" opacity=".2"/>
-          <path d="M80,140 Q130,100 180,130 T280,110 L280,240 L80,240 Z" fill="#d8e0d2" opacity=".8"/>
-          <text x="40" y="60" font-family="Noto Serif TC, serif" font-size="14" fill="#4a5448">台南</text>
-          <text x="40" y="82" font-family="Noto Serif TC, serif" font-size="11" fill="#8a9488">Tainan</text>
-          <circle cx="200" cy="200" r="12" fill="#c8402a"/>
-          <circle cx="200" cy="200" r="22" fill="none" stroke="#c8402a" stroke-width="1.5" opacity=".5"/>
-          <circle cx="200" cy="200" r="34" fill="none" stroke="#c8402a" stroke-width="1" opacity=".3"/>
-          <text x="218" y="205" font-family="Noto Serif TC, serif" font-size="13" fill="#1e2820" font-weight="500">波瑟沙茶樹田</text>
-          <text x="218" y="222" font-family="DM Sans, sans-serif" font-size="10" fill="#8a9488">23.07°N · 120.40°E</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RELATED FARMERS ═══ -->
-<section class="fd-related">
-  <div class="container">
-    <div class="fd-section-head">
-      <span class="fd-kicker">More Stories · 其他農友</span>
-      <h2 class="fd-h2">認識下一位</h2>
-    </div>
-    <div class="fd-related-grid">
-      <a href="farmer-detail.html" class="farmer-card">
-        <div class="farmer-card-img">
-          <img src="images/tfa/honey-01.jpg" alt="追花的人">
-          <span class="stamp farmer-card-stamp">追花</span>
-          <span class="farmer-card-region">全台</span>
-        </div>
-        <div class="farmer-card-body">
-          <p class="farmer-card-farm">蜂采館 · Bee Chase</p>
-          <h2 class="farmer-card-nick">追花的人</h2>
-          <p class="farmer-card-quote">「一年跑兩千公里，跟著花季走。」</p>
-          <div class="farmer-card-cta"><span>看他的故事</span><span class="arrow">→</span></div>
-        </div>
-      </a>
-      <a href="farmer-detail.html" class="farmer-card">
-        <div class="farmer-card-img">
-          <img src="images/tfa/goat-01.jpg" alt="羊頭目">
-          <span class="stamp farmer-card-stamp">羊頭目</span>
-          <span class="farmer-card-region">彰化</span>
-        </div>
-        <div class="farmer-card-body">
-          <p class="farmer-card-farm">豐園牧場 · Fengyuan</p>
-          <h2 class="farmer-card-nick">羊頭目</h2>
-          <p class="farmer-card-quote">「四十年的羊，我叫得出每一隻的名字。」</p>
-          <div class="farmer-card-cta"><span>看他的故事</span><span class="arrow">→</span></div>
-        </div>
-      </a>
-      <a href="farmer-detail.html" class="farmer-card">
-        <div class="farmer-card-img">
-          <img src="images/tfa/findfood-01.jpg" alt="好呷覓">
-          <span class="stamp farmer-card-stamp">好呷覓</span>
-          <span class="farmer-card-region">雲林</span>
-        </div>
-        <div class="farmer-card-body">
-          <p class="farmer-card-farm">好呷覓 · Findfood</p>
-          <h2 class="farmer-card-nick">好呷覓</h2>
-          <p class="farmer-card-quote">「把阿嬤的味道，裝進現代人的廚房。」</p>
-          <div class="farmer-card-cta"><span>看他的故事</span><span class="arrow">→</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CTA STRIP ═══ -->
-<section class="fd-cta-strip">
-  <div class="container">
-    <div class="fd-cta-inner">
-      <div>
-        <h2 class="fd-cta-h2">想收到阿甘的第一手消息？</h2>
-        <p class="fd-cta-lead">採茶季、新茶上市、產地直播——訂閱農友誌，每月一封。</p>
-      </div>
-      <form class="fd-cta-form">
-        <input type="email" placeholder="你的 Email" aria-label="Email">
-        <button type="submit" class="btn btn-cta">訂閱 →</button>
-      </form>
-    </div>
+    <h2>想知道這些茶是怎麼種出來的？</h2>
+    <p>十二年的茶樹、不打藥、不趕機器——阿甘的慢，才是這些茶的好。</p>
+    <a href="farmer-detail.html" class="btn">認識阿甘的故事 →</a>
   </div>
 </section>
 
@@ -506,5 +462,14 @@
 </footer>
 
 <script src="js/nav-actions.js" defer></script>
+<script>
+// Simple chip filter (visual toggle only — real filter would need data-cat on cards)
+document.querySelectorAll('.fs-chip').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fs-chip').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
