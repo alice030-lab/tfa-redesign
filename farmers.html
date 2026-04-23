@@ -229,31 +229,27 @@
     <div class="tw-map-wrap">
       <div class="tw-map-stage">
         <img class="tw-map-sketch" src="images/tfa/taiwan-sketch.png" alt="台灣手繪地圖" aria-hidden="true">
-        <svg class="tw-map-overlay" viewBox="0 0 1000 1400" xmlns="http://www.w3.org/2000/svg" aria-label="台灣農友分布地圖" preserveAspectRatio="xMidYMid meet">
-          <!-- 18 County Dots positioned on the sketch outline -->
-          <!-- Northern cluster -->
-          <g class="tw-county" data-county="台北／新北／基隆"><circle cx="820" cy="160" r="14" fill="#c8402a"/><circle cx="820" cy="160" r="22" fill="none" stroke="#c8402a" stroke-width="1.5" opacity=".4"/><text x="850" y="156" font-size="22" fill="#1e2820" font-family="Noto Serif TC, serif" font-weight="500">雙北基隆</text><text x="850" y="182" font-size="18" fill="#c8402a" font-family="DM Sans" font-weight="500">18 位</text></g>
-          <g class="tw-county" data-county="桃園"><circle cx="680" cy="245" r="12" fill="#c8402a"/><text x="560" y="251" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">桃園 12</text></g>
-          <g class="tw-county" data-county="新竹"><circle cx="635" cy="320" r="11" fill="#c8402a"/><text x="515" y="326" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">新竹 8</text></g>
-          <g class="tw-county" data-county="苗栗"><circle cx="600" cy="395" r="11" fill="#c8402a"/><text x="480" y="401" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">苗栗 9</text></g>
-          <!-- Central -->
-          <g class="tw-county" data-county="台中"><circle cx="580" cy="485" r="14" fill="#c8402a"/><text x="460" y="491" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">台中 14</text></g>
-          <g class="tw-county" data-county="彰化"><circle cx="520" cy="560" r="12" fill="#c8402a"/><text x="400" y="566" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">彰化 11</text></g>
-          <g class="tw-county" data-county="南投"><circle cx="640" cy="590" r="14" fill="#c8402a"/><text x="670" y="596" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">南投 16</text></g>
-          <g class="tw-county" data-county="雲林"><circle cx="500" cy="700" r="14" fill="#c8402a"/><text x="380" y="706" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">雲林 22</text></g>
-          <!-- Southern -->
-          <g class="tw-county" data-county="嘉義"><circle cx="520" cy="785" r="14" fill="#c8402a"/><text x="400" y="791" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">嘉義 15</text></g>
-          <g class="tw-county" data-county="台南"><circle cx="500" cy="895" r="16" fill="#c8402a"/><text x="380" y="901" font-size="22" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end" font-weight="500">台南 24</text></g>
-          <g class="tw-county" data-county="高雄"><circle cx="550" cy="1020" r="15" fill="#c8402a"/><text x="430" y="1026" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif" text-anchor="end">高雄 19</text></g>
-          <g class="tw-county" data-county="屏東"><circle cx="600" cy="1160" r="13" fill="#c8402a"/><text x="675" y="1166" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">屏東 13</text></g>
-          <!-- Eastern -->
-          <g class="tw-county" data-county="宜蘭"><circle cx="830" cy="280" r="12" fill="#c8402a"/><text x="860" y="286" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">宜蘭 7</text></g>
-          <g class="tw-county" data-county="花蓮"><circle cx="780" cy="580" r="14" fill="#c8402a"/><text x="815" y="586" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">花蓮 10</text></g>
-          <g class="tw-county" data-county="台東"><circle cx="700" cy="870" r="13" fill="#c8402a"/><text x="735" y="876" font-size="20" fill="#1e2820" font-family="Noto Serif TC, serif">台東 8</text></g>
-          <!-- Islands (left of main island, matching sketch layout) -->
-          <g class="tw-county" data-county="澎湖"><circle cx="150" cy="770" r="10" fill="#d4a332"/><text x="95" y="750" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">澎湖 3</text></g>
-          <g class="tw-county" data-county="金門"><circle cx="110" cy="900" r="10" fill="#d4a332"/><text x="55" y="932" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">金門 2</text></g>
-          <g class="tw-county" data-county="馬祖"><circle cx="175" cy="680" r="10" fill="#d4a332"/><text x="115" y="660" font-size="18" fill="#1e2820" font-family="Noto Serif TC, serif">馬祖 1</text></g>
+        <svg class="tw-map-overlay" viewBox="0 0 1000 1400" xmlns="http://www.w3.org/2000/svg" aria-label="台灣農友分布地圖" preserveAspectRatio="none">
+          <!-- Map-pin icon path (tip at 0,0 pointing down; body extends from y=-40 to y=0) -->
+          <!-- Each .tw-county's transform scales the pin; hover CSS scales up further -->
+          <g class="tw-county" data-county="台北／新北／基隆" transform="translate(820 160) scale(1.2)"><title>雙北基隆 · 18 位</title><circle class="pin-halo" cx="0" cy="-27" r="22" fill="none" stroke="#c8402a" stroke-width="1.5" opacity=".35"/><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2" stroke-linejoin="round"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="桃園" transform="translate(680 245)"><title>桃園 · 12 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="新竹" transform="translate(635 320) scale(.9)"><title>新竹 · 8 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="苗栗" transform="translate(600 395) scale(.92)"><title>苗栗 · 9 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="台中" transform="translate(580 485) scale(1.15)"><title>台中 · 14 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="彰化" transform="translate(520 560)"><title>彰化 · 11 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="南投" transform="translate(640 590) scale(1.18)"><title>南投 · 16 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="雲林" transform="translate(500 700) scale(1.22)"><title>雲林 · 22 位</title><circle class="pin-halo" cx="0" cy="-22" r="18" fill="none" stroke="#c8402a" stroke-width="1.3" opacity=".35"/><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="嘉義" transform="translate(520 785) scale(1.15)"><title>嘉義 · 15 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="台南" transform="translate(500 895) scale(1.3)"><title>台南 · 24 位</title><circle class="pin-halo" cx="0" cy="-22" r="20" fill="none" stroke="#c8402a" stroke-width="1.5" opacity=".45"/><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="高雄" transform="translate(550 1020) scale(1.22)"><title>高雄 · 19 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="屏東" transform="translate(600 1160) scale(1.08)"><title>屏東 · 13 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="宜蘭" transform="translate(830 280) scale(.95)"><title>宜蘭 · 7 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="花蓮" transform="translate(780 580) scale(1.02)"><title>花蓮 · 10 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county" data-county="台東" transform="translate(700 870) scale(.95)"><title>台東 · 8 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#c8402a" stroke="#8a2818" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county island" data-county="澎湖" transform="translate(150 770) scale(.82)"><title>澎湖 · 3 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#d4a332" stroke="#8a6a1e" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county island" data-county="金門" transform="translate(110 900) scale(.78)"><title>金門 · 2 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#d4a332" stroke="#8a6a1e" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
+          <g class="tw-county island" data-county="馬祖" transform="translate(175 680) scale(.75)"><title>馬祖 · 1 位</title><path class="pin-body" d="M0,0 C-2,-4 -13,-18 -13,-27 C-13,-35 -7,-40 0,-40 C7,-40 13,-35 13,-27 C13,-18 2,-4 0,0 Z" fill="#d4a332" stroke="#8a6a1e" stroke-width="1.2"/><circle class="pin-dot" cx="0" cy="-27" r="5.5" fill="#faf3e8"/></g>
 
           <!-- Compass -->
           <g transform="translate(140,1260)" opacity=".55">
@@ -263,16 +259,42 @@
           </g>
         </svg>
       </div>
-      <aside class="tw-map-legend">
-        <p class="legend-title">產地密度</p>
-        <ul class="legend-list">
-          <li><span class="dot lg"></span>20+ 位農友</li>
-          <li><span class="dot md"></span>10–20 位</li>
-          <li><span class="dot sm"></span>5–10 位</li>
-          <li><span class="dot xs"></span>1–5 位（離島）</li>
-        </ul>
-        <p class="legend-total">合計 <strong>212</strong> 位<br>分布於 <strong>18</strong> 個縣市</p>
-        <p class="legend-hint">點擊地圖上任何縣市，篩選該地農友</p>
+      <!-- 18 縣市清單容器 — 放在地圖右側，讓地區名字看清楚 -->
+      <aside class="tw-region-panel">
+        <div class="tw-region-head">
+          <span class="fd-kicker">Regions · 18 縣市</span>
+          <p class="tw-region-hint">點擊任一縣市，<br>篩選該地農友</p>
+        </div>
+        <div class="tw-region-density">
+          <p class="legend-title">產地密度</p>
+          <ul class="legend-list">
+            <li><span class="dot lg"></span>20+ 位農友</li>
+            <li><span class="dot md"></span>10–20 位</li>
+            <li><span class="dot sm"></span>5–10 位</li>
+            <li><span class="dot xs"></span>1–5 位（離島）</li>
+          </ul>
+        </div>
+        <div class="tw-region-grid">
+          <button class="tw-region-chip" data-county="台北／新北／基隆"><span class="rc-name">雙北基隆</span><span class="rc-count">18</span></button>
+          <button class="tw-region-chip" data-county="桃園"><span class="rc-name">桃園</span><span class="rc-count">12</span></button>
+          <button class="tw-region-chip" data-county="新竹"><span class="rc-name">新竹</span><span class="rc-count">8</span></button>
+          <button class="tw-region-chip" data-county="苗栗"><span class="rc-name">苗栗</span><span class="rc-count">9</span></button>
+          <button class="tw-region-chip" data-county="台中"><span class="rc-name">台中</span><span class="rc-count">14</span></button>
+          <button class="tw-region-chip" data-county="彰化"><span class="rc-name">彰化</span><span class="rc-count">11</span></button>
+          <button class="tw-region-chip" data-county="南投"><span class="rc-name">南投</span><span class="rc-count">16</span></button>
+          <button class="tw-region-chip" data-county="雲林"><span class="rc-name">雲林</span><span class="rc-count">22</span></button>
+          <button class="tw-region-chip" data-county="嘉義"><span class="rc-name">嘉義</span><span class="rc-count">15</span></button>
+          <button class="tw-region-chip featured" data-county="台南"><span class="rc-name">台南</span><span class="rc-count">24</span></button>
+          <button class="tw-region-chip" data-county="高雄"><span class="rc-name">高雄</span><span class="rc-count">19</span></button>
+          <button class="tw-region-chip" data-county="屏東"><span class="rc-name">屏東</span><span class="rc-count">13</span></button>
+          <button class="tw-region-chip" data-county="宜蘭"><span class="rc-name">宜蘭</span><span class="rc-count">7</span></button>
+          <button class="tw-region-chip" data-county="花蓮"><span class="rc-name">花蓮</span><span class="rc-count">10</span></button>
+          <button class="tw-region-chip" data-county="台東"><span class="rc-name">台東</span><span class="rc-count">8</span></button>
+          <button class="tw-region-chip island" data-county="澎湖"><span class="rc-name">澎湖</span><span class="rc-count">3</span></button>
+          <button class="tw-region-chip island" data-county="金門"><span class="rc-name">金門</span><span class="rc-count">2</span></button>
+          <button class="tw-region-chip island" data-county="馬祖"><span class="rc-name">馬祖</span><span class="rc-count">1</span></button>
+        </div>
+        <p class="tw-region-total">合計 <strong>212</strong> 位 · <strong>18</strong> 個縣市</p>
       </aside>
     </div>
   </div>
@@ -704,16 +726,19 @@
     });
   }
 
-  // Taiwan Map — click county to filter by region
+  // Taiwan Map — click county dot OR region chip to filter
+  const filterByCounty = (county) => {
+    if (!county) return;
+    search.value = county.split('／')[0];
+    apply();
+    document.querySelector('.farmers-hub')?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
   document.querySelectorAll('.tw-county').forEach(g => {
     g.style.cursor = 'pointer';
-    g.addEventListener('click', () => {
-      const county = g.dataset.county;
-      if (!county) return;
-      search.value = county.split('／')[0];
-      apply();
-      document.querySelector('.farmers-hub')?.scrollIntoView({behavior:'smooth',block:'start'});
-    });
+    g.addEventListener('click', () => filterByCounty(g.dataset.county));
+  });
+  document.querySelectorAll('.tw-region-chip').forEach(btn => {
+    btn.addEventListener('click', () => filterByCounty(btn.dataset.county));
   });
 })();
 </script>

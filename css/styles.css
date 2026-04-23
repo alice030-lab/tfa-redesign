@@ -3402,23 +3402,27 @@ body.na-locked{overflow:hidden}
 @media(max-width:640px){.story-num{font-size:3.2rem}.story-chapter-head{gap:1rem}}
 
 /* ─── Taiwan Map Section ─── */
-/* Background matches the sketch paper tone exactly so mix-blend-mode:multiply
-   makes the PNG paper disappear and leaves only the ink lines. */
-.tw-map-section{background:#f3ead6;padding:3.4rem 0;border-bottom:1px solid var(--rule)}
+/* Background matches the sketch paper tone (sampled ~#FAF3E8) and uses
+   mix-blend-mode:darken — when container bg === paper color, paper pixels
+   blend invisibly and only the darker ink strokes remain. */
+.tw-map-section{background:#faf3e8;padding:3.4rem 0;border-bottom:1px solid var(--rule)}
 .tw-map-head{text-align:center;max-width:680px;margin:0 auto 2.2rem}
 .tw-map-head .fd-kicker{display:inline-block}
 .tw-map-head .fd-h2{margin:.5rem 0 1rem}
 .tw-map-lead{color:var(--muted);line-height:1.8;font-size:1rem}
-.tw-map-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:2.4rem;align-items:center;max-width:900px;margin:0 auto}
-@media(max-width:760px){.tw-map-wrap{grid-template-columns:1fr;gap:1.6rem}}
-.tw-map-stage{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:1728/2454;background:#f3ead6}
-.tw-map-sketch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:brightness(1.15) contrast(.92);opacity:.7;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.tw-map-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:3.2rem;align-items:start;max-width:1180px;margin:0 auto}
+.tw-map-wrap .tw-map-stage{margin:0;justify-self:start;max-width:480px}
+.tw-map-wrap .tw-region-panel{justify-self:end;width:100%;max-width:560px}
+@media(max-width:860px){.tw-map-wrap{grid-template-columns:1fr;gap:1.6rem;max-width:560px}.tw-map-wrap .tw-map-stage,.tw-map-wrap .tw-region-panel{justify-self:center;max-width:560px}}
+.tw-map-stage{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:1728/2454;background:#faf3e8}
+.tw-map-sketch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:darken;filter:brightness(1.05) contrast(.95);pointer-events:none;user-select:none;-webkit-user-drag:none}
 .tw-map-overlay{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2}
-.tw-county{transition:transform .25s ease;cursor:pointer}
-.tw-county circle{transition:r .25s ease,fill .25s ease,filter .3s ease}
-.tw-county:hover circle{fill:#a02d1f;filter:drop-shadow(0 0 10px rgba(200,64,42,.6))}
-.tw-county:hover circle:first-of-type{r:18}
-.tw-county:hover text{font-weight:500}
+.tw-county{cursor:pointer;transform-box:fill-box;transform-origin:center bottom;transition:transform .25s ease}
+.tw-county .pin-body{transition:fill .25s ease,filter .3s ease;filter:drop-shadow(0 2px 3px rgba(30,40,32,.35))}
+.tw-county .pin-halo{transition:opacity .25s ease,r .25s ease}
+.tw-county:hover .pin-body{fill:#a02d1f;filter:drop-shadow(0 4px 10px rgba(200,64,42,.55))}
+.tw-county.island:hover .pin-body{fill:#b8851a}
+.tw-county:hover .pin-halo{opacity:.7}
 .tw-map-legend{background:var(--paper);border:1px solid var(--rule);padding:1.6rem 1.4rem}
 .tw-map-legend .legend-title{font-family:var(--font-serif);font-size:.82rem;color:var(--vermillion);letter-spacing:.1em;text-transform:uppercase;margin:0 0 .9rem}
 .tw-map-legend .legend-list{list-style:none;padding:0;margin:0 0 1.2rem;display:flex;flex-direction:column;gap:.55rem}
@@ -3431,6 +3435,37 @@ body.na-locked{overflow:hidden}
 .tw-map-legend .legend-total{font-family:var(--font-serif);font-size:.95rem;line-height:1.6;color:var(--ink);border-top:1px solid var(--rule);padding-top:1rem;margin:0 0 .6rem}
 .tw-map-legend .legend-total strong{color:var(--vermillion);font-size:1.2rem;font-weight:500}
 .tw-map-legend .legend-hint{font-size:.78rem;color:var(--muted);margin:0;line-height:1.6;font-style:italic}
+
+/* Region chip panel — clear labels beside the sketch map (right column) */
+.tw-region-panel{padding:1.6rem 1.4rem 1.4rem;background:var(--paper);border:1px solid var(--rule);box-shadow:0 1px 0 rgba(30,40,32,.02),0 12px 28px -20px rgba(30,40,32,.15);position:sticky;top:100px}
+.tw-region-head{margin-bottom:1rem;padding-bottom:.85rem;border-bottom:1px dashed var(--rule)}
+.tw-region-head .fd-kicker{margin:0;display:block}
+.tw-region-hint{margin:.4rem 0 0;font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.5}
+.tw-region-density{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;padding:.6rem .8rem;margin-bottom:1rem;background:var(--paper-warm);border:1px solid var(--rule)}
+.tw-region-density .legend-title{font-family:var(--font-serif);font-size:.72rem;color:var(--vermillion);letter-spacing:.1em;text-transform:uppercase;margin:0;flex-shrink:0}
+.tw-region-density .legend-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.55rem .85rem}
+.tw-region-density .legend-list li{display:flex;align-items:center;gap:.32rem;font-size:.75rem;color:var(--ink-light)}
+.tw-region-density .legend-list .dot{width:.62rem;height:.62rem;border-radius:50%;background:var(--vermillion);flex-shrink:0}
+.tw-region-density .legend-list .dot.lg{width:.82rem;height:.82rem}
+.tw-region-density .legend-list .dot.md{width:.7rem;height:.7rem}
+.tw-region-density .legend-list .dot.sm{width:.58rem;height:.58rem}
+.tw-region-density .legend-list .dot.xs{width:.5rem;height:.5rem;background:var(--gold-mid)}
+.tw-region-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
+.tw-region-total{margin:1rem 0 0;padding-top:.9rem;border-top:1px dashed var(--rule);font-family:var(--font-serif);font-size:.88rem;color:var(--ink-light);text-align:center}
+.tw-region-total strong{color:var(--vermillion);font-weight:500}
+@media(max-width:860px){.tw-region-panel{position:static}.tw-region-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}
+.tw-region-chip{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.7rem .9rem;background:var(--paper-warm);border:1px solid var(--rule);font-family:var(--font-serif);font-size:.98rem;color:var(--ink);cursor:pointer;transition:all .2s ease;text-align:left}
+.tw-region-chip .rc-name{font-weight:500;letter-spacing:.02em}
+.tw-region-chip .rc-count{font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--vermillion);background:rgba(200,64,42,.08);padding:.12rem .5rem;border-radius:999px;font-weight:500;min-width:1.8rem;text-align:center}
+.tw-region-chip:hover{border-color:var(--vermillion);background:var(--paper);color:var(--vermillion);transform:translateY(-1px);box-shadow:0 6px 16px -10px rgba(200,64,42,.35)}
+.tw-region-chip:hover .rc-count{background:var(--vermillion);color:#fff}
+.tw-region-chip.featured{border-color:var(--vermillion);border-width:1.5px}
+.tw-region-chip.featured .rc-count{background:var(--vermillion);color:#fff}
+.tw-region-chip.island{background:rgba(212,163,50,.08);border-style:dashed}
+.tw-region-chip.island .rc-count{background:rgba(212,163,50,.18);color:var(--gold-deep,#8a6a1e)}
+.tw-region-chip.island:hover{border-style:solid;border-color:var(--gold-mid);color:var(--ink)}
+.tw-region-chip.island:hover .rc-count{background:var(--gold-mid);color:#fff}
+@media(max-width:520px){.tw-region-grid{grid-template-columns:repeat(3,1fr);gap:.45rem}.tw-region-chip{padding:.55rem .65rem;font-size:.88rem}.tw-region-chip .rc-name{font-size:.88rem}}
 
 /* ─── Load More ─── */
 .load-more-wrap{text-align:center;padding:2.2rem 0 1rem;margin-top:2rem;border-top:1px dashed var(--rule)}
