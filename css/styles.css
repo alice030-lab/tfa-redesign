@@ -3404,15 +3404,15 @@ body.na-locked{overflow:hidden}
 /* ─── Taiwan Map Section ─── */
 /* Background matches the sketch paper tone exactly so mix-blend-mode:multiply
    makes the PNG paper disappear and leaves only the ink lines. */
-.tw-map-section{background:#ece0c6;padding:3.4rem 0;border-bottom:1px solid var(--rule)}
+.tw-map-section{background:#f3ead6;padding:3.4rem 0;border-bottom:1px solid var(--rule)}
 .tw-map-head{text-align:center;max-width:680px;margin:0 auto 2.2rem}
 .tw-map-head .fd-kicker{display:inline-block}
 .tw-map-head .fd-h2{margin:.5rem 0 1rem}
 .tw-map-lead{color:var(--muted);line-height:1.8;font-size:1rem}
 .tw-map-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:2.4rem;align-items:center;max-width:900px;margin:0 auto}
 @media(max-width:760px){.tw-map-wrap{grid-template-columns:1fr;gap:1.6rem}}
-.tw-map-stage{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:1728/2454;background:#ece0c6}
-.tw-map-sketch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:contrast(1.08);pointer-events:none;user-select:none;-webkit-user-drag:none}
+.tw-map-stage{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:1728/2454;background:#f3ead6}
+.tw-map-sketch{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:brightness(1.15) contrast(.92);opacity:.7;pointer-events:none;user-select:none;-webkit-user-drag:none}
 .tw-map-overlay{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2}
 .tw-county{transition:transform .25s ease;cursor:pointer}
 .tw-county circle{transition:r .25s ease,fill .25s ease,filter .3s ease}
