@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>結帳 — 台灣鮮農</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="co-body">
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">滿 <strong style="color:var(--pine)">NT$ 999</strong> 免運<span class="dot"></span>安全結帳 · 256-bit SSL 加密</div>
+
+<!-- ═══ MINIMAL HEADER ═══ -->
+<header class="co-header">
+  <div class="container co-header-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="台灣鮮農" class="brand-logo">
+    </a>
+    <ol class="co-steps">
+      <li class="done"><span class="n">1</span><span class="lbl">購物車</span></li>
+      <li class="active"><span class="n">2</span><span class="lbl">填寫資料</span></li>
+      <li><span class="n">3</span><span class="lbl">確認付款</span></li>
+      <li><span class="n">4</span><span class="lbl">完成</span></li>
+    </ol>
+    <a href="products.html" class="co-back">← 繼續購物</a>
+  </div>
+</header>
+
+<!-- ═══ CHECKOUT MAIN ═══ -->
+<main class="co-main">
+  <div class="container">
+    <div class="co-grid">
+
+      <!-- ─── LEFT: Form ─── -->
+      <form class="co-form" onsubmit="event.preventDefault();alert('訂單已送出（Demo）');">
+
+        <!-- 1. Contact -->
+        <section class="co-block">
+          <div class="co-block-head">
+            <span class="co-num">1</span>
+            <div><h2>聯絡資訊</h2><p>我們只用於訂單通知與物流配送</p></div>
+          </div>
+          <div class="co-row co-row-2">
+            <label class="co-field"><span>收件人 *</span><input type="text" value="王美玲" required></label>
+            <label class="co-field"><span>手機 *</span><input type="tel" value="0912-345-678" required></label>
+          </div>
+          <label class="co-field"><span>Email *</span><input type="email" value="meiling@example.com" required></label>
+          <label class="co-check"><input type="checkbox" checked><span>訂閱農友誌，每月一封節氣選品</span></label>
+        </section>
+
+        <!-- 2. Shipping -->
+        <section class="co-block">
+          <div class="co-block-head">
+            <span class="co-num">2</span>
+            <div><h2>配送方式</h2><p>生鮮品自動配冷鏈，常溫品一般宅配</p></div>
+          </div>
+          <div class="co-ship-grid">
+            <label class="co-ship active">
+              <input type="radio" name="ship" checked>
+              <div class="co-ship-head"><span class="icn">🚚</span><h3>黑貓宅急便</h3><span class="price">NT$ 120</span></div>
+              <p>常溫 48 小時 · 冷藏冷凍全程控溫</p>
+            </label>
+            <label class="co-ship">
+              <input type="radio" name="ship">
+              <div class="co-ship-head"><span class="icn">🏪</span><h3>7-ELEVEN 交貨便</h3><span class="price">NT$ 80</span></div>
+              <p>常溫品可選 · 限 5kg 以下</p>
+            </label>
+            <label class="co-ship">
+              <input type="radio" name="ship">
+              <div class="co-ship-head"><span class="icn">📦</span><h3>全家店到店</h3><span class="price">NT$ 80</span></div>
+              <p>常溫品可選 · 限 5kg 以下</p>
+            </label>
+            <label class="co-ship">
+              <input type="radio" name="ship">
+              <div class="co-ship-head"><span class="icn">🏢</span><h3>門市自取</h3><span class="price free">FREE</span></div>
+              <p>台北中正旗艦店 · 週一至五 10–19</p>
+            </label>
+          </div>
+          <div class="co-addr">
+            <div class="co-row co-row-3">
+              <label class="co-field"><span>郵遞區號</span><input type="text" value="100"></label>
+              <label class="co-field"><span>縣市 *</span><select><option>台北市</option><option>新北市</option><option>桃園市</option><option>台中市</option><option>台南市</option><option>高雄市</option></select></label>
+              <label class="co-field"><span>鄉鎮區 *</span><select><option>中正區</option><option>大安區</option><option>信義區</option></select></label>
+            </div>
+            <label class="co-field"><span>詳細地址 *</span><input type="text" value="忠孝東路一段 88 號 5 樓" required></label>
+            <label class="co-field"><span>配送備註（可選）</span><input type="text" placeholder="例：請於 18:00 後配送"></label>
+          </div>
+        </section>
+
+        <!-- 3. Payment -->
+        <section class="co-block">
+          <div class="co-block-head">
+            <span class="co-num">3</span>
+            <div><h2>付款方式</h2><p>所有交易由綠界 ECPay 加密處理</p></div>
+          </div>
+          <div class="co-pay-grid">
+            <label class="co-pay active">
+              <input type="radio" name="pay" checked>
+              <span class="icn">💳</span>
+              <div><h3>信用卡 / 金融卡</h3><p>VISA · Master · JCB · Apple Pay · Google Pay</p></div>
+            </label>
+            <label class="co-pay">
+              <input type="radio" name="pay">
+              <span class="icn">📱</span>
+              <div><h3>LINE Pay</h3><p>導引至 LINE Pay 完成付款</p></div>
+            </label>
+            <label class="co-pay">
+              <input type="radio" name="pay">
+              <span class="icn">🏦</span>
+              <div><h3>ATM 轉帳</h3><p>取得虛擬帳號 · 3 日內付款</p></div>
+            </label>
+            <label class="co-pay">
+              <input type="radio" name="pay">
+              <span class="icn">📦</span>
+              <div><h3>貨到付款</h3><p>加收 NT$30 手續費 · 限 NT$20,000 以下</p></div>
+            </label>
+          </div>
+
+          <div class="co-card-form">
+            <div class="co-row">
+              <label class="co-field"><span>卡號 *</span><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"></label>
+            </div>
+            <div class="co-row co-row-3">
+              <label class="co-field"><span>到期 MM/YY *</span><input type="text" placeholder="05 / 28" maxlength="7"></label>
+              <label class="co-field"><span>安全碼 *</span><input type="text" placeholder="•••" maxlength="4"></label>
+              <label class="co-field"><span>持卡人</span><input type="text" value="MEI LING WANG"></label>
+            </div>
+            <div class="co-row co-row-2">
+              <label class="co-field"><span>分期</span><select><option>一次付清</option><option>3 期 0 利率</option><option>6 期 0 利率</option></select></label>
+              <label class="co-check" style="align-self:end;padding-bottom:.5rem"><input type="checkbox"><span>記住此張卡（下次更快）</span></label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Invoice -->
+        <section class="co-block">
+          <div class="co-block-head">
+            <span class="co-num">4</span>
+            <div><h2>電子發票</h2><p>財政部電子發票系統自動開立</p></div>
+          </div>
+          <div class="co-inv-grid">
+            <label class="co-inv active"><input type="radio" name="inv" checked><span class="icn">📱</span><div><h3>手機條碼載具</h3><p>/ABC123</p></div></label>
+            <label class="co-inv"><input type="radio" name="inv"><span class="icn">💳</span><div><h3>自然人憑證</h3><p>輸入憑證條碼</p></div></label>
+            <label class="co-inv"><input type="radio" name="inv"><span class="icn">🏢</span><div><h3>公司統編</h3><p>三聯式發票</p></div></label>
+            <label class="co-inv"><input type="radio" name="inv"><span class="icn">❤️</span><div><h3>發票捐贈</h3><p>捐給社福團體</p></div></label>
+          </div>
+        </section>
+
+        <!-- Submit -->
+        <div class="co-submit-row">
+          <button type="submit" class="co-submit">確認訂單並付款 · NT$ 1,890</button>
+          <p class="co-terms">按下按鈕即同意 <a href="#">服務條款</a> 與 <a href="#">隱私權政策</a></p>
+        </div>
+      </form>
+
+      <!-- ─── RIGHT: Order Summary (sticky) ─── -->
+      <aside class="co-summary">
+        <div class="co-summary-inner">
+          <h2 class="co-summary-h2">訂單摘要 <span class="count">3 項</span></h2>
+
+          <ul class="co-items">
+            <li class="co-item">
+              <div class="co-item-img"><img src="images/tfa/honey-01.jpg" alt=""><span class="qty">1</span></div>
+              <div class="co-item-body">
+                <span class="brand">情人蜂蜜</span>
+                <h4>台灣龍眼蜜</h4>
+                <span class="spec">1800g · 單瓶</span>
+              </div>
+              <div class="co-item-price"><span>NT$ 1,200</span><span class="strike">NT$ 1,380</span></div>
+            </li>
+            <li class="co-item">
+              <div class="co-item-img"><img src="images/tfa/findfood-01.jpg" alt=""><span class="qty">1</span></div>
+              <div class="co-item-body">
+                <span class="brand">好呷覓</span>
+                <h4>老菜脯雞湯</h4>
+                <span class="spec">7 包組 · 每包 500g</span>
+              </div>
+              <div class="co-item-price"><span>NT$ 1,000</span></div>
+            </li>
+            <li class="co-item">
+              <div class="co-item-img"><img src="images/tfa/calendar-01.jpg" alt=""><span class="qty">1</span></div>
+              <div class="co-item-body">
+                <span class="brand">農聯社</span>
+                <h4>2026 水果月曆</h4>
+                <span class="spec">桌曆 · A4</span>
+              </div>
+              <div class="co-item-price"><span>NT$ 250</span></div>
+            </li>
+          </ul>
+
+          <div class="co-coupon">
+            <input type="text" placeholder="優惠碼 / 折扣券">
+            <button type="button">套用</button>
+          </div>
+          <div class="co-coupon-applied">
+            ✓ 已套用 <strong>SPRING200</strong> · 穀雨節氣券 −NT$ 200
+            <button type="button" aria-label="移除">×</button>
+          </div>
+
+          <dl class="co-totals">
+            <div><dt>小計</dt><dd>NT$ 2,450</dd></div>
+            <div class="discount"><dt>折扣</dt><dd>− NT$ 380</dd></div>
+            <div class="discount"><dt>優惠碼 SPRING200</dt><dd>− NT$ 200</dd></div>
+            <div><dt>運費（黑貓）</dt><dd>NT$ 120</dd></div>
+            <div class="free-hint"><dt></dt><dd>再買 NT$ 549 可升級免運</dd></div>
+            <div class="grand"><dt>應付總計</dt><dd>NT$ <span class="big">1,990</span></dd></div>
+          </dl>
+
+          <div class="co-reward">
+            <span class="icn">🌾</span>
+            <p>完成此筆訂單將回饋 <strong>199 鮮農點數</strong>，可折抵 NT$ 199。</p>
+          </div>
+
+          <ul class="co-trust">
+            <li>🔒 256-bit SSL 加密結帳</li>
+            <li>🔄 未拆封 7 日內可退換</li>
+            <li>🌾 產地直送 · 每項商品可溯源</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- ═══ MINIMAL FOOTER ═══ -->
+<footer class="co-footer">
+  <div class="container">
+    <p>© 2026 台灣鮮農 TFA　·　<a href="tel:+886223456789">客服 (02) 2345-6789</a>　·　<a href="#">退換貨</a>　·　<a href="#">隱私權</a></p>
+  </div>
+</footer>
+
+<script>
+// Shipping selection
+document.querySelectorAll('.co-ship').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.co-ship').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+  });
+});
+// Payment selection
+document.querySelectorAll('.co-pay').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.co-pay').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    const isCard = el.querySelector('.icn').textContent === '💳';
+    document.querySelector('.co-card-form').style.display = isCard ? '' : 'none';
+  });
+});
+// Invoice selection
+document.querySelectorAll('.co-inv').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.co-inv').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+  });
+});
+// Coupon remove
+document.querySelector('.co-coupon-applied button')?.addEventListener('click',e=>{
+  e.currentTarget.parentElement.style.display='none';
+});
+</script>
+</body>
+</html>
