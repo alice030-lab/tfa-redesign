@@ -665,8 +665,10 @@ footer{background:var(--ink);color:var(--paper-warm)}
 .fresh-tabs li:last-child .fresh-tab{border-right:0}
 /* Desktop 版：tabs 改為左側縱向欄 */
 @media(min-width:1024px){
-  .cat-group .container{display:grid;grid-template-columns:220px 1fr;grid-template-areas:"head head" "tabs panels";column-gap:2rem;row-gap:1.25rem}
-  .cat-group .cat-group-head{grid-area:head}
+  /* 側邊欄格線只套在有 fresh-tabs 側欄的 cat-group（products.html 的當季鮮食）
+     沒有 tabs 的 cat-group（例：product-detail 的 You may also like）維持正常單欄 */
+  .cat-group:has(.fresh-tabs) .container{display:grid;grid-template-columns:220px 1fr;grid-template-areas:"head head" "tabs panels";column-gap:2rem;row-gap:1.25rem}
+  .cat-group:has(.fresh-tabs) .cat-group-head{grid-area:head}
   .fresh-tabs{grid-area:tabs;flex-direction:column;overflow:visible;border-top:0;border-bottom:0;margin:0;background:transparent;align-self:start}
   .fresh-tabs li{flex:none;min-width:0;width:100%}
   .fresh-tab{border-right:0;border-bottom:1px solid var(--rule);padding:.85rem .75rem;gap:.85rem}
