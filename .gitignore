@@ -12,6 +12,8 @@ desktop.ini
 
 # Node (若日後引入)
 node_modules/
+package.json
+package-lock.json
 .env
 .env.local
 dist/
