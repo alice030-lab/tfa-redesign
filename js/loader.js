@@ -76,7 +76,20 @@
   };
 
   const attach = () => {
-    if (!el.isConnected && document.body) document.body.appendChild(el);
+    if (el.isConnected) return;
+    // body 還沒解析出來時，直接掛到 <html> 上，搶在 body 之前蓋住畫面
+    (document.body || document.documentElement).appendChild(el);
+  };
+
+  const lockScroll = (on) => {
+    // body 若尚未解析，先鎖 documentElement
+    const target = document.body || document.documentElement;
+    target.classList.toggle("tfa-loader-lock", on);
+    // body 出現後補鎖
+    if (on && !document.body) {
+      document.addEventListener("DOMContentLoaded",
+        () => document.body.classList.add("tfa-loader-lock"), { once: true });
+    }
   };
 
   const show = (hint) => {
@@ -87,8 +100,9 @@
       shownAt = performance.now();
       clearTimeout(hideTimer);
       el.hidden = false;
-      requestAnimationFrame(() => el.classList.add("is-on"));
-      document.body.classList.add("tfa-loader-lock");
+      // 立刻可見（不等 rAF，否則 head 階段 rAF 不一定會跑）
+      el.classList.add("is-on");
+      lockScroll(true);
     }
   };
 
@@ -100,7 +114,7 @@
     clearTimeout(hideTimer);
     hideTimer = setTimeout(() => {
       el.classList.remove("is-on");
-      document.body.classList.remove("tfa-loader-lock");
+      lockScroll(false);
       setTimeout(() => { if (!el.classList.contains("is-on")) el.hidden = true; }, 420);
     }, wait);
   };
@@ -126,9 +140,32 @@
     }
   };
 
-  // DOM 可用即 boot
-  if (document.body) boot();
-  else document.addEventListener("DOMContentLoaded", boot, { once: true });
+  // 立即 boot —— 不等 DOMContentLoaded，才能在 <body> 還沒解析前就蓋住畫面
+  boot();
+
+  // 同站連結攔截：點下去立刻顯示 loader，讓「離開→進站」沒有白屏空窗
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("a[href]");
+    if (!a) return;
+    if (e.defaultPrevented || e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.target && a.target !== "_self") return;
+    if (a.hasAttribute("download")) return;
+    const href = a.getAttribute("href") || "";
+    if (!href || href.startsWith("#")) return;                // 錨點略過
+    if (href.startsWith("javascript:") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    try {
+      const url = new URL(href, location.href);
+      if (url.origin !== location.origin) return;             // 外連不攔
+      if (url.pathname === location.pathname && url.search === location.search) return;
+      show();                                                  // 過場瞬間顯示
+    } catch {}
+  }, true);
+
+  // bfcache 返回時，確保 loader 不會卡住畫面
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) { shown = 0; hide(); }
+  });
 
   window.TFALoader = { show, hide, wrap };
 })();

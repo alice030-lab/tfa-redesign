@@ -3514,9 +3514,12 @@ body.tfa-loader-lock{overflow:hidden}
   background:
     radial-gradient(ellipse 70% 55% at 50% 62%,rgba(245,207,84,.18),transparent 70%),
     linear-gradient(180deg,#fbf6ea 0%,#f5ede0 60%,#ede2cc 100%);
-  opacity:0;transition:opacity .42s ease;
+  opacity:1;               /* 預設顯示 — 初次 attach 瞬間可見，不等 rAF */
+  transition:opacity .42s ease;
   isolation:isolate;
 }
+/* 未加 is-on（= 準備 fade out） → 變透明 */
+.tfa-loader:not(.is-on){opacity:0}
 .tfa-loader::before{
   /* 紙紋 overlay */
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
