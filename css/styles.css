@@ -3620,12 +3620,18 @@ body.na-locked{overflow:hidden}
 
 /* ── 展開面板 ── */
 .mnav-panel{
-  max-height:0;overflow:hidden;
-  transition:max-height .35s cubic-bezier(.2,.7,.2,1);
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .35s cubic-bezier(.2,.7,.2,1);
   background:rgba(255,250,238,.55);
   border-top:1px dashed rgba(26,58,42,.12);
 }
-.mnav-item[data-open="true"] .mnav-panel{max-height:min(68vh,720px)}
+.mnav-panel-inner{min-height:0;overflow:hidden}
+.mnav-item[data-open="true"] .mnav-panel{grid-template-rows:1fr}
+/* fallback：不支援 grid 動畫的老瀏覽器 */
+@supports not (grid-template-rows: 1fr){
+  .mnav-panel{display:block;max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .mnav-item[data-open="true"] .mnav-panel{max-height:2400px}
+}
 .mnav-panel .mnav-overview{
   display:block;padding:.9rem 1.35rem;
   font-family:var(--font-latin);font-size:.72rem;letter-spacing:.2em;

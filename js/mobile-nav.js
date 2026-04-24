@@ -79,8 +79,10 @@
           </span>
         </button>
         <div class="mnav-panel">
-          <a href="${href}" class="mnav-overview">瀏覽 ${label} →</a>
-          ${cols}
+          <div class="mnav-panel-inner">
+            <a href="${href}" class="mnav-overview">瀏覽 ${label} →</a>
+            ${cols}
+          </div>
         </div>
       </div>`;
   }).join("");
