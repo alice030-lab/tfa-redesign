@@ -3560,66 +3560,65 @@ body.tfa-loader-lock{overflow:hidden}
 /* 主莖：stroke-dasharray 從下到上畫線 */
 .tfa-loader-rice .rice-stem{
   stroke-dasharray:260;stroke-dashoffset:260;
-  animation:tfa-rice-grow 2.4s cubic-bezier(.45,.1,.25,1) infinite;
+  animation:tfa-rice-grow 1.3s cubic-bezier(.45,.1,.25,1) infinite;
 }
 
 /* 葉片：由中心向外 scale + sway */
 .tfa-loader-rice .leaf{
   transform-origin:100px 100px;transform:scale(0);opacity:0;
-  animation:tfa-leaf-unfurl 2.4s cubic-bezier(.35,.1,.3,1) infinite;
+  animation:tfa-leaf-unfurl 1.3s cubic-bezier(.35,.1,.3,1) infinite;
 }
-.tfa-loader-rice .leaf-l1{transform-origin:100px 168px;animation-delay:.35s}
-.tfa-loader-rice .leaf-r1{transform-origin:101px 148px;animation-delay:.55s}
-.tfa-loader-rice .leaf-l2{transform-origin:99px  120px;animation-delay:.8s}
-.tfa-loader-rice .leaf-r2{transform-origin:101px 95px; animation-delay:1s}
+.tfa-loader-rice .leaf-l1{transform-origin:100px 168px;animation-delay:.18s}
+.tfa-loader-rice .leaf-r1{transform-origin:101px 148px;animation-delay:.28s}
+.tfa-loader-rice .leaf-l2{transform-origin:99px  120px;animation-delay:.40s}
+.tfa-loader-rice .leaf-r2{transform-origin:101px 95px; animation-delay:.50s}
 
 /* 穀粒：由下往上逐顆出現 + 芒尖 fade in */
 .tfa-loader-rice .grain{
   transform-box:fill-box;transform-origin:center;
   transform:scale(0);opacity:0;
-  animation:tfa-grain-pop 2.4s cubic-bezier(.35,.1,.2,1.4) infinite;
+  animation:tfa-grain-pop 1.3s cubic-bezier(.35,.1,.2,1.4) infinite;
 }
 .tfa-loader-rice .awn{
   stroke-dasharray:18;stroke-dashoffset:18;opacity:0;
-  animation:tfa-awn-draw 2.4s ease infinite;
+  animation:tfa-awn-draw 1.3s ease infinite;
 }
-.tfa-loader-rice .g1,.tfa-loader-rice .a1{animation-delay:1.05s}
-.tfa-loader-rice .g2,.tfa-loader-rice .a2{animation-delay:1.15s}
-.tfa-loader-rice .g3,.tfa-loader-rice .a3{animation-delay:1.25s}
-.tfa-loader-rice .g4,.tfa-loader-rice .a4{animation-delay:1.35s}
-.tfa-loader-rice .g5,.tfa-loader-rice .a5{animation-delay:1.45s}
-.tfa-loader-rice .g6,.tfa-loader-rice .a6{animation-delay:1.55s}
-.tfa-loader-rice .g7,.tfa-loader-rice .a7{animation-delay:1.65s}
-.tfa-loader-rice .g8,.tfa-loader-rice .a8{animation-delay:1.75s}
+.tfa-loader-rice .g1,.tfa-loader-rice .a1{animation-delay:.55s}
+.tfa-loader-rice .g2,.tfa-loader-rice .a2{animation-delay:.60s}
+.tfa-loader-rice .g3,.tfa-loader-rice .a3{animation-delay:.66s}
+.tfa-loader-rice .g4,.tfa-loader-rice .a4{animation-delay:.71s}
+.tfa-loader-rice .g5,.tfa-loader-rice .a5{animation-delay:.77s}
+.tfa-loader-rice .g6,.tfa-loader-rice .a6{animation-delay:.82s}
+.tfa-loader-rice .g7,.tfa-loader-rice .a7{animation-delay:.88s}
+.tfa-loader-rice .g8,.tfa-loader-rice .a8{animation-delay:.93s}
 
 /* 整株輕微搖擺（風的感覺） */
 .tfa-loader-rice .rice-leaves,
 .tfa-loader-rice .rice-grains{
   transform-origin:100px 218px;
-  animation:tfa-rice-sway 3.4s ease-in-out infinite;
+  animation:tfa-rice-sway 2.2s ease-in-out infinite;
 }
 
 @keyframes tfa-rice-grow{
   0%   {stroke-dashoffset:260}
-  40%  {stroke-dashoffset:0}
-  92%  {stroke-dashoffset:0;opacity:1}
-  100% {stroke-dashoffset:0;opacity:.85}
+  30%  {stroke-dashoffset:0}
+  100% {stroke-dashoffset:0;opacity:.9}
 }
 @keyframes tfa-leaf-unfurl{
-  0%,20%  {transform:scale(0);opacity:0}
-  55%     {transform:scale(1.08);opacity:1}
-  70%,95% {transform:scale(1);opacity:1}
+  0%,15%  {transform:scale(0);opacity:0}
+  35%     {transform:scale(1.08);opacity:1}
+  50%,95% {transform:scale(1);opacity:1}
   100%    {transform:scale(1);opacity:.9}
 }
 @keyframes tfa-grain-pop{
-  0%,40%  {transform:scale(0);opacity:0}
-  62%     {transform:scale(1.25);opacity:1}
-  78%,95% {transform:scale(1);opacity:1}
+  0%,20%  {transform:scale(0);opacity:0}
+  40%     {transform:scale(1.25);opacity:1}
+  55%,95% {transform:scale(1);opacity:1}
   100%    {transform:scale(1);opacity:.95}
 }
 @keyframes tfa-awn-draw{
-  0%,45%  {stroke-dashoffset:18;opacity:0}
-  70%     {stroke-dashoffset:0;opacity:.8}
+  0%,30%  {stroke-dashoffset:18;opacity:0}
+  55%     {stroke-dashoffset:0;opacity:.8}
   95%     {stroke-dashoffset:0;opacity:.8}
   100%    {stroke-dashoffset:0;opacity:.6}
 }
