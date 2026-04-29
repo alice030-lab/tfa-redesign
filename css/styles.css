@@ -2924,25 +2924,26 @@ body.na-locked{overflow:hidden}
 /* 已購買數（取代評星）*/
 .pd-buyers{
   display:inline-flex;align-items:center;gap:.55rem;
-  padding:.55rem .9rem;
+  padding:.5rem .95rem;
   background:rgba(58,90,76,.06);
-  border:1px solid rgba(58,90,76,.15);
+  border:1px solid rgba(58,90,76,.18);
   border-radius:999px;
   margin-bottom:1.4rem;
-  font-family:'Noto Sans TC',sans-serif;font-size:.88rem;
+  font-family:'Noto Sans TC',sans-serif;font-size:.9rem;
+  line-height:1;                 /* 鎖定 line-height，避免子元素被字型 metric 撐高 */
   color:var(--ink-mid);
   width:fit-content;
 }
 .pd-buyers-icn{
   display:inline-flex;align-items:center;justify-content:center;
-  width:18px;height:18px;color:var(--pine);flex-shrink:0;
+  width:20px;height:20px;color:var(--pine);flex-shrink:0;
 }
-.pd-buyers-icn svg{width:18px;height:18px}
+.pd-buyers-icn svg{width:20px;height:20px;display:block}
 .pd-buyers-num{
-  font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:500;
-  color:var(--pine);letter-spacing:.02em;
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+  color:var(--pine);letter-spacing:.02em;line-height:1;
 }
-.pd-buyers-lbl{color:var(--ink-mid);letter-spacing:.04em}
+.pd-buyers-lbl{color:var(--ink-mid);letter-spacing:.04em;line-height:1}
 .pd-price-row{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;padding:1.2rem 0;border-top:1px solid rgba(28,51,42,.08);border-bottom:1px solid rgba(28,51,42,.08);margin-bottom:1.4rem}
 .pd-price{font-family:'DM Sans',sans-serif;font-size:2.4rem;font-weight:500;color:var(--ink)}
 .pd-strike{font-family:'DM Sans',sans-serif;font-size:1.05rem;color:#b8b5a8;text-decoration:line-through}
