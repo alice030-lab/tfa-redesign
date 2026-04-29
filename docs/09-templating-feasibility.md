@@ -190,6 +190,42 @@ farmers ADD seal_text VARCHAR(20)
 
 ### 🔴 必須 1:N
 
+#### Product Manual「產品敘述一頁式圖」
+
+```sql
+product_manual_images (
+  id              bigint PK
+  product_id      FK → products
+  sort_order      int
+  image_url       varchar(500)
+  width, height   int?
+  alt             varchar(200)
+)
+```
+
+**為什麼是這個結構：**
+農友會自己做長條 EDM / 一頁式宣傳圖（看真實案例：[宮北莓莓醋禮盒](https://www.tfa.com.tw/productInfo/1071) 上傳了 7 張）。每件商品的張數從 1 到 20+ 都有可能。
+
+**Blade：**
+```blade
+@if($product->manualImages->isNotEmpty())
+  <section class="pd-manual">
+    <div class="container">
+      <div class="pd-manual-stack">
+        @foreach($product->manualImages as $img)
+          <img src="{{ $img->image_url }}" alt="{{ $img->alt ?? '產品介紹 '.$loop->iteration }}" loading="lazy">
+        @endforeach
+      </div>
+    </div>
+  </section>
+@endif
+```
+
+**前端容器規則：**
+- `max-width: 880px` 置中（一般 EDM 設計尺寸）
+- 圖片之間 0 間距（多張通常是接續設計）
+- 點圖開 lightbox（已實作於 `js/pd-manual.js`）
+
 #### Traceability Timeline「這罐蜜的 14 天」
 
 ```sql
@@ -281,6 +317,19 @@ CREATE TABLE product_traceability_steps (
   date_label VARCHAR(50),
   step_title VARCHAR(100),
   description VARCHAR(300),
+  INDEX (product_id, sort_order)
+);
+
+-- 產品敘述一頁式圖
+CREATE TABLE product_manual_images (
+  id BIGINT PK AUTO_INCREMENT,
+  product_id BIGINT NOT NULL,
+  sort_order INT DEFAULT 0,
+  image_url VARCHAR(500) NOT NULL,
+  width INT NULL,
+  height INT NULL,
+  alt VARCHAR(200) NULL,
+  created_at, updated_at,
   INDEX (product_id, sort_order)
 );
 ```

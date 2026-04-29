@@ -319,6 +319,32 @@
   </div>
 </section>
 
+<!-- ═══ PRODUCT MANUAL · 產品敘述（一頁式宣傳圖） ═══ -->
+<!--
+  使用情境：農友 / 後台上傳的長條 EDM / 一頁式宣傳圖（多張堆疊）
+  容器寬度：880px 限寬置中（一般 EDM 設計尺寸）
+  圖片之間：無間距（多張圖通常是接續設計）
+  點擊放大：開啟原圖（lightbox 行為，由 js/tfa-product-manual.js 處理）
+-->
+<section class="pd-manual" id="manual">
+  <div class="container">
+    <div class="pd-manual-head">
+      <span class="page-hero-label"><span class="line"></span>Product Manual · 產品介紹</span>
+      <h2 class="category-h2" style="text-align:left;margin-top:.4rem">看農友想對你說的</h2>
+    </div>
+    <div class="pd-manual-stack">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/62bb079f45f65ac0e5a5782abc20521d.jpg" alt="產品介紹 1" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/d791a7b11fea821971b97b2456f3511a.jpg" alt="產品介紹 2" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/4f95b425f5634a5e6ea370b5ba6b4d19.jpg" alt="產品介紹 3" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/a4e609296d74487952bec3fba8a1dff4.jpg" alt="產品介紹 4" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/0cc60bf8b34b5f098e169541b9776a39.jpg" alt="產品介紹 5" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/caad56af445f6ab8959f58e54dab1756.jpg" alt="產品介紹 6" loading="lazy">
+      <img src="https://images.pcone.com.tw/uploads/product_image/0013178/a4c3dcaddf2fd8a5599437372737cd6c/f98812f12bc7304710c03a3685ea7e05.jpg" alt="產品介紹 7" loading="lazy">
+    </div>
+    <p class="pd-manual-note">↑ 點圖可看大圖　·　共 7 張 · 由農友提供</p>
+  </div>
+</section>
+
 <!-- ═══ SPEC TABLE ═══ -->
 <section class="pd-spec">
   <div class="container">
@@ -532,5 +558,6 @@ document.querySelectorAll('.pd-opts').forEach(grp=>{
 <script src="js/nav-actions.js" defer></script>
 <script src="js/mobile-nav.js" defer></script>
 <script src="js/tfa-youtube.js" defer></script>
+<script src="js/pd-manual.js" defer></script>
 </body>
 </html>

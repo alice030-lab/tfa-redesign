@@ -18,6 +18,7 @@ FarmerGalleryItem             農場一日 gallery 子項（1:N）
 FarmerGlance                  策展數字條（1:N，見 09）
 Product                       商品
 ProductTraceabilityStep       商品履歷時間軸（1:N，見 09）
+ProductManualImage            產品敘述一頁式圖（1:N，見 09）
 ProductDraft                  商品草稿（自助上架用，見 07）
 Category                      分類
 Brand                         品牌
@@ -157,6 +158,7 @@ created_at, updated_at
   belongsToMany seasons
   hasMany reviews
   hasMany traceabilitySteps    product_traceability_steps（履歷時間軸）
+  hasMany manualImages         product_manual_images（產品敘述一頁式圖）
 ```
 
 ### ProductTraceabilityStep（商品履歷時間軸）
@@ -171,6 +173,28 @@ description     string                     描述（300 字內）
 
 索引：(product_id, sort_order)
 ```
+
+### ProductManualImage（產品敘述一頁式圖）
+農友自製的 EDM / 一頁式宣傳圖，垂直堆疊呈現。
+參考真實案例 https://www.tfa.com.tw/productInfo/1071
+```
+id              bigint, PK
+product_id      bigint, FK → products
+sort_order      int                        排序，從上到下
+image_url       string                     完整 CDN URL
+width           int?                       原始寬度（前端可用來算 aspect-ratio 避免 layout shift）
+height          int?
+alt             string?
+created_at, updated_at
+
+索引：(product_id, sort_order)
+```
+
+> 為什麼獨立成表，不用 JSON：
+> - 每件商品的圖數量不固定（1-20+ 都有可能）
+> - 後台要支援拖曳排序
+> - 將來可能加每張圖的 caption / 連結（例如點擊跳到買頁）
+> - 多型也可，但商品的「敘述圖」與「主圖」用途差很多，分開比較清楚
 
 ### Category
 ```

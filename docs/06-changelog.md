@@ -25,6 +25,34 @@
 
 ---
 
+## 2026-04-29 — Product Manual（一頁式圖容器）
+
+**作者：** 前端  
+**影響面：** 前端 + 後端 + DBA  
+**異動類型：** Non-breaking（新增功能）
+
+### 變更內容
+- `product-detail.html`：新增 Product Manual section（在商品故事和規格表之間）
+  - 用真實 TFA 商品（productInfo/1071 宮北莓莓醋禮盒）的 7 張圖當 demo
+  - 容器 max-width 880px 置中，圖片無間距堆疊
+- `css/styles.css`：新增 `.pd-manual` / `.pd-manual-stack` / `.pd-manual-lightbox`
+- `js/pd-manual.js`（新檔）：點圖開 lightbox，支援上下/左右鍵 + ESC + 點背景關閉
+- `docs/03-data-models.md`：新增 ProductManualImage 模型，Product 加 hasMany manualImages
+- `docs/09-templating-feasibility.md`：補上 Product Manual 區塊的 schema + Blade
+
+### 給後端的新增
+```sql
+CREATE TABLE product_manual_images (
+  id, product_id, sort_order,
+  image_url, width, height, alt,
+  INDEX (product_id, sort_order)
+);
+```
+
+後台支援拖曳排序 + 多張圖批次上傳。
+
+---
+
 ## 2026-04-29 — 模板化可行性盤點 + 拿掉 SVG 地圖
 
 **作者：** 前端  
