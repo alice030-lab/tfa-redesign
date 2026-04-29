@@ -3506,6 +3506,149 @@ body.na-locked{overflow:hidden}
 .load-more-hint a:hover{background:var(--vermillion);color:#fff;border-color:var(--vermillion)}
 
 /* ══════════════════════════════════════════════
+   tfa-youtube: Lite YouTube Embed
+   點縮圖才載 iframe，省 ~500KB JS + 隱私加分
+   ══════════════════════════════════════════════ */
+
+/* 主播放器（站內展開型） */
+.tfa-yt{
+  position:relative;
+  aspect-ratio:16/9;
+  background:#000;
+  cursor:pointer;
+  overflow:hidden;
+  border-radius:2px;
+  border:1px solid var(--rule);
+  isolation:isolate;
+  transition:border-color .3s,box-shadow .3s;
+}
+.tfa-yt:focus-visible{outline:2px solid var(--vermillion);outline-offset:3px}
+.tfa-yt:hover{border-color:var(--vermillion);box-shadow:0 12px 28px -14px rgba(30,40,32,.35)}
+.tfa-yt.is-playing{cursor:default;border-color:var(--ink)}
+.tfa-yt.is-playing:hover{box-shadow:none}
+
+.tfa-yt-thumb{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .35s;
+}
+.tfa-yt:hover .tfa-yt-thumb{transform:scale(1.045);filter:brightness(.82) saturate(1.1)}
+
+.tfa-yt-play{
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:72px;height:50px;
+  border:0;background:transparent;cursor:pointer;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  z-index:2;
+}
+.tfa-yt-play svg{width:100%;height:100%;display:block}
+.tfa-yt:hover .tfa-yt-play{transform:translate(-50%,-50%) scale(1.12)}
+.tfa-yt:active .tfa-yt-play{transform:translate(-50%,-50%) scale(.95)}
+
+.tfa-yt-caption{
+  position:absolute;left:1.1rem;bottom:1rem;right:5rem;z-index:2;
+  color:#fff;
+  font-family:var(--font-serif);font-size:1rem;line-height:1.45;
+  letter-spacing:.04em;
+  text-shadow:0 2px 10px rgba(0,0,0,.65);
+  opacity:.95;pointer-events:none;
+  transition:opacity .25s;
+}
+.tfa-yt-caption.is-playing{opacity:0}
+
+/* 漸層遮罩讓字更清楚 */
+.tfa-yt::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:50%;z-index:1;
+  background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%);
+  pointer-events:none;
+  transition:opacity .25s;
+}
+.tfa-yt.is-playing::after{opacity:0}
+
+.tfa-yt iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;
+}
+
+/* 影片區塊外的小標籤（type: youtube） */
+.tfa-yt-tag{
+  position:absolute;top:.85rem;left:.9rem;z-index:2;
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.25rem .55rem;
+  background:rgba(255,255,255,.92);
+  font-family:var(--font-latin);font-size:.6rem;letter-spacing:.18em;
+  color:var(--ink);text-transform:uppercase;border-radius:2px;
+}
+.tfa-yt-tag::before{content:"";width:8px;height:8px;background:#f00;border-radius:50%;display:inline-block}
+
+/* ── 列表卡片版（小縮圖 + 標題，多半外連到 YT）── */
+.tfa-yt-card{
+  display:flex;flex-direction:column;gap:.6rem;
+  text-decoration:none;color:var(--ink);
+  transition:transform .3s;
+}
+.tfa-yt-card:hover{transform:translateY(-3px)}
+.tfa-yt-card-thumb{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:#000;border-radius:2px;border:1px solid var(--rule);
+  transition:border-color .25s;
+}
+.tfa-yt-card:hover .tfa-yt-card-thumb{border-color:var(--vermillion)}
+.tfa-yt-card-thumb img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .5s,filter .3s;
+}
+.tfa-yt-card:hover .tfa-yt-card-thumb img{transform:scale(1.06);filter:brightness(.85)}
+.tfa-yt-card-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:48px;height:34px;
+  background:rgba(255,0,0,.92);color:#fff;
+  border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;line-height:1;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.4));
+  transition:transform .3s,background .25s;
+}
+.tfa-yt-card:hover .tfa-yt-card-play{transform:translate(-50%,-50%) scale(1.1);background:#f00}
+.tfa-yt-card-title{
+  font-family:var(--font-serif);font-size:.96rem;
+  line-height:1.45;color:var(--ink);font-weight:400;
+  margin:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.tfa-yt-card:hover .tfa-yt-card-title{color:var(--vermillion)}
+.tfa-yt-card-meta{
+  font-family:var(--font-latin);font-size:.7rem;letter-spacing:.12em;
+  color:var(--ink-light);text-transform:uppercase;
+}
+
+/* ── 影片區塊 wrapper（含上方標題列）── */
+.tfa-yt-block{display:flex;flex-direction:column;gap:.85rem;margin:2rem 0}
+.tfa-yt-block-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule);
+}
+.tfa-yt-block-kicker{
+  font-family:var(--font-latin);font-size:.66rem;letter-spacing:.28em;
+  color:var(--vermillion);text-transform:uppercase;
+}
+.tfa-yt-block-title{
+  font-family:var(--font-serif);font-size:1.35rem;color:var(--ink);
+  font-weight:400;margin:.2rem 0 0;letter-spacing:.04em;
+}
+@media(max-width:640px){
+  .tfa-yt-block-title{font-size:1.15rem}
+  .tfa-yt-caption{font-size:.86rem;right:4rem}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .tfa-yt-thumb,.tfa-yt-play,.tfa-yt-card-thumb img,.tfa-yt-card-play{
+    transition:none !important;transform:none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════
    loader: 稻穗生長 Loading
    ══════════════════════════════════════════════ */
 body.tfa-loader-lock{overflow:hidden}

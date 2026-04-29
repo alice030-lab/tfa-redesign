@@ -25,6 +25,34 @@
 
 ---
 
+## 2026-04-29 — 媒體策略：影片走 YouTube、圖片走 Cloudflare
+
+**作者：** 前端  
+**影響面：** 全部  
+**異動類型：** Non-breaking（新增功能）
+
+### 變更內容
+- 新增 `docs/08-media-strategy.md`，定案影片用 YouTube Lite Embed、圖片用 Cloudflare R2 + Image Transformations
+- 新增 `js/tfa-youtube.js`，提供 `.tfa-yt` / `.tfa-yt-card` 兩種元件 + `TFAYouTube.create / activate / extractId` API
+- `css/styles.css` 新增 `.tfa-yt-*` 樣式（含 reduced-motion fallback）
+- `farmer-detail.html` 加影片區塊（主播放器 + 3 張列表卡）
+- `product-detail.html` 加影片區塊（主播放器，採蜜實錄）
+- 17 頁 HTML inject `js/tfa-youtube.js`
+
+### 對後端 / DB 的影響（給後端同仁）
+- `media` 表新增欄位：
+  - `provider` ENUM('upload','youtube') DEFAULT 'upload'
+  - `youtube_id` VARCHAR(20) NULL
+  - `duration_sec` INT NULL
+  - `thumbnail_url` VARCHAR(500) NULL
+- 新 endpoint：`POST /api/seller/media/youtube`（接 url、抽 id、撈 oEmbed、存表）
+- 詳細實作 checklist 在 `08-media-strategy.md` §5
+
+### 預計上線
+- 文件即時生效；後端視排程跟進
+
+---
+
 ## 2026-04-29 — 文件初版建立
 
 **作者：** 前端  
