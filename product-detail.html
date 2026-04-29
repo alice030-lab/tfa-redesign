@@ -255,9 +255,17 @@
         </div>
 
         <div class="pd-cta">
-          <button class="pd-add">加入購物車</button>
+          <button class="pd-add" type="button" data-product-id="101"
+                  onclick="(function(b){if(b.classList.contains('is-added'))return;b.classList.add('is-added');var t=b.textContent;b.textContent='✓ 已加入購物車';var badge=document.querySelector('nav.main .cart-count');if(badge){badge.textContent=String((parseInt(badge.textContent)||0)+1);badge.hidden=false}setTimeout(function(){b.classList.remove('is-added');b.textContent=t},1800)})(this)">
+            加入購物車
+          </button>
           <a href="checkout.html" class="pd-buy">直接結帳 →</a>
-          <button class="pd-fav" aria-label="收藏"><svg class="g-icn g-icn-md" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button>
+          <button class="pd-fav" type="button" aria-label="收藏" aria-pressed="false"
+                  onclick="(function(b){var on=b.classList.toggle('is-faved');b.setAttribute('aria-pressed',on?'true':'false');b.setAttribute('aria-label',on?'已收藏':'收藏')})(this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
         </div>
 
         <ul class="pd-promises">

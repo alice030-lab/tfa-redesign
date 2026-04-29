@@ -2963,13 +2963,19 @@ body.na-locked{overflow:hidden}
 .pd-qty button:hover{border-color:var(--pine);color:var(--pine)}
 .pd-qty input{width:56px;height:36px;text-align:center;border:1px solid rgba(28,51,42,.18);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.95rem}
 .pd-stock{font-family:'Noto Sans TC',sans-serif;font-size:.78rem;color:#8a8778;margin-left:.4rem}
-.pd-cta{display:flex;gap:.6rem;margin:1.5rem 0 1.6rem}
-.pd-add{flex:1;padding:1rem 1.5rem;background:#fff;border:1.5px solid var(--pine);color:var(--pine);border-radius:8px;font-family:'Noto Sans TC',sans-serif;font-size:.98rem;font-weight:500;cursor:pointer;transition:all .2s ease}
+.pd-cta{display:flex;gap:.6rem;margin:1.5rem 0 1.6rem;align-items:stretch}
+.pd-add{flex:1;padding:1rem 1.5rem;background:#fff;border:1.5px solid var(--pine);color:var(--pine);border-radius:8px;font-family:'Noto Sans TC',sans-serif;font-size:.98rem;font-weight:500;cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;justify-content:center;gap:.5rem}
 .pd-add:hover{background:var(--pine);color:#fff}
+.pd-add.is-added{background:var(--pine);color:#fff;border-color:var(--pine)}
 .pd-buy{flex:1.2;display:flex;align-items:center;justify-content:center;padding:1rem 1.5rem;background:var(--ink);color:#fff;border-radius:8px;font-family:'Noto Sans TC',sans-serif;font-size:.98rem;font-weight:500;transition:background .2s ease}
 .pd-buy:hover{background:var(--pine)}
-.pd-fav{width:52px;height:52px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,51,42,.18);background:#fff;border-radius:8px;color:var(--ink);cursor:pointer;transition:all .2s ease}
+/* 愛心 icon：用 aspect-ratio 跟兄弟同高、自動成正方形 */
+.pd-fav{flex:0 0 auto;align-self:stretch;aspect-ratio:1;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,51,42,.18);background:#fff;border-radius:8px;color:var(--ink);cursor:pointer;transition:all .25s ease}
+.pd-fav svg{width:22px;height:22px;transition:transform .25s ease}
 .pd-fav:hover{color:#c0392b;border-color:#c0392b}
+.pd-fav:hover svg{transform:scale(1.1)}
+.pd-fav.is-faved{color:#c0392b;border-color:#c0392b;background:rgba(192,57,43,.06)}
+.pd-fav.is-faved svg{fill:currentColor}
 .pd-promises{list-style:none;padding:1.2rem 1.4rem;background:#faf7f0;border-radius:10px}
 .pd-promises li{font-family:'Noto Sans TC',sans-serif;font-size:.86rem;color:#444;padding:.35rem 0;display:flex;align-items:center;gap:.55rem}
 .pd-promises .ico{font-size:1.05rem}
@@ -3153,9 +3159,11 @@ body.na-locked{overflow:hidden}
 @media (max-width:560px){
   .pd-title{font-size:1.75rem}
   .pd-price{font-size:1.9rem}
-  .pd-cta{flex-wrap:wrap}
-  .pd-add,.pd-buy{flex:1 1 100%}
-  .pd-fav{flex:1}
+  /* 手機：pd-add + pd-fav 同列、pd-buy 第二列 */
+  .pd-cta{flex-wrap:wrap;gap:.55rem}
+  .pd-add{flex:1 1 auto;order:1}
+  .pd-fav{flex:0 0 52px;order:2;aspect-ratio:1}
+  .pd-buy{flex:1 1 100%;order:3}
   .pd-timeline{grid-template-columns:repeat(2,1fr)}
   .co-header-inner{flex-wrap:wrap;gap:1rem}
   .co-back{display:none}
