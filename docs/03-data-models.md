@@ -17,7 +17,6 @@ FarmerGallery                 農場一日 gallery 主檔（1:1）
 FarmerGalleryItem             農場一日 gallery 子項（1:N）
 FarmerGlance                  策展數字條（1:N，見 09）
 Product                       商品
-ProductTraceabilityStep       商品履歷時間軸（1:N，見 09）
 ProductManualImage            產品敘述一頁式圖（1:N，見 09）
 ProductDraft                  商品草稿（自助上架用，見 07）
 Category                      分類
@@ -157,21 +156,7 @@ created_at, updated_at
   belongsToMany categories
   belongsToMany seasons
   hasMany reviews
-  hasMany traceabilitySteps    product_traceability_steps（履歷時間軸）
   hasMany manualImages         product_manual_images（產品敘述一頁式圖）
-```
-
-### ProductTraceabilityStep（商品履歷時間軸）
-詳見 09-templating-feasibility.md §3。
-```
-id              bigint, PK
-product_id      bigint, FK → products
-sort_order      int
-date_label      string                     '04/20 穀雨' / '04/22'
-step_title      string                     '花期第 21 天' / '搖蜜'
-description     string                     描述（300 字內）
-
-索引：(product_id, sort_order)
 ```
 
 ### ProductManualImage（產品敘述一頁式圖）

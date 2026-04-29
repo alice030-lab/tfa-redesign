@@ -226,25 +226,6 @@ product_manual_images (
 - 圖片之間 0 間距（多張通常是接續設計）
 - 點圖開 lightbox（已實作於 `js/pd-manual.js`）
 
-#### Traceability Timeline「這罐蜜的 14 天」
-
-```sql
-product_traceability_steps (
-  id              bigint PK
-  product_id      FK → products
-  sort_order      int
-  date_label      varchar(50)         例：'04/20 穀雨' / '04/22'
-  step_title      varchar(100)        例：'花期第 21 天' / '搖蜜'
-  description     varchar(300)
-)
-```
-
-**為什麼必須動態：** 每件商品的流程完全不同：
-- 蜂蜜：花期 → 搖蜜 → 濃縮 → SGS → 裝瓶 → 出貨
-- 茶葉：採摘 → 萎凋 → 揉捻 → 烘焙 → 包裝
-- 米：插秧 → 抽穗 → 收割 → 烘乾 → 碾製
-- 醃漬品：原料 → 清洗 → 醃製 → 發酵 → 殺菌 → 包裝
-
 ---
 
 ## 4. 後端必須增加的 schema 整理（給後端清單）
@@ -307,17 +288,6 @@ CREATE TABLE farmer_glances (
   unit VARCHAR(20) NULL,
   label VARCHAR(50) NOT NULL,
   INDEX (farmer_id, sort_order)
-);
-
--- 商品履歷時間軸
-CREATE TABLE product_traceability_steps (
-  id BIGINT PK AUTO_INCREMENT,
-  product_id BIGINT NOT NULL,
-  sort_order INT DEFAULT 0,
-  date_label VARCHAR(50),
-  step_title VARCHAR(100),
-  description VARCHAR(300),
-  INDEX (product_id, sort_order)
 );
 
 -- 產品敘述一頁式圖
