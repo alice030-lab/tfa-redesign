@@ -25,6 +25,54 @@
 
 ---
 
+## 2026-04-29 — 移除評價系統，改為「已購買數」純計數
+
+**作者：** 前端  
+**影響面：** 前端 + 後端 + DBA + 客服流程  
+**異動類型：** Breaking（移除規劃中功能）
+
+### 決策背景
+評價系統技術上不難（5-10 天可完成），但**運營成本是無限的**：
+誰每天看新評價、處理檢舉、回應一星客訴、過濾灌票…
+經評估，目前團隊規模不適合上線即開放評價。
+改採「已被多少顧客購買過」純計數，傳達熱度，不接受評論文字。
+
+### 變更內容
+
+#### 程式碼
+- `product-detail.html`：
+  - 移除 hero 內的 `.pd-rating`（5 顆星 + 4.9 + 186 則 + 已售 2347）
+  - 改成新的 `.pd-buyers` pill：圖標 + 「2,347 位顧客買過」
+  - 移除整個 `<section class="pd-reviews">`（含 3 則範例評論、分項條、看更多）
+- `css/styles.css`：新增 `.pd-buyers` 樣式（pine 配色 pill）
+
+#### 文件
+- `docs/03-data-models.md`：
+  - **移除** `Review` 模型完整定義
+  - **移除** Product `hasMany reviews` 關聯
+  - **移除** 模型清單裡的 Review
+  - **新增** `Product.purchase_count` 欄位（int，計數，建議用 cached counter）
+- `docs/02-api-contract.md`：
+  - **移除** `POST /api/reviews` endpoint
+  - 商品列表欄位 `rating / rating_count / sold_count` → 改為單一 `purchase_count`
+  - 商品詳情 `reviews_summary` → 移除
+  - 商品詳情 multi 欄位加 `manual_images`
+
+### 對後端的影響
+- **不用做** reviews 表、reviews CRUD、審核流程、檢舉
+- **要做** products 加欄位 `purchase_count INT DEFAULT 0`
+- **要做** 訂單付款成功時 +1（在 OrderObserver 或 webhook 處理）
+- **要做** （或可選）每日排程重算一次校正快取
+
+### 未來反悔成本
+若日後改變主意要做評價系統，這份決策**不會卡住**：
+- DB 可以再加 reviews 表
+- API 可以再開 endpoint
+- 前端 UI 已存在備份在 git 歷史（commit a36640e 之前）
+但運營流程必須先準備好（誰回客訴、誰審檢舉）。
+
+---
+
 ## 2026-04-29 — Product Manual（一頁式圖容器）
 
 **作者：** 前端  

@@ -2920,6 +2920,29 @@ body.na-locked{overflow:hidden}
 .pd-rating{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.4rem;font-family:'Noto Sans TC',sans-serif;font-size:.85rem;color:#666}
 .pd-rating .stars{color:#d4a53a;letter-spacing:.1em}
 .pd-rating .rate-num{font-weight:500;color:var(--ink)}
+
+/* 已購買數（取代評星）*/
+.pd-buyers{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.55rem .9rem;
+  background:rgba(58,90,76,.06);
+  border:1px solid rgba(58,90,76,.15);
+  border-radius:999px;
+  margin-bottom:1.4rem;
+  font-family:'Noto Sans TC',sans-serif;font-size:.88rem;
+  color:var(--ink-mid);
+  width:fit-content;
+}
+.pd-buyers-icn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:18px;height:18px;color:var(--pine);flex-shrink:0;
+}
+.pd-buyers-icn svg{width:18px;height:18px}
+.pd-buyers-num{
+  font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:500;
+  color:var(--pine);letter-spacing:.02em;
+}
+.pd-buyers-lbl{color:var(--ink-mid);letter-spacing:.04em}
 .pd-price-row{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;padding:1.2rem 0;border-top:1px solid rgba(28,51,42,.08);border-bottom:1px solid rgba(28,51,42,.08);margin-bottom:1.4rem}
 .pd-price{font-family:'DM Sans',sans-serif;font-size:2.4rem;font-weight:500;color:var(--ink)}
 .pd-strike{font-family:'DM Sans',sans-serif;font-size:1.05rem;color:#b8b5a8;text-decoration:line-through}

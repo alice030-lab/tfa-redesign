@@ -28,7 +28,6 @@ OrderItem                     訂單品項
 Address                       地址
 Cart                          購物車
 CartItem                      購物車品項
-Review                        評價
 FarmerApplication             農友申請（join-farmer.html / contact.html#join）
 ContactMessage                一般洽詢訊息（contact.html）
 Media                         圖片 / 影片統一表（見 08）
@@ -138,6 +137,9 @@ sku             string?, unique
 name            string
 tagline         string?                    商品故事主標：'四月下旬，我們跟著龍眼花走了一千公里'
 spec            string                     例：1800g · 雲嘉南龍眼花期
+purchase_count  int                        累計購買人數（取代評價系統，僅顯示已被多少顧客購買）
+                                            // 計算方式：COUNT(DISTINCT user_id) FROM order_items JOIN orders WHERE status='paid' GROUP BY product_id
+                                            // 建議用 cached counter（每筆訂單付款成功時 +1），避免每次查 SQL
 description     text                       商品描述（HTML，富文本）
 price           int                        現價
 strike_price    int?                       原價（劃掉）
@@ -157,6 +159,7 @@ created_at, updated_at
   belongsToMany seasons
   hasMany reviews
   hasMany manualImages         product_manual_images（產品敘述一頁式圖）
+  // 註：Review 關聯已於 2026-04-29 移除，改用 purchase_count 計數欄位
 ```
 
 ### ProductManualImage（產品敘述一頁式圖）
@@ -311,18 +314,9 @@ qty             int
 spec            string?                    選的規格
 ```
 
-### Review
-```
-id              bigint, PK
-product_id      bigint, FK → products
-user_id         bigint, FK → users
-order_id        bigint, FK → orders        確認真的買過
-rating          int                        1-5
-body            text
-images          Image[]?
-status          enum('pending', 'published', 'hidden')
-created_at, updated_at
-```
+<!-- Review 模型已移除（2026-04-29） -->
+<!-- 改為 Product.purchase_count 純計數欄位，不做評分 / 評論系統 -->
+<!-- 詳見 docs/06-changelog.md 該日期條目 -->
 
 ### FarmerApplication
 ```

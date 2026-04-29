@@ -154,9 +154,7 @@
       "price": 1200,
       "strike_price": 1380,
       "stock": 28,
-      "rating": 4.9,
-      "rating_count": 186,
-      "sold_count": 2347,
+      "purchase_count": 2347,
       "images": [
         { "url": "...", "thumb": "...", "alt": "正面" },
         { "url": "...", "thumb": "..." }
@@ -187,8 +185,8 @@
 - `description`（HTML，富文本）
 - `specs`（規格選項陣列）
 - `gallery`（多張照片）
+- `manual_images`（產品敘述一頁式圖陣列）
 - `nutrition`（營養標示）
-- `reviews_summary`（5/4/3/2/1 星各幾則）
 - `farmer_story_excerpt`（農友簡述）
 
 #### `GET /api/products/{slug}/related`
@@ -373,21 +371,6 @@
 
 #### `GET /api/orders/{order_no}`
 訂單詳情。
-
----
-
-### 評價
-
-#### `POST /api/reviews`
-```json
-{
-  "product_id": 101,
-  "order_no": "TFA20260429-0001",
-  "rating": 5,
-  "body": "..."
-}
-```
-**前端不要顯示「沒買過也能評」的入口**，後端會擋。
 
 ---
 
