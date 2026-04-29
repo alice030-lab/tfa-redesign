@@ -2969,9 +2969,9 @@ body.na-locked{overflow:hidden}
 .pd-add.is-added{background:var(--pine);color:#fff;border-color:var(--pine)}
 .pd-buy{flex:1.2;display:flex;align-items:center;justify-content:center;padding:1rem 1.5rem;background:var(--ink);color:#fff;border-radius:8px;font-family:'Noto Sans TC',sans-serif;font-size:.98rem;font-weight:500;transition:background .2s ease}
 .pd-buy:hover{background:var(--pine)}
-/* 愛心 icon：用 aspect-ratio 跟兄弟同高、自動成正方形 */
-.pd-fav{flex:0 0 auto;align-self:stretch;aspect-ratio:1;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,51,42,.18);background:#fff;border-radius:8px;color:var(--ink);cursor:pointer;transition:all .25s ease}
-.pd-fav svg{width:22px;height:22px;transition:transform .25s ease}
+/* 愛心 icon：固定寬度 4.2rem (67px)，高度由 align-self:stretch 撐到兄弟同高 → 接近正方形 */
+.pd-fav{flex:0 0 4.2rem;align-self:stretch;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,51,42,.18);background:#fff;border-radius:8px;color:var(--ink);cursor:pointer;transition:all .25s ease}
+.pd-fav svg{width:24px;height:24px;transition:transform .25s ease}
 .pd-fav:hover{color:#c0392b;border-color:#c0392b}
 .pd-fav:hover svg{transform:scale(1.1)}
 .pd-fav.is-faved{color:#c0392b;border-color:#c0392b;background:rgba(192,57,43,.06)}
