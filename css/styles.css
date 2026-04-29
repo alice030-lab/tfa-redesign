@@ -1779,9 +1779,9 @@ body.na-locked{overflow:hidden}
 .na-cart-total{
   display:flex;justify-content:space-between;align-items:baseline;
   margin-bottom:.3rem;
-  color:var(--vermillion);
+  color:var(--pine);
 }
-.na-cart-sum{font-size:1.3rem;color:var(--vermillion);font-weight:600}
+.na-cart-sum{font-size:1.3rem;color:var(--pine);font-weight:600}
 .na-cart-note{font-size:.75rem;color:#6b7a68;margin:.2rem 0 .9rem}
 .na-cart-cta{
   display:block;text-align:center;text-decoration:none;
