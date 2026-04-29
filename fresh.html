@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>當季鮮食 — 台灣鮮農</title>
+<meta name="description" content="蔬菜、水果、肉品、海鮮、蛋品米麵——當天從產地直送的台灣鮮味。台灣鮮農的當季鮮食總覽。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* hub 頁通用 */
+.hub-hero{padding:3.6rem 0 2.6rem;background:linear-gradient(180deg,var(--paper) 0%,var(--paper-warm) 100%);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.hub-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(58,90,76,.08) 0,transparent 55%);pointer-events:none}
+.hub-hero-inner{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.hub-hero-icn{width:64px;height:64px;color:var(--pine);background:rgba(58,90,76,.08);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.hub-hero-icn svg{width:32px;height:32px;stroke:currentColor;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hub-kicker{font-family:var(--font-latin);font-size:.78rem;letter-spacing:.28em;color:var(--vermillion);text-transform:uppercase;margin-bottom:.6rem;display:inline-block}
+.hub-h1{font-family:var(--font-serif);font-size:clamp(2rem,3.6vw,3rem);line-height:1.2;font-weight:500;color:var(--ink);margin:0 0 .9rem;letter-spacing:.04em}
+.hub-lead{font-family:var(--font-serif);font-size:1.05rem;line-height:1.85;color:var(--ink-mid);margin:0;max-width:38em}
+.hub-stats{display:flex;gap:2rem;flex-wrap:wrap;font-family:var(--font-latin);font-size:.74rem;letter-spacing:.18em;color:var(--ink-light);text-transform:uppercase;align-self:flex-end}
+.hub-stats strong{font-family:var(--font-serif);font-size:1.25rem;color:var(--pine);font-weight:500;display:block;margin-bottom:.2rem;letter-spacing:.02em}
+
+/* sub-category tabs（橫向，可滾）*/
+.hub-tabs-bar{position:sticky;top:4.5rem;z-index:8;background:var(--paper);border-bottom:1px solid var(--rule);padding:.4rem 0}
+@media(min-width:1024px){.hub-tabs-bar{top:5rem}}
+.hub-tabs{display:flex;gap:.4rem;overflow-x:auto;padding:.4rem 0;-webkit-overflow-scrolling:touch}
+.hub-tabs::-webkit-scrollbar{height:4px}
+.hub-tabs::-webkit-scrollbar-thumb{background:rgba(28,51,42,.15);border-radius:2px}
+.hub-tab{flex-shrink:0;display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.1rem;background:transparent;border:1px solid var(--rule);border-radius:999px;font-family:var(--font-serif);font-size:.95rem;color:var(--ink-mid);cursor:pointer;transition:all .25s ease;letter-spacing:.04em}
+.hub-tab:hover{border-color:var(--pine);color:var(--pine)}
+.hub-tab.active{background:var(--pine);border-color:var(--pine);color:var(--paper)}
+.hub-tab .icn{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center}
+.hub-tab .icn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.hub-tab .count{font-family:var(--font-latin);font-size:.7rem;letter-spacing:.1em;color:inherit;opacity:.65;margin-left:.15rem}
+
+/* 過濾列 */
+.hub-filter{padding:1.4rem 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.hub-result-count{font-family:var(--font-latin);font-size:.78rem;letter-spacing:.18em;color:var(--ink-light);text-transform:uppercase}
+.hub-result-count strong{font-family:var(--font-serif);font-size:1.4rem;color:var(--pine);margin-right:.4rem;letter-spacing:.02em}
+.hub-sort{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-size:.92rem;color:var(--ink-mid)}
+.hub-sort select{padding:.5rem .9rem;background:var(--paper-warm);border:1px solid var(--rule);font-family:inherit;font-size:.92rem;color:var(--ink);cursor:pointer}
+.hub-sort select:focus{outline:none;border-color:var(--pine)}
+
+/* panel & grid */
+.hub-body{padding:2rem 0 4rem;background:var(--paper)}
+.hub-panel{display:none}
+.hub-panel.is-active{display:block;animation:hubFadeIn .35s ease both}
+@keyframes hubFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hub-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(min-width:640px){.hub-grid{grid-template-columns:repeat(3,1fr);gap:1.25rem}}
+@media(min-width:1024px){.hub-grid{grid-template-columns:repeat(4,1fr);gap:1.4rem}}
+
+.hub-loadmore{text-align:center;padding:2.4rem 0 .5rem}
+.hub-loadmore button{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.95rem 2rem;background:var(--paper-warm);
+  border:1px solid var(--pine);color:var(--pine);
+  font-family:var(--font-serif);font-size:.98rem;letter-spacing:.06em;
+  cursor:pointer;transition:all .25s ease;
+}
+.hub-loadmore button:hover{background:var(--pine);color:var(--paper)}
+</style>
+<script src="js/loader.js"></script>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">滿 <strong style="color:var(--pine)">NT$ 999</strong> 免運<span class="dot"></span>全台產地直送<span class="dot"></span><a href="join-farmer.html">成為農友</a></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="main">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="台灣鮮農 Taiwan Freshness Agriculture" class="brand-logo">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-has-sub">
+        <a href="brand.html">品牌故事</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">About · 關於</p><ul><li><a href="brand.html">台灣鮮農</a></li><li><a href="brand.html#origin">我們的起點 <span class="en">Origin</span></a></li><li><a href="brand.html#mission">品牌信念 <span class="en">Mission</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Promise · 承諾</p><ul><li><a href="brand.html#mit">堅持 MIT</a></li><li><a href="brand.html#coop">合作社夥伴</a></li><li><a href="brand.html#safety">食安把關</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Service · 服務</p><ul><li><a href="brand.html#consumer">一般消費</a></li><li><a href="brand.html#coop-biz">社間互助</a></li><li><a href="contact.html">聯絡我們 <span class="en">Contact</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="farmers.html">農友夥伴</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="farmers.html">全部農友 <span class="en">All</span></a></li><li><a href="farmers.html">本月農友誌 <span class="pill">New</span></a></li><li><a href="farmers.html">最新加入 <span class="en">Latest</span></a></li><li><a href="join-farmer.html">成為農友 <span class="en">Join</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Stories · 故事</p><ul><li><a href="index.html#shorts">農友專訪</a></li><li><a href="index.html#shorts">產地報導</a></li><li><a href="farmers.html#films">紀錄片 <span class="en">Films</span></a></li><li><a href="farmers.html#shorts">短影音 <span class="en">Shorts</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Topics · 專題</p><ul><li><a href="story-homecoming.html">返鄉青農 <span class="en">Homecoming</span></a></li><li><a href="story-2ndgen.html">接班二代 <span class="en">2nd Gen</span></a></li><li><a href="story-legacy.html">家族傳承 <span class="en">Legacy</span></a></li><li><a href="story-mastery.html">匠人職人 <span class="en">Mastery</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="products.html" class="active">在地產品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="products.html">全部商品 <span class="en">All</span></a></li><li><a href="products.html#hot">熱銷排行 <span class="en">Hot</span></a></li><li><a href="spring.html">本季新品 <span class="pill">New</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Fresh · 當季鮮食</p><ul><li><a href="fresh.html?cat=veg">蔬菜</a></li><li><a href="fresh.html?cat=fruit">水果</a></li><li><a href="fresh.html?cat=meat">肉品</a></li><li><a href="fresh.html?cat=seafood">海鮮</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Pantry · 廚房常備</p><ul><li><a href="pantry.html?cat=ready">料理即食</a></li><li><a href="pantry.html?cat=oil">油品調味</a></li><li><a href="pantry.html?cat=dry">南北貨</a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="spring.html">節氣選品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">This Term · 本節氣</p><ul><li><a href="spring.html#guyu">穀雨 <span class="pill">當節氣</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Upcoming · 近期</p><ul><li><a href="summer.html#lixia">立夏</a></li><li><a href="summer.html#xiaoman">小滿</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Archive · 總覽</p><ul><li><a href="spring.html">春</a></li><li><a href="summer.html">夏</a></li><li><a href="autumn.html">秋</a></li><li><a href="winter.html">冬</a></li></ul></div>
+        </div></div>
+      </li>
+      <li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">企業採購</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="搜尋"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg></button>
+      <a href="checkout.html" class="cart-wrap" aria-label="購物車">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="cart-count">2</span>
+      </a>
+      <a href="#" class="show-lg" style="font-size:.88rem">登入</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="breadcrumb" aria-label="麵包屑">
+  <div class="container">
+    <ol class="breadcrumb-list">
+      <li><a href="index.html">首頁</a></li>
+      <li class="sep">/</li>
+      <li><a href="products.html">在地產品</a></li>
+      <li class="sep">/</li>
+      <li class="current">當季鮮食</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hub-hero">
+  <div class="container">
+    <div class="hub-hero-inner">
+      <div>
+        <span class="hub-hero-icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V10"/><path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 10c3 0 5-2 5-5-3 0-5 2-5 5z"/></svg></span>
+        <span class="hub-kicker">Fresh · 當季鮮食</span>
+        <h1 class="hub-h1">從產地直送的當天，<br>是最短的距離</h1>
+        <p class="hub-lead">蔬菜、水果、肉品、海鮮、蛋品米麵——產地凌晨採收、當天裝箱、48 小時內到你家。我們連結 200+ 認證農友，每件都看得到名字。</p>
+      </div>
+      <div class="hub-stats">
+        <div><strong>238</strong>項商品</div>
+        <div><strong>5</strong>大分類</div>
+        <div><strong>48hr</strong>到家</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TABS BAR ═══ -->
+<div class="hub-tabs-bar">
+  <div class="container">
+    <div class="hub-tabs" role="tablist" aria-label="當季鮮食分類">
+      <button type="button" class="hub-tab active" data-tab="veg" role="tab" aria-selected="true">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4 0-7-3-7-7 0-2 1-4 3-5 0-3 2-5 4-5s4 2 4 5c2 1 3 3 3 5 0 4-3 7-7 7z"/><path d="M12 9v12"/></svg></span>
+        蔬菜<span class="count">62</span>
+      </button>
+      <button type="button" class="hub-tab" data-tab="fruit" role="tab" aria-selected="false">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-4 0-7 3-7 7 0 3 2 6 5 6 1 0 1.5-.5 2-.5s1 .5 2 .5c3 0 5-3 5-6 0-4-3-7-7-7z"/><path d="M12 8c0-2 1-4 4-5"/></svg></span>
+        水果<span class="count">48</span>
+      </button>
+      <button type="button" class="hub-tab" data-tab="meat" role="tab" aria-selected="false">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4c3 0 6 3 6 6 0 2-1 3-2 4l-8 8c-1 1-3 1-4 0s-1-3 0-4l8-8c1-1 2-2 4-2z"/><circle cx="7" cy="17" r="2"/></svg></span>
+        肉品<span class="count">54</span>
+      </button>
+      <button type="button" class="hub-tab" data-tab="seafood" role="tab" aria-selected="false">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c3-5 9-6 13-3l3-3v12l-3-3c-4 3-10 2-13-3z"/><circle cx="15" cy="11" r="1" fill="currentColor"/></svg></span>
+        海鮮<span class="count">36</span>
+      </button>
+      <button type="button" class="hub-tab" data-tab="egg" role="tab" aria-selected="false">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="13" rx="4" ry="6"/><path d="M18 5v14"/></svg></span>
+        蛋品米麵<span class="count">38</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FILTER BAR ═══ -->
+<section class="hub-body">
+  <div class="container">
+    <div class="hub-filter">
+      <p class="hub-result-count"><strong id="hub-count">62</strong>項商品 · <span id="hub-cat-name">蔬菜</span></p>
+      <label class="hub-sort">排序：
+        <select id="hub-sort">
+          <option value="latest">最新上架</option>
+          <option value="popular">最多人購買</option>
+          <option value="price-asc">價格由低到高</option>
+          <option value="price-desc">價格由高到低</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- 蔬菜 -->
+    <div class="hub-panel is-active" data-panel="veg" role="tabpanel">
+      <div class="hub-grid">
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-01.jpg" alt="高山有機青菜箱"></div><div class="product-body"><span class="product-brand">武陵農場</span><h3 class="product-name">高山有機青菜箱</h3><span class="product-spec">3kg · 10 種葉菜</span><div class="product-price">NT$ 680</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="埔里山茼蒿"></div><div class="product-body"><span class="product-brand">埔里合作社</span><h3 class="product-name">埔里山茼蒿</h3><span class="product-spec">600g × 2 把</span><div class="product-price">NT$ 220</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-03.jpg" alt="花蓮玉里A菜"></div><div class="product-body"><span class="product-brand">玉里農會</span><h3 class="product-name">花蓮玉里 A 菜</h3><span class="product-spec">400g × 3 把</span><div class="product-price">NT$ 180</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-04.jpg" alt="高麗菜禮盒"></div><div class="product-body"><span class="product-brand">大禹嶺</span><h3 class="product-name">高麗菜禮盒</h3><span class="product-spec">2.5kg × 2 顆</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-01.jpg" alt="本土甜椒"></div><div class="product-body"><span class="product-brand">竹塘農場</span><h3 class="product-name">彩色甜椒</h3><span class="product-spec">紅黃 1kg</span><div class="product-price">NT$ 320</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="有機番茄"></div><div class="product-body"><span class="product-brand">武陵農場</span><h3 class="product-name">小番茄禮盒</h3><span class="product-spec">600g × 3 盒</span><div class="product-price">NT$ 520</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-03.jpg" alt="洋蔥"></div><div class="product-body"><span class="product-brand">屏東洋蔥</span><h3 class="product-name">紅皮洋蔥</h3><span class="product-spec">3kg</span><div class="product-price">NT$ 280</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-01.jpg" alt="蘿蔔"></div><div class="product-body"><span class="product-brand">美濃合作社</span><h3 class="product-name">高雄美濃白玉蘿蔔</h3><span class="product-spec">2kg</span><div class="product-price">NT$ 240</div></div></a>
+      </div>
+      <div class="hub-loadmore"><button type="button">載入更多 · 還有 54 項</button></div>
+    </div>
+
+    <!-- 水果 -->
+    <div class="hub-panel" data-panel="fruit" role="tabpanel" hidden>
+      <div class="hub-grid">
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/fengyuan-01.jpg" alt="愛文芒果"></div><div class="product-body"><span class="product-brand">玉井果園</span><h3 class="product-name">愛文芒果禮盒</h3><span class="product-spec">2kg · 6-8 顆</span><div class="product-price">NT$ 680</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/fengyuan-02.jpg" alt="蓮霧"></div><div class="product-body"><span class="product-brand">屏東林邊</span><h3 class="product-name">黑珍珠蓮霧</h3><span class="product-spec">3kg</span><div class="product-price">NT$ 880</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/honey-01.jpg" alt="鳳梨"></div><div class="product-body"><span class="product-brand">大樹鳳梨</span><h3 class="product-name">金鑽鳳梨</h3><span class="product-spec">2 顆 · 約 3kg</span><div class="product-price">NT$ 380</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/honey-02.jpg" alt="水梨"></div><div class="product-body"><span class="product-brand">梨山果園</span><h3 class="product-name">梨山水梨</h3><span class="product-spec">8 顆禮盒</span><div class="product-price">NT$ 1,200</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/honey-03.jpg" alt="火龍果"></div><div class="product-body"><span class="product-brand">屏東農會</span><h3 class="product-name">紅肉火龍果</h3><span class="product-spec">3kg</span><div class="product-price">NT$ 580</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/honey-04.jpg" alt="蓮霧"></div><div class="product-body"><span class="product-brand">玉井合作社</span><h3 class="product-name">玉井愛文乾</h3><span class="product-spec">300g × 2 包</span><div class="product-price">NT$ 380</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="柳橙"></div><div class="product-body"><span class="product-brand">古坑柳橙</span><h3 class="product-name">古坑柳橙</h3><span class="product-spec">5kg 箱</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-03.jpg" alt="紅龍果"></div><div class="product-body"><span class="product-brand">屏東果園</span><h3 class="product-name">紅龍果禮盒</h3><span class="product-spec">3kg · 6 顆</span><div class="product-price">NT$ 620</div></div></a>
+      </div>
+      <div class="hub-loadmore"><button type="button">載入更多 · 還有 40 項</button></div>
+    </div>
+
+    <!-- 肉品 -->
+    <div class="hub-panel" data-panel="meat" role="tabpanel" hidden>
+      <div class="hub-grid">
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/fengyuan-01.jpg" alt="當歸羊肉拉麵"></div><div class="product-body"><span class="product-brand">豐園羊牧場</span><h3 class="product-name">當歸羊肉拉麵</h3><span class="product-spec">4 包組 · 每包 350g</span><div class="product-price">NT$ 880</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/fengyuan-02.jpg" alt="羊小排"></div><div class="product-body"><span class="product-brand">豐園羊牧場</span><h3 class="product-name">紐西蘭羊小排</h3><span class="product-spec">600g · 約 6-8 支</span><div class="product-price">NT$ 1,280</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-01.jpg" alt="老菜脯雞湯"></div><div class="product-body"><span class="product-brand">好呷覓</span><h3 class="product-name">老菜脯雞湯</h3><span class="product-spec">7 包組 · 每包 500g</span><div class="product-price">NT$ 1,000</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="麻油雞"></div><div class="product-body"><span class="product-brand">好呷覓</span><h3 class="product-name">原汁麻油雞</h3><span class="product-spec">3 包組 · 每包 600g</span><div class="product-price">NT$ 720</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-03.jpg" alt="香腸"></div><div class="product-body"><span class="product-brand">客家手工</span><h3 class="product-name">煙燻黑豬香腸</h3><span class="product-spec">600g</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-01.jpg" alt="鴨胸"></div><div class="product-body"><span class="product-brand">宜蘭鴨家</span><h3 class="product-name">櫻桃鴨胸</h3><span class="product-spec">300g × 2 片</span><div class="product-price">NT$ 580</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="豬五花"></div><div class="product-body"><span class="product-brand">屏東黑豬</span><h3 class="product-name">黑豬五花肉</h3><span class="product-spec">600g</span><div class="product-price">NT$ 420</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-03.jpg" alt="土雞"></div><div class="product-body"><span class="product-brand">嘉義放山雞</span><h3 class="product-name">放山土雞半隻</h3><span class="product-spec">約 800g</span><div class="product-price">NT$ 480</div></div></a>
+      </div>
+      <div class="hub-loadmore"><button type="button">載入更多 · 還有 46 項</button></div>
+    </div>
+
+    <!-- 海鮮 -->
+    <div class="hub-panel" data-panel="seafood" role="tabpanel" hidden>
+      <div class="hub-grid">
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-01.jpg" alt="鮭魚"></div><div class="product-body"><span class="product-brand">東港小琉球</span><h3 class="product-name">挪威鮭魚切片</h3><span class="product-spec">300g × 3 片</span><div class="product-price">NT$ 880</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="石斑魚"></div><div class="product-body"><span class="product-brand">屏東養殖</span><h3 class="product-name">龍膽石斑魚片</h3><span class="product-spec">600g</span><div class="product-price">NT$ 980</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-03.jpg" alt="蝦"></div><div class="product-body"><span class="product-brand">東港漁港</span><h3 class="product-name">無毒白蝦</h3><span class="product-spec">600g · 約 30 尾</span><div class="product-price">NT$ 720</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-01.jpg" alt="鱸魚"></div><div class="product-body"><span class="product-brand">嘉義朴子</span><h3 class="product-name">虱目魚肚</h3><span class="product-spec">200g × 4 片</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="蛤蜊"></div><div class="product-body"><span class="product-brand">彰化蛤蜊</span><h3 class="product-name">活凍蛤蜊</h3><span class="product-spec">1kg</span><div class="product-price">NT$ 380</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-03.jpg" alt="魷魚"></div><div class="product-body"><span class="product-brand">基隆漁港</span><h3 class="product-name">大魷魚切片</h3><span class="product-spec">600g</span><div class="product-price">NT$ 580</div></div></a>
+      </div>
+      <div class="hub-loadmore"><button type="button">載入更多 · 還有 30 項</button></div>
+    </div>
+
+    <!-- 蛋品米麵 -->
+    <div class="hub-panel" data-panel="egg" role="tabpanel" hidden>
+      <div class="hub-grid">
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-01.jpg" alt="花蓮米"></div><div class="product-body"><span class="product-brand">花蓮富里</span><h3 class="product-name">花蓮富里米</h3><span class="product-spec">2kg × 2 包</span><div class="product-price">NT$ 380</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-02.jpg" alt="池上米"></div><div class="product-body"><span class="product-brand">池上多力米</span><h3 class="product-name">池上有機米</h3><span class="product-spec">1.5kg × 3 包</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-03.jpg" alt="土雞蛋"></div><div class="product-body"><span class="product-brand">放山好蛋</span><h3 class="product-name">放山土雞蛋</h3><span class="product-spec">30 顆 / 盒</span><div class="product-price">NT$ 320</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/posesha-04.jpg" alt="蕎麥麵"></div><div class="product-body"><span class="product-brand">手工蕎麥</span><h3 class="product-name">日曬蕎麥麵線</h3><span class="product-spec">300g × 5 包</span><div class="product-price">NT$ 480</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-01.jpg" alt="鴨蛋"></div><div class="product-body"><span class="product-brand">宜蘭水鴨</span><h3 class="product-name">紅心鹹鴨蛋</h3><span class="product-spec">12 顆 / 盒</span><div class="product-price">NT$ 280</div></div></a>
+        <a href="product-detail.html" class="product-card sq"><div class="product-img"><img src="images/tfa/findfood-02.jpg" alt="關廟麵"></div><div class="product-body"><span class="product-brand">關廟阿婆</span><h3 class="product-name">日曬關廟麵</h3><span class="product-spec">500g × 4 包</span><div class="product-price">NT$ 380</div></div></a>
+      </div>
+      <div class="hub-loadmore"><button type="button">載入更多 · 還有 32 項</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-about">
+        <div class="foot-brand">
+          <div class="mark"><span class="zh">台鮮</span><span class="en">TFA</span></div>
+          <span class="foot-brand-name">台灣鮮農</span>
+        </div>
+        <p class="foot-desc">從 2019 年開始，我們走遍台灣 18 縣市，把 200+ 位認證農友帶到你家餐桌。每一份食材背後都有一個名字。</p>
+        <address class="foot-addr">
+          台北市中正區忠孝東路一段 100 號<br>
+          客服 (02) 2345-6789　／　service@tfa.com.tw<br>
+          週一至週五 9:00–18:00
+        </address>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><p class="foot-col-title">關於</p><ul><li><a href="brand.html">品牌故事</a></li><li><a href="farmers.html">合作農友</a></li><li><a href="join-farmer.html">成為農友</a></li><li><a href="contact.html">聯絡我們</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">購物</p><ul><li><a href="products.html">全部商品</a></li><li><a href="summer.html">節氣選品</a></li><li><a href="products.html#cat-giftbox">禮盒專區</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">企業</p><ul><li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">B2B 採購</a></li><li><a href="contact.html">聯絡窗口</a></li></ul></div>
+      </div>
+      <div class="foot-news">
+        <p>訂閱農友誌：每月一封，節氣 × 新農友 × 產地優惠。</p>
+        <form class="foot-news-form"><input type="email" placeholder="你的 Email"><button type="submit">訂閱</button></form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-bottom-inner">
+        <p>© 2026 台灣鮮農 TFA. All rights reserved.</p>
+        <div class="links"><a href="privacy.html">隱私權政策</a><a href="#">服務條款</a><a href="#">退換貨說明</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Hub tab switcher: read ?cat= URL param, switch tabs, update result count -->
+<script>
+(function(){
+  const TAB_INFO = {
+    veg:     { name:'蔬菜',     count:62 },
+    fruit:   { name:'水果',     count:48 },
+    meat:    { name:'肉品',     count:54 },
+    seafood: { name:'海鮮',     count:36 },
+    egg:     { name:'蛋品米麵', count:38 },
+  };
+
+  const tabs = document.querySelectorAll('.hub-tab');
+  const panels = document.querySelectorAll('.hub-panel');
+  const countEl = document.getElementById('hub-count');
+  const nameEl = document.getElementById('hub-cat-name');
+
+  function activate(key) {
+    if (!TAB_INFO[key]) key = 'veg';
+    tabs.forEach(t => {
+      const on = t.dataset.tab === key;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(p => {
+      const on = p.dataset.panel === key;
+      p.classList.toggle('is-active', on);
+      if (on) p.removeAttribute('hidden'); else p.setAttribute('hidden','');
+    });
+    if (countEl) countEl.textContent = TAB_INFO[key].count;
+    if (nameEl) nameEl.textContent = TAB_INFO[key].name;
+    // Update URL without reload
+    const url = new URL(location.href);
+    url.searchParams.set('cat', key);
+    history.replaceState({}, '', url);
+  }
+
+  // Initial load: read ?cat= param
+  const params = new URLSearchParams(location.search);
+  const initial = params.get('cat') || 'veg';
+  activate(initial);
+
+  tabs.forEach(t => {
+    t.addEventListener('click', () => activate(t.dataset.tab));
+  });
+
+  // Sort dropdown — UI only, would call API in production
+  const sortSel = document.getElementById('hub-sort');
+  if (sortSel) {
+    sortSel.addEventListener('change', () => {
+      console.log('[hub] sort by', sortSel.value);
+      // Demo: in production, fetch /api/products?sort=...
+    });
+  }
+})();
+</script>
+
+<script src="js/nav-actions.js" defer></script>
+<script src="js/mobile-nav.js" defer></script>
+<script src="js/tfa-youtube.js" defer></script>
+</body>
+</html>

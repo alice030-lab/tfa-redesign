@@ -1303,10 +1303,27 @@
 })();
 // Category tabs — 每個 cat-group 獨立運作
 (function(){
+  // 「看全部」連結會帶當前 active tab 的 key
+  function syncViewAllHref(group, key){
+    const link = group.querySelector('.cat-view-all');
+    if(!link || !key) return;
+    try{
+      const url = new URL(link.getAttribute('href'), location.href);
+      url.searchParams.set('cat', key);
+      // 保持 relative path
+      const rel = url.pathname.split('/').pop() + url.search;
+      link.setAttribute('href', rel);
+    }catch(_){}
+  }
+
   document.querySelectorAll('.cat-group').forEach(group=>{
     const tabs = group.querySelectorAll('.fresh-tab');
     const panels = group.querySelectorAll('.fresh-panel');
     if(!tabs.length) return;
+    // 初始：用預設 active tab 設定 view-all href
+    const activeTab = group.querySelector('.fresh-tab.active');
+    if(activeTab) syncViewAllHref(group, activeTab.dataset.tab);
+
     tabs.forEach(tab=>{
       tab.addEventListener('click', ()=>{
         const key = tab.dataset.tab;
@@ -1320,6 +1337,7 @@
           p.classList.toggle('is-active', on);
           if(on) p.removeAttribute('hidden'); else p.setAttribute('hidden','');
         });
+        syncViewAllHref(group, key);
       });
     });
   });

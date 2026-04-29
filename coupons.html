@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>折價券專區 — 台灣鮮農</title>
+<meta name="description" content="會員專屬折價券、新會員首購禮、節氣優惠——台灣鮮農的所有現行優惠券都在這裡。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.cp-hero{padding:3.6rem 0 2.4rem;background:linear-gradient(135deg,var(--vermillion) 0%,#a52d20 100%);color:var(--paper);position:relative;overflow:hidden}
+.cp-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(212,163,50,.25) 0,transparent 55%);pointer-events:none}
+.cp-hero-inner{position:relative;z-index:1;max-width:760px}
+.cp-kicker{font-family:var(--font-latin);font-size:.78rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;display:inline-block}
+.cp-h1{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;font-weight:500;margin:0 0 .9rem;letter-spacing:.04em;color:#fff}
+.cp-h1 em{font-style:normal;color:var(--gold)}
+.cp-lead{font-family:var(--font-serif);font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,.85);margin:0;max-width:38em}
+
+.cp-body{padding:3rem 0 5rem;background:var(--paper)}
+.cp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media(max-width:780px){.cp-grid{grid-template-columns:1fr}}
+
+/* 票券卡：左金額右資訊，模仿實體票券 */
+.cp-card{
+  display:grid;grid-template-columns:140px 1fr;
+  background:var(--paper);border:1px solid var(--rule);border-radius:6px;
+  overflow:hidden;position:relative;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .25s;
+}
+.cp-card:hover{transform:translateY(-3px);border-color:var(--vermillion);box-shadow:0 14px 28px -14px rgba(192,57,43,.25)}
+/* 票根虛線 */
+.cp-card::before{
+  content:"";position:absolute;left:140px;top:1rem;bottom:1rem;
+  border-left:2px dashed var(--rule);
+}
+/* 左側金額 */
+.cp-amount{
+  background:linear-gradient(135deg,var(--paper-warm) 0%,#ede1c8 100%);
+  padding:1.4rem .8rem;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.25rem;
+  border-right:1px dashed transparent;
+}
+.cp-amount .currency{font-family:var(--font-latin);font-size:.78rem;color:var(--vermillion);letter-spacing:.16em;line-height:1}
+.cp-amount .num{font-family:var(--font-serif);font-size:2.4rem;color:var(--vermillion);font-weight:500;line-height:1;letter-spacing:.02em}
+.cp-amount .num small{font-size:1.2rem;color:inherit;font-weight:400;margin-left:.1rem}
+.cp-amount .label{font-family:var(--font-serif);font-size:.85rem;color:var(--ink-mid);margin-top:.4rem;letter-spacing:.04em}
+
+/* 右側資訊 */
+.cp-info{padding:1.3rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.cp-info-tag{display:inline-block;font-family:var(--font-latin);font-size:.62rem;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;padding:.18rem .55rem;background:rgba(212,163,50,.1);border:1px solid var(--gold);border-radius:2px;align-self:flex-start;font-weight:500}
+.cp-info-tag.new{color:var(--vermillion);background:rgba(192,57,43,.08);border-color:var(--vermillion)}
+.cp-info h3{font-family:var(--font-serif);font-size:1.15rem;color:var(--ink);font-weight:500;margin:0;letter-spacing:.04em;line-height:1.4}
+.cp-info p{font-family:var(--font-serif);font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin:0}
+.cp-info .meta{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:auto;padding-top:.6rem;border-top:1px solid var(--rule);font-family:var(--font-latin);font-size:.7rem;letter-spacing:.12em;color:var(--ink-light);text-transform:uppercase}
+.cp-info .meta strong{color:var(--ink);font-family:var(--font-serif);font-weight:500;letter-spacing:.04em}
+
+.cp-claim{
+  display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start;
+  padding:.55rem 1rem;background:var(--pine);color:var(--paper);
+  font-family:var(--font-serif);font-size:.92rem;letter-spacing:.06em;
+  border:0;border-radius:4px;cursor:pointer;
+  transition:transform .25s,background .25s;margin-top:.55rem;
+}
+.cp-claim:hover{background:var(--vermillion);transform:translateX(2px)}
+.cp-claim.is-claimed{background:var(--ink-light);cursor:default;pointer-events:none}
+.cp-claim.is-claimed::after{content:"✓"}
+
+/* 規則說明 */
+.cp-notes{margin-top:3rem;padding:1.6rem 1.8rem;background:var(--paper-warm);border-left:3px solid var(--gold);max-width:860px}
+.cp-notes h3{font-family:var(--font-serif);font-size:1.1rem;color:var(--ink);font-weight:500;margin:0 0 .8rem;letter-spacing:.04em}
+.cp-notes ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.55rem}
+.cp-notes li{padding-left:1.4rem;position:relative;font-family:var(--font-serif);font-size:.92rem;line-height:1.75;color:var(--ink-mid)}
+.cp-notes li::before{content:"·";position:absolute;left:.4rem;top:-.05em;color:var(--vermillion);font-weight:700;font-size:1.2rem}
+</style>
+<script src="js/loader.js"></script>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">滿 <strong style="color:var(--pine)">NT$ 999</strong> 免運<span class="dot"></span>全台產地直送<span class="dot"></span><a href="join-farmer.html">成為農友</a></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="main">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="台灣鮮農 Taiwan Freshness Agriculture" class="brand-logo">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-has-sub">
+        <a href="brand.html">品牌故事</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">About · 關於</p><ul><li><a href="brand.html">台灣鮮農</a></li><li><a href="brand.html#origin">我們的起點 <span class="en">Origin</span></a></li><li><a href="brand.html#mission">品牌信念 <span class="en">Mission</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Promise · 承諾</p><ul><li><a href="brand.html#mit">堅持 MIT</a></li><li><a href="brand.html#coop">合作社夥伴</a></li><li><a href="brand.html#safety">食安把關</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Service · 服務</p><ul><li><a href="brand.html#consumer">一般消費</a></li><li><a href="brand.html#coop-biz">社間互助</a></li><li><a href="contact.html">聯絡我們 <span class="en">Contact</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="farmers.html">農友夥伴</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="farmers.html">全部農友 <span class="en">All</span></a></li><li><a href="farmers.html">本月農友誌 <span class="pill">New</span></a></li><li><a href="farmers.html">最新加入 <span class="en">Latest</span></a></li><li><a href="join-farmer.html">成為農友 <span class="en">Join</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Stories · 故事</p><ul><li><a href="index.html#shorts">農友專訪</a></li><li><a href="index.html#shorts">產地報導</a></li><li><a href="farmers.html#films">紀錄片 <span class="en">Films</span></a></li><li><a href="farmers.html#shorts">短影音 <span class="en">Shorts</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Topics · 專題</p><ul><li><a href="story-homecoming.html">返鄉青農 <span class="en">Homecoming</span></a></li><li><a href="story-2ndgen.html">接班二代 <span class="en">2nd Gen</span></a></li><li><a href="story-legacy.html">家族傳承 <span class="en">Legacy</span></a></li><li><a href="story-mastery.html">匠人職人 <span class="en">Mastery</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="products.html" class="active">在地產品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="products.html">全部商品 <span class="en">All</span></a></li><li><a href="products.html#hot">熱銷排行 <span class="en">Hot</span></a></li><li><a href="spring.html">本季新品 <span class="pill">New</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Fresh · 當季鮮食</p><ul><li><a href="fresh.html?cat=veg">蔬菜</a></li><li><a href="fresh.html?cat=fruit">水果</a></li><li><a href="fresh.html?cat=meat">肉品</a></li><li><a href="fresh.html?cat=seafood">海鮮</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Pantry · 廚房常備</p><ul><li><a href="pantry.html?cat=ready">料理即食</a></li><li><a href="pantry.html?cat=oil">油品調味</a></li><li><a href="pantry.html?cat=dry">南北貨</a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="spring.html">節氣選品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">This Term · 本節氣</p><ul><li><a href="spring.html#guyu">穀雨 <span class="pill">當節氣</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Upcoming · 近期</p><ul><li><a href="summer.html#lixia">立夏</a></li><li><a href="summer.html#xiaoman">小滿</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Archive · 總覽</p><ul><li><a href="spring.html">春</a></li><li><a href="summer.html">夏</a></li><li><a href="autumn.html">秋</a></li><li><a href="winter.html">冬</a></li></ul></div>
+        </div></div>
+      </li>
+      <li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">企業採購</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="搜尋"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg></button>
+      <a href="checkout.html" class="cart-wrap" aria-label="購物車">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="cart-count">2</span>
+      </a>
+      <a href="#" class="show-lg" style="font-size:.88rem">登入</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="breadcrumb" aria-label="麵包屑">
+  <div class="container">
+    <ol class="breadcrumb-list">
+      <li><a href="index.html">首頁</a></li>
+      <li class="sep">/</li>
+      <li><a href="products.html">在地產品</a></li>
+      <li class="sep">/</li>
+      <li class="current">折價券專區</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="cp-hero">
+  <div class="container">
+    <div class="cp-hero-inner">
+      <span class="cp-kicker">Coupons · 折價券專區</span>
+      <h1 class="cp-h1">領了，<em>就是你的</em></h1>
+      <p class="cp-lead">會員專屬、新會員首購、節氣限定——點選下方「立即領取」加入帳戶，結帳時自動套用最優惠的一張。可疊加運費券。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COUPONS ═══ -->
+<section class="cp-body">
+  <div class="container">
+    <div class="cp-grid">
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="currency">NT$</span>
+          <span class="num">200</span>
+          <span class="label">滿 1,500 折</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag new">New · 新會員首購</span>
+          <h3>新會員首購禮 NT$ 200</h3>
+          <p>第一次購物即享，無品項限制，全站可用。</p>
+          <div class="meta">
+            <span>有效期 · <strong>領取後 30 天</strong></span>
+            <span>限用 1 次</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="num">85<small>折</small></span>
+          <span class="label">蜂蜜 / 茶飲</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag">穀雨節氣限定</span>
+          <h3>春釀 8.5 折</h3>
+          <p>情人蜂蜜、阿里山茶莊全系列商品適用。可搭配滿額免運。</p>
+          <div class="meta">
+            <span>有效至 · <strong>2026 / 05 / 04</strong></span>
+            <span>不限金額</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="currency">FREE</span>
+          <span class="num">運</span>
+          <span class="label">滿 600 即可用</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag">運費補貼券</span>
+          <h3>免運費券</h3>
+          <p>滿 NT$ 600 即免運（原本門檻 NT$ 999）。可與其他折價券疊加。</p>
+          <div class="meta">
+            <span>有效期 · <strong>領取後 14 天</strong></span>
+            <span>限用 1 次</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="currency">NT$</span>
+          <span class="num">500</span>
+          <span class="label">滿 3,000 折</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag">禮盒專屬</span>
+          <h3>禮盒滿 3,000 折 500</h3>
+          <p>送禮神券。限禮盒專區商品，可一次購多盒。</p>
+          <div class="meta">
+            <span>有效至 · <strong>2026 / 06 / 30</strong></span>
+            <span>限用 1 次</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="currency">NT$</span>
+          <span class="num">100</span>
+          <span class="label">滿 800 折</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag">當季鮮食限定</span>
+          <h3>蔬果 NT$ 100 折抵</h3>
+          <p>當季鮮食 5 大分類（蔬菜 / 水果 / 肉品 / 海鮮 / 蛋品米麵）皆可使用。</p>
+          <div class="meta">
+            <span>有效至 · <strong>2026 / 05 / 31</strong></span>
+            <span>限用 1 次</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+      <article class="cp-card">
+        <div class="cp-amount">
+          <span class="currency">NT$</span>
+          <span class="num">300</span>
+          <span class="label">無門檻</span>
+        </div>
+        <div class="cp-info">
+          <span class="cp-info-tag new">會員生日禮</span>
+          <h3>生日月 NT$ 300 無門檻</h3>
+          <p>會員生日當月限用，無金額限制。完成第一筆訂單即啟用。</p>
+          <div class="meta">
+            <span>有效期 · <strong>生日當月</strong></span>
+            <span>限用 1 次</span>
+          </div>
+          <button class="cp-claim" type="button" onclick="this.classList.add('is-claimed');this.firstChild.textContent='已領取 '">立即領取</button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- 使用規則 -->
+    <aside class="cp-notes">
+      <h3>使用規則</h3>
+      <ul>
+        <li>每張折價券限會員領取，未登入請先<a href="#" style="color:var(--vermillion);text-decoration:underline">登入或註冊</a>。</li>
+        <li>同筆訂單最多疊加 2 張折價券（含運費券）。系統會自動套用最優惠組合。</li>
+        <li>折價券不可折抵運費（除運費券外）、不可兌換現金、不可轉讓。</li>
+        <li>退貨後折價券將自動退回帳戶（若仍在效期內），逾期不予補發。</li>
+        <li>節氣限定折價券逾期失效，恕不延期。其他類型折價券依各券效期計算。</li>
+        <li>本公司保留變更、終止活動之權利。詳細規則以結帳頁實際顯示為準。</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-about">
+        <div class="foot-brand">
+          <div class="mark"><span class="zh">台鮮</span><span class="en">TFA</span></div>
+          <span class="foot-brand-name">台灣鮮農</span>
+        </div>
+        <p class="foot-desc">從 2019 年開始，我們走遍台灣 18 縣市，把 200+ 位認證農友帶到你家餐桌。每一份食材背後都有一個名字。</p>
+        <address class="foot-addr">
+          台北市中正區忠孝東路一段 100 號<br>
+          客服 (02) 2345-6789　／　service@tfa.com.tw<br>
+          週一至週五 9:00–18:00
+        </address>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><p class="foot-col-title">關於</p><ul><li><a href="brand.html">品牌故事</a></li><li><a href="farmers.html">合作農友</a></li><li><a href="join-farmer.html">成為農友</a></li><li><a href="contact.html">聯絡我們</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">購物</p><ul><li><a href="products.html">全部商品</a></li><li><a href="summer.html">節氣選品</a></li><li><a href="products.html#cat-giftbox">禮盒專區</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">企業</p><ul><li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">B2B 採購</a></li><li><a href="contact.html">聯絡窗口</a></li></ul></div>
+      </div>
+      <div class="foot-news">
+        <p>訂閱農友誌：每月一封，節氣 × 新農友 × 產地優惠。</p>
+        <form class="foot-news-form"><input type="email" placeholder="你的 Email"><button type="submit">訂閱</button></form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-bottom-inner">
+        <p>© 2026 台灣鮮農 TFA. All rights reserved.</p>
+        <div class="links"><a href="privacy.html">隱私權政策</a><a href="#">服務條款</a><a href="#">退換貨說明</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-actions.js" defer></script>
+<script src="js/mobile-nav.js" defer></script>
+<script src="js/tfa-youtube.js" defer></script>
+</body>
+</html>
