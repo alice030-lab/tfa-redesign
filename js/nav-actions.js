@@ -71,7 +71,7 @@
           <strong class="na-cart-sum">NT$ 0</strong>
         </div>
         <p class="na-cart-note">滿 NT$ 999 免運 · 下一單將自動帶入</p>
-        <a href="#" class="na-cart-cta">前往結帳 →</a>
+        <a href="checkout.html" class="na-cart-cta">前往結帳 →</a>
       </footer>
     </aside>`;
   document.body.appendChild(cartEl);
