@@ -3648,6 +3648,32 @@ body.na-locked{overflow:hidden}
   }
 }
 
+/* ── 直式短影音（9:16，模擬 YouTube Shorts）── */
+.tfa-yt-card-vert .tfa-yt-card-thumb{aspect-ratio:9/16}
+.tfa-yt-card-vert .tfa-yt-card-thumb img{
+  /* mqdefault/hqdefault 是 16:9，要裁中央當直式 */
+  object-fit:cover;object-position:center;
+  transform:scale(1.5);  /* 放大讓裁切後內容飽滿 */
+}
+.tfa-yt-card-vert:hover .tfa-yt-card-thumb img{transform:scale(1.55)}
+.tfa-yt-card-vert .tfa-yt-card-play{
+  background:rgba(255,255,255,.95);color:#f00;
+  width:42px;height:42px;border-radius:50%;
+  font-size:.95rem;
+}
+.tfa-yt-card-vert:hover .tfa-yt-card-play{background:#fff;color:#f00}
+
+/* Shorts grid：手機 2 欄、平板 3 欄、桌機 5 欄 */
+.farmers-shorts-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;
+}
+@media(min-width:640px){
+  .farmers-shorts-grid{grid-template-columns:repeat(3,1fr);gap:1.25rem}
+}
+@media(min-width:1024px){
+  .farmers-shorts-grid{grid-template-columns:repeat(5,1fr);gap:1.4rem}
+}
+
 /* ══════════════════════════════════════════════
    loader: 稻穗生長 Loading
    ══════════════════════════════════════════════ */
