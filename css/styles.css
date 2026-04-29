@@ -1783,11 +1783,11 @@ body.na-locked{overflow:hidden}
 .na-cart-note{font-size:.75rem;color:#6b7a68;margin:.2rem 0 .9rem}
 .na-cart-cta{
   display:block;text-align:center;text-decoration:none;
-  background:#1a3a2a;color:#fdfaf4;
+  background:var(--gold);color:var(--ink);
   padding:.85rem 1rem;border-radius:4px;font-weight:600;
-  letter-spacing:.05em;transition:background .18s;
+  letter-spacing:.05em;transition:background .18s,color .18s;
 }
-.na-cart-cta:hover{background:#2a5a42}
+.na-cart-cta:hover{background:var(--gold-mid);color:var(--ink)}
 
 /* ── Login modal ── */
 .na-modal.na-login{
