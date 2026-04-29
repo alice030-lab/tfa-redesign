@@ -35,33 +35,51 @@ node scripts/optimize-images.js
 
 ```
 tfa-redesign/
+│
+│  ── 17 個前台頁面 ──
 ├─ index.html                  首頁
-├─ {brand,farmers,products}.html
-├─ {spring,summer,autumn,winter}.html       四季頁
-├─ farmer-detail.html         農友詳情
-├─ farmer-products.html       農友商品
-├─ product-detail.html        商品詳情
-├─ story-{homecoming,2ndgen,legacy,mastery}.html
-├─ join-farmer.html           農友申請
-├─ checkout.html              結帳
-├─ preview.html               視覺 / 元件 preview
+├─ brand.html                  品牌故事
+├─ farmers.html                農友夥伴 hub（含 #films 紀錄片 + #shorts 短影音）
+├─ farmer-detail.html          農友詳情（紀錄片 + 短影音 + 產地）
+├─ farmer-products.html        某農友的商品列表
+├─ products.html               商品總覽
+├─ product-detail.html         商品詳情（含採蜜實錄影片）
+├─ {spring,summer,autumn,winter}.html       四季節氣頁
+├─ story-{homecoming,2ndgen,legacy,mastery}.html  四種農友故事專題
+├─ join-farmer.html            成為農友（完整流程 + 申請表單）
+├─ contact.html                聯絡我們（4 種洽詢窗口統一入口）⭐ 新
+├─ checkout.html               結帳
+├─ preview.html                視覺 / 元件 preview
 │
 ├─ css/
-│  └─ styles.css              ⚠️ 全站樣式都在這一個檔（3500+ 行）
+│  └─ styles.css               ⚠️ 全站共用樣式（3700+ 行）
+│                              join-farmer.html 和 contact.html 各自有 inline <style>
+│                              的 .jf-* / .ct-* 區塊（自包含，不放 styles.css）
 │
 ├─ js/
-│  ├─ loader.js               稻穗 loading 動畫
-│  ├─ mobile-nav.js           手機漢堡抽屜
-│  ├─ nav-actions.js          搜尋 / 購物車 / 登入 overlay
-│  └─ （未來新增 api.js / auth.js / cart.js …）
+│  ├─ loader.js                稻穗 loading 動畫（head 同步載入）
+│  ├─ mobile-nav.js            手機漢堡抽屜（自動注入到 nav）
+│  ├─ nav-actions.js           搜尋 / 購物車 / 登入 overlay
+│  ├─ tfa-youtube.js           YouTube Lite Embed（.tfa-yt / .tfa-yt-card）
+│  └─ （待寫：api.js / auth.js / cart.js / seller-uploader.js）
 │
-├─ images/                    圖片素材
+├─ images/                     圖片素材（已優化到 17 MB 內）
 ├─ scripts/
-│  └─ optimize-images.js      Node 批次優化圖片
-├─ docs/                      ★ 你正在看的開發文件
+│  └─ optimize-images.js       Node 批次優化（sharp）
+│
+├─ docs/                       ★ 開發文件
+│  ├─ README.md
+│  ├─ 01-scope-split.md
+│  ├─ 02-api-contract.md
+│  ├─ 03-data-models.md
+│  ├─ 04-frontend-guide.md     ← 你正在看
+│  ├─ 05-deploy-handoff.md
+│  ├─ 06-changelog.md
+│  ├─ 07-farmer-marketplace.md
+│  └─ 08-media-strategy.md
 │
 ├─ .claude/
-│  └─ launch.json             Claude Code 用，本地 server 設定
+│  └─ launch.json              Claude Code 本地 server 設定
 └─ .gitignore
 ```
 

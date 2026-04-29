@@ -9,9 +9,11 @@
 ## 模型清單
 
 ```
-User              使用者（會員 + 管理員）
+User              使用者（會員 + 農友 + 管理員）
+FarmerProfile     農友會員的擴充欄位（multi-tenant 用，見 07）
 Farmer            農友
 Product           商品
+ProductDraft      商品草稿（自助上架用，見 07）
 Category          分類
 Brand             品牌
 Article           文章
@@ -22,8 +24,10 @@ Address           地址
 Cart              購物車
 CartItem          購物車品項
 Review            評價
-FarmerApplication 農友申請
-Image             圖片（共用值物件）
+FarmerApplication 農友申請（join-farmer.html / contact.html#join）
+ContactMessage    一般洽詢訊息（contact.html）
+Media             圖片 / 影片統一表（見 08）
+Image             圖片（值物件，常作 JSON 嵌入）
 ```
 
 ---
@@ -251,6 +255,24 @@ submitted_at    datetime
 reviewed_by     bigint?, FK → users
 reviewed_at     datetime?
 notes           text?
+```
+
+### ContactMessage
+來自 contact.html 的一般洽詢表單。
+```
+id              bigint, PK
+name            string
+email           string
+phone           string?
+topic           enum('product_order','return','account','bug','other')
+message         text
+ip              string                    防濫用紀錄
+user_agent      string?
+status          enum('new','assigned','replied','closed')
+assigned_to     bigint?, FK → users       哪個客服處理
+replied_at      datetime?
+notes           text?                     內部備註
+created_at, updated_at
 ```
 
 ### Image（值物件 / JSON 結構）

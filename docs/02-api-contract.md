@@ -450,6 +450,40 @@
 
 ---
 
+## 一般洽詢
+
+#### `POST /api/contact`
+不需登入。前端來自 `contact.html` 的一般洽詢表單。
+
+```json
+// Request
+{
+  "name": "王小明",
+  "email": "wang@example.com",
+  "phone": "0912345678",       // 選填
+  "topic": "商品 / 訂單問題",     // enum, 看下方
+  "message": "..."
+}
+
+// Response 201
+{ "data": { "id": 99, "received_at": "2026-04-29T10:30:00+08:00" } }
+```
+
+`topic` enum：
+- `product_order` — 商品 / 訂單問題
+- `return` — 退換貨
+- `account` — 會員 / 帳號
+- `bug` — 網站 bug 回報
+- `other` — 其他
+
+後端職責：
+- 422 驗證（email 格式、message 長度）
+- 寄通知信給 service@tfa.com.tw（依 topic 路由）
+- 發送收件確認信給使用者
+- 同 IP 1 小時內超過 5 次回 429
+
+---
+
 ## 約定的「未來功能」placeholder
 
 之後要做的，先在這留一行：
@@ -457,4 +491,3 @@
 - `POST /api/coupons/validate`（折價券驗證）
 - `GET /api/recommendations/me`（個人化推薦）
 - `POST /api/notifications/subscribe`（電子報訂閱）
-- `POST /api/contact`（聯絡表單）
