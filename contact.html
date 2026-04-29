@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>聯絡我們 — 台灣鮮農</title>
+<meta name="description" content="一般洽詢、農友申請、企業採購、媒體合作——找對窗口，我們三天內回覆。台灣鮮農的所有對外聯絡都在這裡。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ═══ Contact Page · 聯絡我們 ═══ */
+.ct-hero{background:var(--paper);padding:5rem 0 3.5rem;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.ct-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 30%,rgba(58,90,76,.08) 0,transparent 55%);pointer-events:none}
+.ct-hero-kicker{font-family:var(--font-serif);letter-spacing:.15em;color:var(--vermillion);font-size:.88rem;margin:0 0 1rem;text-transform:uppercase}
+.ct-hero-h1{font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,4rem);line-height:1.1;font-weight:500;color:var(--ink);margin:0 0 1.2rem;letter-spacing:-.02em;position:relative;z-index:1}
+.ct-hero-h1 .accent{color:var(--vermillion);font-style:italic}
+.ct-hero-lead{font-size:clamp(1rem,1.5vw,1.18rem);line-height:1.85;color:var(--ink);max-width:640px;margin:0;position:relative;z-index:1}
+
+/* Channel cards — 4 個聯絡途徑 */
+.ct-channels{padding:3.5rem 0;background:var(--paper-warm)}
+.ct-channels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:1.8rem}
+@media(max-width:960px){.ct-channels-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.ct-channels-grid{grid-template-columns:1fr}}
+.ct-ch{display:flex;flex-direction:column;gap:.75rem;padding:1.6rem 1.4rem;background:var(--paper);border:1px solid var(--rule);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .35s;position:relative;overflow:hidden;text-decoration:none;color:inherit}
+.ct-ch::before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--vermillion);transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.ct-ch:hover{transform:translateY(-4px);border-color:var(--pine);box-shadow:0 16px 32px -16px rgba(30,40,32,.18)}
+.ct-ch:hover::before{width:100%}
+.ct-ch-icn{width:42px;height:42px;display:flex;align-items:center;justify-content:center;color:var(--pine);background:rgba(58,90,76,.08);border-radius:8px}
+.ct-ch-icn svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ct-ch-en{font-family:var(--font-latin);font-size:.66rem;letter-spacing:.24em;color:var(--ink-light);text-transform:uppercase}
+.ct-ch h3{font-family:var(--font-serif);font-size:1.18rem;color:var(--ink);font-weight:500;margin:0;letter-spacing:.04em}
+.ct-ch p{font-size:.88rem;color:var(--ink-mid);line-height:1.7;margin:0;flex:1}
+.ct-ch-cta{font-family:var(--font-latin);font-size:.72rem;letter-spacing:.18em;color:var(--vermillion);text-transform:uppercase;margin-top:.4rem;display:inline-flex;align-items:center;gap:.35rem}
+.ct-ch-cta::after{content:"→";transition:transform .3s}
+.ct-ch:hover .ct-ch-cta::after{transform:translateX(4px)}
+
+/* General contact form */
+.ct-form-section{padding:4rem 0;background:var(--paper)}
+.ct-form-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:start}
+@media(max-width:900px){.ct-form-grid{grid-template-columns:1fr;gap:2.4rem}}
+.ct-form-side{position:relative}
+.ct-form-side .ct-hero-kicker{margin-bottom:.75rem}
+.ct-form-side h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);color:var(--ink);font-weight:500;margin:0 0 1rem;line-height:1.25}
+.ct-form-side p{color:var(--ink-mid);line-height:1.85;margin:0 0 1.4rem;max-width:34em}
+.ct-form-side .ct-emphasis{padding:1.2rem 1.4rem;background:var(--paper-warm);border-left:3px solid var(--vermillion);font-family:var(--font-serif);font-size:.96rem;color:var(--ink);line-height:1.75}
+
+.ct-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:540px){.ct-form{grid-template-columns:1fr}}
+.ct-form label{display:block;font-size:.85rem;color:var(--ink-mid);margin-bottom:.4rem;font-family:var(--font-serif);letter-spacing:.05em}
+.ct-form input,.ct-form textarea,.ct-form select{width:100%;padding:.85rem 1rem;background:var(--paper-warm);border:1px solid var(--rule);color:var(--ink);font-family:inherit;font-size:.95rem;transition:border-color .25s,background .25s}
+.ct-form input:focus,.ct-form textarea:focus,.ct-form select:focus{outline:none;border-color:var(--pine);background:#fff}
+.ct-form .full{grid-column:1/-1}
+.ct-form textarea{min-height:140px;resize:vertical;font-family:var(--font-serif)}
+.ct-form-submit{grid-column:1/-1;margin-top:.6rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.ct-form-submit button{background:var(--pine);color:var(--paper);border:none;padding:1rem 2.4rem;font-family:var(--font-serif);font-size:1rem;letter-spacing:.06em;cursor:pointer;transition:transform .3s,background .3s}
+.ct-form-submit button:hover{background:var(--vermillion);transform:translateY(-2px)}
+.ct-form-note{grid-column:1/-1;font-size:.82rem;color:var(--ink-light);margin:.8rem 0 0;line-height:1.7}
+
+/* 成為農友 highlight feature */
+.ct-join{padding:4.5rem 0;background:var(--pine);color:var(--paper);position:relative;overflow:hidden}
+.ct-join::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(212,163,50,.18) 0,transparent 50%);pointer-events:none}
+.ct-join .container{position:relative;z-index:1}
+.ct-join-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+@media(max-width:860px){.ct-join-grid{grid-template-columns:1fr;gap:2rem}}
+.ct-join-kicker{font-family:var(--font-latin);font-size:.74rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;display:inline-block}
+.ct-join h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);color:var(--paper);font-weight:500;margin:0 0 1rem;line-height:1.15}
+.ct-join h2 .accent{color:var(--gold);font-style:italic}
+.ct-join p{color:rgba(245,240,225,.82);line-height:1.85;font-size:1.02rem;margin:0 0 1.5rem;max-width:32em}
+.ct-join-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;border-top:1px solid rgba(245,240,225,.18);padding-top:1.4rem;margin-bottom:1.8rem}
+@media(max-width:540px){.ct-join-stats{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
+.ct-join-stats .item .num{font-family:var(--font-serif);font-size:1.8rem;color:var(--gold);font-weight:500;line-height:1;display:block;margin-bottom:.3rem}
+.ct-join-stats .item .label{font-size:.78rem;color:rgba(245,240,225,.7);letter-spacing:.06em}
+.ct-join-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--ink);padding:1rem 1.8rem;font-family:var(--font-serif);font-size:1rem;letter-spacing:.08em;text-decoration:none;transition:transform .3s,background .3s}
+.ct-join-cta:hover{background:var(--paper);transform:translateY(-2px)}
+.ct-join-cta::after{content:"→";transition:transform .3s}
+.ct-join-cta:hover::after{transform:translateX(4px)}
+.ct-join-aside{padding:1.8rem;background:rgba(245,240,225,.06);border:1px solid rgba(245,240,225,.15)}
+.ct-join-aside h3{font-family:var(--font-serif);color:var(--paper);font-size:1.1rem;margin:0 0 1rem;font-weight:500;padding-bottom:.6rem;border-bottom:1px solid rgba(245,240,225,.15)}
+.ct-join-aside ul{list-style:none;padding:0;margin:0}
+.ct-join-aside li{padding:.55rem 0 .55rem 1.6rem;position:relative;color:rgba(245,240,225,.85);font-size:.94rem;line-height:1.6}
+.ct-join-aside li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* Office info strip */
+.ct-info{padding:3.5rem 0;background:var(--paper-warm);border-top:1px solid var(--rule)}
+.ct-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+@media(max-width:780px){.ct-info-grid{grid-template-columns:1fr}}
+.ct-info-block{padding:1.5rem 1.6rem;background:var(--paper);border:1px solid var(--rule);position:relative}
+.ct-info-block .icn{width:36px;height:36px;color:var(--pine);background:rgba(58,90,76,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem}
+.ct-info-block .icn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ct-info-block h4{font-family:var(--font-latin);font-size:.66rem;letter-spacing:.24em;color:var(--vermillion);text-transform:uppercase;margin:0 0 .55rem}
+.ct-info-block .v{font-family:var(--font-serif);font-size:1.1rem;color:var(--ink);line-height:1.5;margin:0 0 .25rem;font-weight:500}
+.ct-info-block .sub{font-size:.86rem;color:var(--ink-mid);line-height:1.7;margin:0}
+.ct-info-block .sub a{color:var(--vermillion);text-decoration:none;border-bottom:1px solid currentColor}
+
+/* FAQ */
+.ct-faq{padding:4rem 0;background:var(--paper)}
+.ct-faq-head{text-align:center;margin-bottom:2rem}
+.ct-faq-head h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.4rem);color:var(--ink);font-weight:500;margin:.6rem 0 0;letter-spacing:.04em}
+.ct-faq-list{max-width:760px;margin:0 auto;border-top:1px solid var(--rule)}
+.ct-faq-item{border-bottom:1px solid var(--rule);padding:1.4rem .25rem}
+.ct-faq-q{font-family:var(--font-serif);font-size:1.08rem;color:var(--ink);font-weight:500;margin:0 0 .55rem;display:flex;gap:.6rem;align-items:flex-start}
+.ct-faq-q::before{content:"Q";color:var(--vermillion);font-style:italic;flex-shrink:0;font-size:1.1rem}
+.ct-faq-a{color:var(--ink-mid);line-height:1.85;margin:0;padding-left:1.7rem;font-size:.96rem}
+</style>
+<script src="js/loader.js"></script>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar">滿 <strong style="color:var(--pine)">NT$ 999</strong> 免運<span class="dot"></span>全台產地直送<span class="dot"></span><a href="join-farmer.html">成為農友</a></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="main">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="台灣鮮農 Taiwan Freshness Agriculture" class="brand-logo">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-has-sub">
+        <a href="brand.html">品牌故事</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">About · 關於</p><ul><li><a href="brand.html">台灣鮮農</a></li><li><a href="brand.html#origin">我們的起點 <span class="en">Origin</span></a></li><li><a href="brand.html#mission">品牌信念 <span class="en">Mission</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Promise · 承諾</p><ul><li><a href="brand.html#mit">堅持 MIT</a></li><li><a href="brand.html#coop">合作社夥伴</a></li><li><a href="brand.html#safety">食安把關</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Service · 服務</p><ul><li><a href="brand.html#consumer">一般消費</a></li><li><a href="brand.html#coop-biz">社間互助</a></li><li><a href="contact.html" class="active">聯絡我們 <span class="en">Contact</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="farmers.html">農友夥伴</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="farmers.html">全部農友 <span class="en">All</span></a></li><li><a href="farmers.html">本月農友誌 <span class="pill">New</span></a></li><li><a href="farmers.html">最新加入 <span class="en">Latest</span></a></li><li><a href="join-farmer.html">成為農友 <span class="en">Join</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Stories · 故事</p><ul><li><a href="index.html#shorts">農友專訪</a></li><li><a href="index.html#shorts">產地報導</a></li><li><a href="index.html#shorts">食譜廚房</a></li><li><a href="farmers.html#films">紀錄片 <span class="en">Films</span></a></li><li><a href="farmers.html#shorts">短影音 <span class="en">Shorts</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Topics · 專題</p><ul><li><a href="story-homecoming.html">返鄉青農 <span class="en">Homecoming</span></a></li><li><a href="story-2ndgen.html">接班二代 <span class="en">2nd Gen</span></a></li><li><a href="story-legacy.html">家族傳承 <span class="en">Legacy</span></a></li><li><a href="story-mastery.html">匠人職人 <span class="en">Mastery</span></a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="products.html">在地產品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">Browse · 瀏覽</p><ul><li><a href="products.html">全部商品 <span class="en">All</span></a></li><li><a href="products.html#hot">熱銷排行 <span class="en">Hot</span></a></li><li><a href="spring.html">本季新品 <span class="pill">New</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Fresh · 當季鮮食</p><ul><li><a href="products.html#cat-veg">蔬菜</a></li><li><a href="products.html#cat-fruit">水果</a></li><li><a href="products.html#cat-meat">肉品</a></li><li><a href="products.html#cat-seafood">海鮮</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Pantry · 廚房常備</p><ul><li><a href="products.html#cat-ready">料理即食</a></li><li><a href="products.html#cat-oil">油品調味</a></li><li><a href="products.html#cat-dry">南北貨</a></li></ul></div>
+        </div></div>
+      </li>
+      <li class="nav-has-sub">
+        <a href="spring.html">節氣選品</a>
+        <div class="mega-panel"><div class="mega-inner">
+          <div class="mega-col"><p class="mega-col-title">This Term · 本節氣</p><ul><li><a href="spring.html#guyu">穀雨 <span class="pill">當節氣</span></a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Upcoming · 近期</p><ul><li><a href="summer.html#lixia">立夏</a></li><li><a href="summer.html#xiaoman">小滿</a></li></ul></div>
+          <div class="mega-col"><p class="mega-col-title">Archive · 總覽</p><ul><li><a href="spring.html">春</a></li><li><a href="summer.html">夏</a></li><li><a href="autumn.html">秋</a></li><li><a href="winter.html">冬</a></li></ul></div>
+        </div></div>
+      </li>
+      <li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">企業採購</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button aria-label="搜尋"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg></button>
+      <a href="checkout.html" class="cart-wrap" aria-label="購物車">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <span class="cart-count">2</span>
+      </a>
+      <a href="#" class="show-lg" style="font-size:.88rem">登入</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="breadcrumb" aria-label="麵包屑">
+  <div class="container">
+    <ol class="breadcrumb-list">
+      <li><a href="index.html">首頁</a></li>
+      <li class="sep">/</li>
+      <li><a href="brand.html">品牌故事</a></li>
+      <li class="sep">/</li>
+      <li class="current">聯絡我們</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="ct-hero">
+  <div class="container">
+    <p class="ct-hero-kicker">Contact · 聯絡我們</p>
+    <h1 class="ct-hero-h1">有問題？<br>想合作？<span class="accent">想加入我們</span>？</h1>
+    <p class="ct-hero-lead">不論你是消費者、農友、企業、媒體——找對窗口，事情會比你想像得快。我們三個工作天內必有人回覆你。</p>
+  </div>
+</section>
+
+<!-- ═══ CHANNELS · 4 個聯絡途徑 ═══ -->
+<section class="ct-channels">
+  <div class="container">
+    <span class="ct-hero-kicker">Channels · 找對窗口</span>
+    <div class="ct-channels-grid">
+      <!-- 一般洽詢 -->
+      <a href="#general" class="ct-ch">
+        <span class="ct-ch-icn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+        </span>
+        <span class="ct-ch-en">General</span>
+        <h3>一般洽詢</h3>
+        <p>商品問題、訂單查詢、退換貨、會員疑問——任何想說的話都歡迎。</p>
+        <span class="ct-ch-cta">填寫表單</span>
+      </a>
+
+      <!-- 成為農友 -->
+      <a href="#join" class="ct-ch">
+        <span class="ct-ch-icn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v8"/><path d="M12 22V10"/><path d="M5 14c0-3 3-5 7-5s7 2 7 5"/><circle cx="12" cy="6" r="2"/></svg>
+        </span>
+        <span class="ct-ch-en">Join Farmer</span>
+        <h3>成為農友</h3>
+        <p>你是農友、漁民、養殖戶、加工職人？想透過我們把作物賣好？</p>
+        <span class="ct-ch-cta">了解合作模式</span>
+      </a>
+
+      <!-- 企業採購 -->
+      <a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener" class="ct-ch">
+        <span class="ct-ch-icn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M9 21v-7h6v7"/></svg>
+        </span>
+        <span class="ct-ch-en">B2B</span>
+        <h3>企業採購</h3>
+        <p>禮盒批量訂購、員工福利、學校午餐、企業贈禮——年訂超過 200 萬可洽。</p>
+        <span class="ct-ch-cta">前往 B2B</span>
+      </a>
+
+      <!-- 媒體合作 -->
+      <a href="mailto:press@tfa.com.tw" class="ct-ch">
+        <span class="ct-ch-icn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 9h18"/><path d="M8 14h6"/></svg>
+        </span>
+        <span class="ct-ch-en">Press</span>
+        <h3>媒體合作</h3>
+        <p>採訪邀約、聯名活動、品牌異業合作、公關贊助——直接寄到專屬窗口。</p>
+        <span class="ct-ch-cta">寄信聯繫</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GENERAL CONTACT FORM ═══ -->
+<section class="ct-form-section" id="general">
+  <div class="container">
+    <div class="ct-form-grid">
+      <!-- 左側：說明 -->
+      <div class="ct-form-side">
+        <span class="ct-hero-kicker">Form · 一般洽詢</span>
+        <h2>留下你的話，<br>我們三天內回你。</h2>
+        <p>不論是商品問題、訂單查詢、退換貨、會員疑問——填一次表單比寫一封信清楚。我們會看完每一封，並由對的人回覆你。</p>
+        <div class="ct-emphasis">
+          急件請直接撥打客服專線 <strong style="color:var(--vermillion)">(02) 2345-6789</strong>　／　週一至週五 9:00–18:00
+        </div>
+      </div>
+
+      <!-- 右側：表單 -->
+      <form class="ct-form" onsubmit="event.preventDefault();const b=this.querySelector('button');b.textContent='送出中…';b.disabled=true;setTimeout(()=>{alert('收到！我們會在 3 個工作天內回覆。');b.textContent='送出 →';b.disabled=false;this.reset();},700);">
+        <div>
+          <label for="ct-name">你的名字</label>
+          <input id="ct-name" type="text" placeholder="如何稱呼你" required>
+        </div>
+        <div>
+          <label for="ct-email">Email</label>
+          <input id="ct-email" type="email" placeholder="your@email.com" required>
+        </div>
+        <div>
+          <label for="ct-phone">手機（選填）</label>
+          <input id="ct-phone" type="tel" placeholder="09XX-XXX-XXX">
+        </div>
+        <div>
+          <label for="ct-topic">主題</label>
+          <select id="ct-topic" required>
+            <option value="">請選擇…</option>
+            <option>商品 / 訂單問題</option>
+            <option>退換貨</option>
+            <option>會員 / 帳號</option>
+            <option>網站 bug 回報</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="full">
+          <label for="ct-msg">想說的話</label>
+          <textarea id="ct-msg" placeholder="描述越詳細，我們回得越精準。如果是訂單問題，請附上訂單編號。" required></textarea>
+        </div>
+        <div class="ct-form-submit">
+          <button type="submit">送出 →</button>
+          <p class="ct-form-note">送出即代表你同意我們以本次提供的聯絡方式回覆你。資料僅用於本次回應，不另作他用。</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JOIN US · 成為農友（HIGHLIGHT） ═══ -->
+<section class="ct-join" id="join">
+  <div class="container">
+    <div class="ct-join-grid">
+      <!-- 左側：主訊息 -->
+      <div>
+        <span class="ct-join-kicker">Join Us · 成為農友</span>
+        <h2>下一個名字，<br><span class="accent">是不是你？</span></h2>
+        <p>我們不是通路，是你的第二雙手。如果你想把作物賣好，但不想花時間經營網站、拍照、寫文案、處理客服——<strong style="color:var(--gold)">我們接住這些</strong>，你顧好作物。</p>
+
+        <div class="ct-join-stats">
+          <div class="item"><span class="num">200+</span><span class="label">合作農友</span></div>
+          <div class="item"><span class="num">18</span><span class="label">縣市涵蓋</span></div>
+          <div class="item"><span class="num">5 年</span><span class="label">平均合作</span></div>
+          <div class="item"><span class="num">0</span><span class="label">上架手續費</span></div>
+        </div>
+
+        <a href="join-farmer.html" class="ct-join-cta">了解完整流程 + 線上申請</a>
+      </div>
+
+      <!-- 右側：你會得到什麼 -->
+      <aside class="ct-join-aside">
+        <h3>加入後，你會得到</h3>
+        <ul>
+          <li>專屬故事頁（我們派編輯到你家拍攝、訪談）</li>
+          <li>200+ 農友共用物流網與冷鏈包裝</li>
+          <li>12 萬會員 + 月電子報固定曝光</li>
+          <li>客服 / 退換 / 發票全部我們處理</li>
+          <li>200+ 農友 Line 社群、線下聚會</li>
+          <li>從申請到上架，平均 6 週</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OFFICE INFO ═══ -->
+<section class="ct-info">
+  <div class="container">
+    <span class="ct-hero-kicker">Office · 公司資訊</span>
+    <div class="ct-info-grid" style="margin-top:1.6rem">
+      <div class="ct-info-block">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h4>地址</h4>
+        <p class="v">台北市中正區忠孝東路一段 100 號</p>
+        <p class="sub">捷運善導寺站 5 號出口步行 3 分鐘</p>
+      </div>
+      <div class="ct-info-block">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+        <h4>電話 / Email</h4>
+        <p class="v">(02) 2345-6789</p>
+        <p class="sub">客服信箱 <a href="mailto:service@tfa.com.tw">service@tfa.com.tw</a><br>媒體聯繫 <a href="mailto:press@tfa.com.tw">press@tfa.com.tw</a></p>
+      </div>
+      <div class="ct-info-block">
+        <span class="icn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+        <h4>客服時間</h4>
+        <p class="v">週一至週五 9:00–18:00</p>
+        <p class="sub">國定假日 / 週末暫停服務<br>非客服時間可填表單，下個工作日回覆</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="ct-faq">
+  <div class="container">
+    <div class="ct-faq-head">
+      <span class="ct-hero-kicker">FAQ · 常見問題</span>
+      <h2>你想問的，這裡可能有答案</h2>
+    </div>
+    <div class="ct-faq-list">
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">送出表單後多久會收到回覆？</p>
+        <p class="ct-faq-a">一般洽詢：3 個工作天內。農友申請：3 天內初步回覆 + 1 週內電話訪談。緊急訂單問題請直接撥打客服專線。</p>
+      </div>
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">我送錯主題類別了怎麼辦？</p>
+        <p class="ct-faq-a">不用擔心，後台會由窗口協助轉到對的部門，不影響回覆時效。</p>
+      </div>
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">想當農友但作物還沒到產季，可以先申請嗎？</p>
+        <p class="ct-faq-a">當然可以。我們鼓勵你早一點認識——從電話訪談、實地拜訪、編輯規劃通常需要 6-8 週，提早送件可以讓你的首批商品趕上下個節氣。</p>
+      </div>
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">企業採購最低數量是多少？</p>
+        <p class="ct-faq-a">B2B 平台單筆 NT$ 50,000 起；年度訂單 200 萬以上可申請專屬窗口、客製禮盒、發票合併等服務。</p>
+      </div>
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">媒體 / 部落客可以申請體驗品嗎？</p>
+        <p class="ct-faq-a">可以。請寄信到 <a href="mailto:press@tfa.com.tw">press@tfa.com.tw</a>，附上媒體名稱、刊登平台、預計報導方向，我們會評估後回覆。</p>
+      </div>
+      <div class="ct-faq-item">
+        <p class="ct-faq-q">我想加盟 / 開設台灣鮮農的實體店面？</p>
+        <p class="ct-faq-a">目前我們以線上電商為主，沒有開放加盟。但若你有實體店面想代售我們的商品（複合店、咖啡廳、選物店），歡迎走「企業採購」窗口。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-about">
+        <div class="foot-brand">
+          <div class="mark"><span class="zh">台鮮</span><span class="en">TFA</span></div>
+          <span class="foot-brand-name">台灣鮮農</span>
+        </div>
+        <p class="foot-desc">從 2019 年開始，我們走遍台灣 18 縣市，把 200+ 位認證農友帶到你家餐桌。每一份食材背後都有一個名字。</p>
+        <address class="foot-addr">
+          台北市中正區忠孝東路一段 100 號<br>
+          客服 (02) 2345-6789　／　service@tfa.com.tw<br>
+          週一至週五 9:00–18:00
+        </address>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><p class="foot-col-title">關於</p><ul><li><a href="brand.html">品牌故事</a></li><li><a href="farmers.html">合作農友</a></li><li><a href="join-farmer.html">成為農友</a></li><li><a href="contact.html">聯絡我們</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">購物</p><ul><li><a href="products.html">全部商品</a></li><li><a href="summer.html">節氣選品</a></li></ul></div>
+        <div class="foot-col"><p class="foot-col-title">企業</p><ul><li><a href="https://b2b.tfa.com.tw" target="_blank" rel="noopener">B2B 採購</a></li><li><a href="contact.html">聯絡窗口</a></li></ul></div>
+      </div>
+      <div class="foot-news">
+        <p>訂閱農友誌：每月一封，節氣 × 新農友 × 產地優惠。</p>
+        <form class="foot-news-form"><input type="email" placeholder="你的 Email"><button type="submit">訂閱</button></form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-bottom-inner">
+        <p>© 2026 台灣鮮農 TFA. All rights reserved.</p>
+        <div class="links"><a href="#">隱私權政策</a><a href="#">服務條款</a><a href="#">退換貨說明</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav-actions.js" defer></script>
+<script src="js/mobile-nav.js" defer></script>
+<script src="js/tfa-youtube.js" defer></script>
+</body>
+</html>
