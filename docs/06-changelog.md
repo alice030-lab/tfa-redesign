@@ -25,6 +25,37 @@
 
 ---
 
+## 2026-04-29 — 釐清「熱銷排行」與「Top 10 上週熱銷」語意
+
+**作者：** 前端  
+**影響面：** 前端文案 + 後端 API sort 參數  
+**異動類型：** Non-breaking（文案修正 + 業務邏輯釐清）
+
+### 變更內容
+products.html 上方有兩個排行榜區塊，原本文案有歧義：
+
+| 區塊 | 原副標 / 標題 | 修正後 | 業務定義 |
+|---|---|---|---|
+| `#flash` Hot · 熱銷排行 | 「上週 2,500 位顧客最常下單的 8 樣商品」| 「累積最多顧客回購、熱賣不墜的 8 樣商品」| **歷史紀錄以來** all-time 暢銷 |
+| `#top10` Top 10 · 本週熱銷排行 | 標題「本週」| 標題改「上週」| **顧客上週最常下單** 的 10 樣 |
+
+### 對後端 API 的影響
+建議 `GET /api/products` 的 `sort` 參數支援兩種語意：
+
+```
+sort=popular_alltime  → ORDER BY purchase_count DESC（歷史累積）
+sort=popular_week     → ORDER BY weekly_purchase_count DESC（上週統計）
+                        需要排程每週日 23:59 重算 weekly_purchase_count
+```
+
+或新開兩個 endpoint：
+- `GET /api/products/hot`     歷史暢銷
+- `GET /api/products/top10`   上週前十名
+
+請後端二選一定案後更新 02-api-contract.md。
+
+---
+
 ## 2026-04-29 — 移除評價系統，改為「已購買數」純計數
 
 **作者：** 前端  
