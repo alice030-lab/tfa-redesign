@@ -1772,7 +1772,8 @@ body.na-locked{overflow:hidden}
 }
 .na-cart-del:hover{color:var(--vermillion,#c83c2a)}
 .na-drawer-foot{
-  border-top:1px solid rgba(26,58,42,.12);
+  border-top:1px solid rgba(196,148,40,.25);
+  background:var(--gold-pale);
   padding:1rem 1.3rem 1.2rem;
 }
 .na-cart-total{
@@ -1783,11 +1784,11 @@ body.na-locked{overflow:hidden}
 .na-cart-note{font-size:.75rem;color:#6b7a68;margin:.2rem 0 .9rem}
 .na-cart-cta{
   display:block;text-align:center;text-decoration:none;
-  background:var(--gold);color:var(--ink);
+  background:#1a3a2a;color:#fdfaf4;
   padding:.85rem 1rem;border-radius:4px;font-weight:600;
-  letter-spacing:.05em;transition:background .18s,color .18s;
+  letter-spacing:.05em;transition:background .18s;
 }
-.na-cart-cta:hover{background:var(--gold-mid);color:var(--ink)}
+.na-cart-cta:hover{background:#2a5a42}
 
 /* ── Login modal ── */
 .na-modal.na-login{
