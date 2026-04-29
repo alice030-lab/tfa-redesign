@@ -144,6 +144,8 @@
   boot();
 
   // 同站連結攔截：點下去立刻顯示 loader，讓「離開→進站」沒有白屏空窗
+  // ⚠️ 用 bubble phase（非 capture），這樣 nav-actions.js 等 handler 的
+  //   preventDefault() 會先跑、e.defaultPrevented 就是 true，自動 skip
   document.addEventListener("click", (e) => {
     const a = e.target.closest && e.target.closest("a[href]");
     if (!a) return;
@@ -151,6 +153,7 @@
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (a.target && a.target !== "_self") return;
     if (a.hasAttribute("download")) return;
+    if (a.hasAttribute("data-no-loader")) return;             // 顯式 opt-out
     const href = a.getAttribute("href") || "";
     if (!href || href.startsWith("#")) return;                // 錨點略過
     if (href.startsWith("javascript:") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
@@ -160,7 +163,7 @@
       if (url.pathname === location.pathname && url.search === location.search) return;
       show();                                                  // 過場瞬間顯示
     } catch {}
-  }, true);
+  }, false);
 
   // bfcache 返回時，確保 loader 不會卡住畫面
   window.addEventListener("pageshow", (e) => {
