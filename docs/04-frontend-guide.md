@@ -76,7 +76,8 @@ tfa-redesign/
 │  ├─ 05-deploy-handoff.md
 │  ├─ 06-changelog.md
 │  ├─ 07-farmer-marketplace.md
-│  └─ 08-media-strategy.md
+│  ├─ 08-media-strategy.md
+│  └─ 09-templating-feasibility.md
 │
 ├─ .claude/
 │  └─ launch.json              Claude Code 本地 server 設定

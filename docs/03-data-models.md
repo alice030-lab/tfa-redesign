@@ -9,25 +9,30 @@
 ## 模型清單
 
 ```
-User              使用者（會員 + 農友 + 管理員）
-FarmerProfile     農友會員的擴充欄位（multi-tenant 用，見 07）
-Farmer            農友
-Product           商品
-ProductDraft      商品草稿（自助上架用，見 07）
-Category          分類
-Brand             品牌
-Article           文章
-Season            節氣
-Order             訂單
-OrderItem         訂單品項
-Address           地址
-Cart              購物車
-CartItem          購物車品項
-Review            評價
-FarmerApplication 農友申請（join-farmer.html / contact.html#join）
-ContactMessage    一般洽詢訊息（contact.html）
-Media             圖片 / 影片統一表（見 08）
-Image             圖片（值物件，常作 JSON 嵌入）
+User                          使用者（會員 + 農友 + 管理員）
+FarmerProfile                 農友會員的擴充欄位（multi-tenant 用，見 07）
+Farmer                        農友
+FarmerQA                      訪談 Q&A（1:N，見 09）
+FarmerGallery                 農場一日 gallery 主檔（1:1）
+FarmerGalleryItem             農場一日 gallery 子項（1:N）
+FarmerGlance                  策展數字條（1:N，見 09）
+Product                       商品
+ProductTraceabilityStep       商品履歷時間軸（1:N，見 09）
+ProductDraft                  商品草稿（自助上架用，見 07）
+Category                      分類
+Brand                         品牌
+Article                       文章
+Season                        節氣
+Order                         訂單
+OrderItem                     訂單品項
+Address                       地址
+Cart                          購物車
+CartItem                      購物車品項
+Review                        評價
+FarmerApplication             農友申請（join-farmer.html / contact.html#join）
+ContactMessage                一般洽詢訊息（contact.html）
+Media                         圖片 / 影片統一表（見 08）
+Image                         圖片（值物件，常作 JSON 嵌入）
 ```
 
 ---
@@ -56,9 +61,15 @@ farm_name       string?                    例：波瑟沙植蓓農場
 region          string                     例：雲林（縣市）
 location        string?                    例：古坑鄉
 joined_year     int                        例：2019
+years_collab    int?                       合作年資
+years_growing   int?                       種植年資
+method          string?                    耕作方式：'自然農法' / '有機認證' / ...
+category        string?                    分類：'匠人職人' / '返鄉青農' / '接班二代' / '家族傳承'
+seal_text       string?                    印章直書文字，用 | 標斷行（'波|瑟沙'）
+lat, lng        decimal?                   座標（地圖已拿掉但仍存欄位）
 photo           Image
 gallery         Image[]                    多張照片
-story           text                       長文（HTML / Markdown）
+story           text                       長文（HTML / Markdown，富文本編輯器產出）
 story_excerpt   string                     摘要（120 字）
 certifications  string[]                   ['organic', 'tap_certified']
 tags            string[]                   ['homecoming', '2ndgen', 'legacy', 'mastery'] 任選
@@ -68,6 +79,55 @@ created_at, updated_at
 
 關聯：
   hasMany products
+  hasMany qas              farmer_qas（訪談 Q&A）
+  hasOne gallery           farmer_galleries + items（農場一日）
+  hasMany glances          farmer_glances（策展數字條）
+```
+
+### FarmerQA（訪談 Q&A）
+詳見 09-templating-feasibility.md §2.A。
+```
+id              bigint, PK
+farmer_id       bigint, FK → farmers
+sort_order      int
+question        string                     '為什麼選擇種茶？'
+answer_html     longtext                   富文本 HTML，含 <blockquote class="fd-pull"> 等內嵌標記
+created_at, updated_at
+
+索引：(farmer_id, sort_order)
+```
+
+### FarmerGallery / FarmerGalleryItem（農場一日）
+詳見 09-templating-feasibility.md §2.B。
+```
+farmer_galleries:
+  id              bigint, PK
+  farmer_id       bigint, FK → farmers (unique)
+  title           string                   '從日出到日落，茶園裡在發生什麼事'
+  subtitle        string?
+
+farmer_gallery_items:
+  id              bigint, PK
+  gallery_id      bigint, FK → farmer_galleries
+  sort_order      int
+  caption         string                   '清晨 6 點 · 巡園'
+  image_url       string
+  alt             string?
+
+索引：(gallery_id, sort_order)
+```
+
+### FarmerGlance（策展數字條）
+詳見 09-templating-feasibility.md §2.C。
+```
+id              bigint, PK
+farmer_id       bigint, FK → farmers
+sort_order      int
+value           string                     '12' / '0' / '3.2' / '560'
+unit            string?                    '公頃' / '°C' / '頭'，可空
+label           string                     '茶園' / '冷壓溫度' / '羊頭數'
+
+索引：(farmer_id, sort_order)
 ```
 
 ### Product
@@ -76,8 +136,9 @@ id              bigint, PK
 slug            string, unique
 sku             string?, unique
 name            string
+tagline         string?                    商品故事主標：'四月下旬，我們跟著龍眼花走了一千公里'
 spec            string                     例：1800g · 雲嘉南龍眼花期
-description     text                       商品描述（HTML）
+description     text                       商品描述（HTML，富文本）
 price           int                        現價
 strike_price    int?                       原價（劃掉）
 cost            int?                       成本（admin only）
@@ -95,6 +156,20 @@ created_at, updated_at
   belongsToMany categories
   belongsToMany seasons
   hasMany reviews
+  hasMany traceabilitySteps    product_traceability_steps（履歷時間軸）
+```
+
+### ProductTraceabilityStep（商品履歷時間軸）
+詳見 09-templating-feasibility.md §3。
+```
+id              bigint, PK
+product_id      bigint, FK → products
+sort_order      int
+date_label      string                     '04/20 穀雨' / '04/22'
+step_title      string                     '花期第 21 天' / '搖蜜'
+description     string                     描述（300 字內）
+
+索引：(product_id, sort_order)
 ```
 
 ### Category
