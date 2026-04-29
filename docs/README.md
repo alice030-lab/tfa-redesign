@@ -15,6 +15,7 @@
 | `07-farmer-marketplace.md` | 後端、產品 | 多租戶（農友自助上架）平台規格 |
 | `08-media-strategy.md` | 後端、前端 | 影片走 YouTube、圖片走 Cloudflare 的混合方案 |
 | `09-templating-feasibility.md` | **後端 + 編輯後台必讀** | 哪些區塊好做模板、哪些要開子表、哪些放棄 |
+| `10-cms-architecture.md` | **後端必讀** | 後台 CMS 架構建議：Laravel Filament v3 + Spatie 套件 |
 
 ## 推薦閱讀順序
 
