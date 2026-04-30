@@ -658,9 +658,12 @@ footer{background:var(--ink);color:var(--paper-warm)}
 .promo-tile.hot{background:linear-gradient(180deg,var(--vermillion) 0%,#d8553d 100%)}
 .promo-tile.hot:hover{background:linear-gradient(180deg,var(--vermillion-mid) 0%,#d8553d 100%)}
 .promo-tile.hot .icn,.promo-tile.hot .zh,.promo-tile.hot .en{color:#fff}
-.promo-tile.sale{background:linear-gradient(180deg,#ffd84a 0%,#ffa000 100%)}
-.promo-tile.sale:hover{background:linear-gradient(180deg,#ffe066 0%,#ffb000 100%)}
-.promo-tile.sale .icn,.promo-tile.sale .zh,.promo-tile.sale .en{color:#fff;text-shadow:0 1px 2px rgba(120,70,0,.35)}
+/* 限時優惠：跟導覽列同色同質感（紙紋 multiply overlay）*/
+.promo-tile.sale{background:linear-gradient(180deg,#f5cf54 0%,#eab83a 100%);isolation:isolate}
+.promo-tile.sale::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:url("../images/nav-paper.png") repeat;background-size:520px auto;mix-blend-mode:multiply;opacity:.55;filter:contrast(1.1) brightness(1.1) saturate(1.05)}
+.promo-tile.sale > *{position:relative;z-index:1}
+.promo-tile.sale:hover{background:linear-gradient(180deg,#f8d96a 0%,#edbe44 100%)}
+.promo-tile.sale .icn,.promo-tile.sale .zh,.promo-tile.sale .en{color:#1a3a2a;text-shadow:none}
 
 /* Fresh tabs — 當季鮮食分類頁籤（farmers-nav-btn 風格）*/
 .fresh-tabs{list-style:none;display:flex;overflow-x:auto;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 0 1.75rem;padding:0;background:var(--paper)}
