@@ -16,6 +16,7 @@
 | `08-media-strategy.md` | 後端、前端 | 影片走 YouTube、圖片走 Cloudflare 的混合方案 |
 | `09-templating-feasibility.md` | **後端 + 編輯後台必讀** | 哪些區塊好做模板、哪些要開子表、哪些放棄 |
 | `10-cms-architecture.md` | **後端必讀** | 後台 CMS 架構建議：Laravel Filament v3 + Spatie 套件 |
+| `12-seo-playbook.md` | **永久 SOP** | SEO 工作手冊：5 步驟流程 + 元素逐項解析 + 常見坑 + 工具清單 |
 
 ## 推薦閱讀順序
 
