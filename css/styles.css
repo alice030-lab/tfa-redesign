@@ -646,7 +646,7 @@ footer{background:var(--ink);color:var(--paper-warm)}
 /* ═══ PRODUCTS HUB (products.html) ═══ */
 /* 五格 promo 橫條 */
 /* 書籤式 promo-strip — 插入 flash-strip 頂端，共用暖色背景形成一體感 */
-.promo-strip{background:transparent;border:0;padding:1.5rem 0 0;position:relative;z-index:3;margin-bottom:-1.4rem}
+.promo-strip{background:#fffaf2;border:0;padding:1.5rem 0 0;position:relative;z-index:3;margin-bottom:-1.4rem}
 .promo-strip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
 @media(min-width:640px){.promo-strip-grid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:960px){.promo-strip-grid{grid-template-columns:repeat(6,1fr)}}
