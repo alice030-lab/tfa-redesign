@@ -655,6 +655,9 @@ footer{background:var(--ink);color:var(--paper-warm)}
 .promo-tile .icn{font-size:1.2rem;line-height:1;color:var(--vermillion)}
 .promo-tile .zh{font-family:var(--font-serif);font-size:.92rem;color:var(--ink)}
 .promo-tile .en{font-family:var(--font-latin);font-size:.58rem;letter-spacing:.2em;color:var(--vermillion);text-transform:uppercase}
+.promo-tile.hot{background:linear-gradient(180deg,var(--vermillion) 0%,#d8553d 100%)}
+.promo-tile.hot:hover{background:linear-gradient(180deg,var(--vermillion-mid) 0%,#d8553d 100%)}
+.promo-tile.hot .icn,.promo-tile.hot .zh,.promo-tile.hot .en{color:#fff}
 
 /* Fresh tabs — 當季鮮食分類頁籤（farmers-nav-btn 風格）*/
 .fresh-tabs{list-style:none;display:flex;overflow-x:auto;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 0 1.75rem;padding:0;background:var(--paper)}
