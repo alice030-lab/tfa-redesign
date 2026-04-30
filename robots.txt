@@ -1,0 +1,30 @@
+# 台灣鮮農 robots.txt
+# https://tfa.com.tw
+
+User-agent: *
+Allow: /
+
+# 不爬：個人區、結帳流程、後台、開發預覽
+Disallow: /admin
+Disallow: /admin/
+Disallow: /seller
+Disallow: /seller/
+Disallow: /checkout.html
+Disallow: /preview.html
+Disallow: /api/
+Disallow: /*?ref=
+Disallow: /*?utm_
+
+# 圖片爬蟲：允許全部
+User-agent: Googlebot-Image
+Allow: /images/
+
+# AI 爬蟲（如要禁可改 Disallow）
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap 位置
+Sitemap: https://tfa.com.tw/sitemap.xml

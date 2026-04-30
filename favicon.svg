@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 背景：朱紅圓角方塊 -->
+  <rect width="64" height="64" rx="10" fill="#c8402a"/>
+  <!-- 紙紋柔光 -->
+  <rect width="64" height="64" rx="10" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".15"/>
+    </linearGradient>
+  </defs>
+  <!-- 「鮮」字以「禾」+ 「魚」概念簡化：稻穗 + 圓點 -->
+  <g fill="#fdfaf4">
+    <!-- 主稈 -->
+    <path d="M32 50 V18" stroke="#fdfaf4" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <!-- 穀粒：左右對稱 4 對 -->
+    <ellipse cx="27" cy="20" rx="3" ry="5" transform="rotate(-22 27 20)"/>
+    <ellipse cx="37" cy="22" rx="3" ry="5" transform="rotate(22 37 22)"/>
+    <ellipse cx="27" cy="28" rx="3" ry="5" transform="rotate(-22 27 28)"/>
+    <ellipse cx="37" cy="30" rx="3" ry="5" transform="rotate(22 37 30)"/>
+    <ellipse cx="27" cy="36" rx="3" ry="5" transform="rotate(-22 27 36)"/>
+    <ellipse cx="37" cy="38" rx="3" ry="5" transform="rotate(22 37 38)"/>
+    <!-- 底部小弧（土地）-->
+    <path d="M18 54 Q32 50 46 54" stroke="#fdfaf4" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>
+  </g>
+</svg>

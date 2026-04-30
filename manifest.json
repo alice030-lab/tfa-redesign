@@ -1,0 +1,14 @@
+{
+  "name": "台灣鮮農 TFA",
+  "short_name": "台灣鮮農",
+  "description": "200+ 認證農友直送、走遍 18 縣市產地的台灣食材電商。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f4ec",
+  "theme_color": "#c8402a",
+  "lang": "zh-TW",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/images/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

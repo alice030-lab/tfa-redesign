@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 首頁與主要 hub -->
+  <url><loc>https://tfa.com.tw/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/brand.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tfa.com.tw/farmers.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/products.html</loc><priority>0.9</priority><changefreq>daily</changefreq></url>
+
+  <!-- 商品分類 hub -->
+  <url><loc>https://tfa.com.tw/fresh.html</loc><priority>0.85</priority><changefreq>daily</changefreq></url>
+  <url><loc>https://tfa.com.tw/pantry.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/gift.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/coupons.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+
+  <!-- 季節 / 節氣 -->
+  <url><loc>https://tfa.com.tw/spring.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/summer.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/autumn.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/winter.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+
+  <!-- 故事專題 -->
+  <url><loc>https://tfa.com.tw/story-homecoming.html</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tfa.com.tw/story-2ndgen.html</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tfa.com.tw/story-legacy.html</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tfa.com.tw/story-mastery.html</loc><priority>0.75</priority><changefreq>monthly</changefreq></url>
+
+  <!-- 詳情頁範例（之後動態產出）-->
+  <url><loc>https://tfa.com.tw/farmer-detail.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/farmer-products.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://tfa.com.tw/product-detail.html</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+
+  <!-- 招募與聯絡 -->
+  <url><loc>https://tfa.com.tw/join-farmer.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://tfa.com.tw/contact.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- 法務 -->
+  <url><loc>https://tfa.com.tw/privacy.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+
+</urlset>
