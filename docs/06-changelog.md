@@ -25,6 +25,40 @@
 
 ---
 
+## 2026-04-30 — 文件對齊：清理移除功能的殘留內容
+
+**作者：** 前端  
+**影響面：** 文件 only  
+**異動類型：** Non-breaking（文件 sync）
+
+### 背景
+過去幾天連續移除了幾個區塊（評價系統 / Traceability Timeline /
+LOCATION 地圖 / 食譜廚房），但部分文件還殘留舊內容造成不一致。
+做一輪稽核 + 清理。
+
+### 修正
+- `docs/03-data-models.md`
+  - 移除 Product 的 `hasMany reviews` 殘留行
+  - 移除索引建議表的 `reviews` 條目
+- `docs/07-farmer-marketplace.md`
+  - 「待出貨數、評價星等」→「待出貨數、累計購買人數」
+  - 「自助看評價並回覆」→「自助看訂單統計與顧客回購率」
+- `docs/09-templating-feasibility.md`
+  - product-detail 容易模板清單移除「Reviews」
+  - 拖曳排序清單 `traceability_steps` → `product_manual_images`
+  - TL;DR 4 個放棄做模板項目補完整（review、trace、location、SVG map）
+- `docs/04-frontend-guide.md`
+  - 「17 個前台頁面」→ 24 頁，加上 fresh/pantry/gift/coupons/privacy
+  - js/ 加 pd-manual.js
+  - scripts/ 加 inject-seo.js / gen-hub-pages.js
+  - SEO 必備檔（robots / sitemap / favicon / manifest）列入
+- `docs/README.md`
+  - 「18 頁」→ 24 頁
+
+無程式碼異動。
+
+---
+
 ## 2026-04-29 — 釐清「熱銷排行」與「Top 10 上週熱銷」語意
 
 **作者：** 前端  

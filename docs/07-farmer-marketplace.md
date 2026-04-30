@@ -163,7 +163,7 @@ ALTER TABLE orders
 
 | Method | Path | 用途 |
 |---|---|---|
-| GET | /api/seller/dashboard | 業績概覽（今日 / 本月、待出貨數、評價星等）|
+| GET | /api/seller/dashboard | 業績概覽（今日 / 本月、待出貨數、累計購買人數）|
 | GET | /api/seller/profile | 我的農場資料（給編輯用，回完整欄位）|
 | PATCH | /api/seller/profile | 更新農場資料 |
 | GET | /api/seller/products | 我的商品列表（含 draft / pending）|
@@ -281,5 +281,5 @@ Phase 2 (Self-onboarding 開放)
 
 Phase 3 (規模化)    ── 對帳自動化
                    ── 統計圖表豐富化
-                   ── 開放農友自助看評價並回覆
+                   ── 農友自助看訂單統計與顧客回購率
 ```

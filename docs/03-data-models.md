@@ -157,7 +157,6 @@ created_at, updated_at
   belongsTo brand?
   belongsToMany categories
   belongsToMany seasons
-  hasMany reviews
   hasMany manualImages         product_manual_images（產品敘述一頁式圖）
   // 註：Review 關聯已於 2026-04-29 移除，改用 purchase_count 計數欄位
 ```
@@ -377,7 +376,6 @@ created_at, updated_at
 | products | status, sort_order | 列表預設排序 |
 | orders | user_id, status | 我的訂單 |
 | orders | order_no | 訂單查詢 |
-| reviews | product_id, status | 商品頁讀評價 |
 
 ---
 

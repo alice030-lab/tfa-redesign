@@ -36,36 +36,49 @@ node scripts/optimize-images.js
 ```
 tfa-redesign/
 │
-│  ── 17 個前台頁面 ──
+│  ── 24 個前台頁面 ──
 ├─ index.html                  首頁
 ├─ brand.html                  品牌故事
 ├─ farmers.html                農友夥伴 hub（含 #films 紀錄片 + #shorts 短影音）
-├─ farmer-detail.html          農友詳情（紀錄片 + 短影音 + 產地）
+├─ farmer-detail.html          農友詳情（含 Films / Shorts 區塊）
 ├─ farmer-products.html        某農友的商品列表
-├─ products.html               商品總覽
-├─ product-detail.html         商品詳情（含採蜜實錄影片）
+├─ products.html               商品總覽（含 6 格 promo-tile 入口）
+├─ product-detail.html         商品詳情（含 manual stack + YouTube + buyers pill）
+├─ fresh.html / pantry.html / gift.html  商品分類 hub（接 products.html「看全部」）
+├─ coupons.html                折價券專區（6 張票券）
 ├─ {spring,summer,autumn,winter}.html       四季節氣頁
 ├─ story-{homecoming,2ndgen,legacy,mastery}.html  四種農友故事專題
 ├─ join-farmer.html            成為農友（完整流程 + 申請表單）
-├─ contact.html                聯絡我們（4 種洽詢窗口統一入口）⭐ 新
-├─ checkout.html               結帳
-├─ preview.html                視覺 / 元件 preview
+├─ contact.html                聯絡我們（4 種洽詢窗口統一入口）
+├─ privacy.html                隱私權政策（7 章節）
+├─ checkout.html               結帳（noindex）
+├─ preview.html                視覺 / 元件 preview（noindex）
 │
 ├─ css/
 │  └─ styles.css               ⚠️ 全站共用樣式（3700+ 行）
-│                              join-farmer.html 和 contact.html 各自有 inline <style>
-│                              的 .jf-* / .ct-* 區塊（自包含，不放 styles.css）
+│                              contact / privacy / join-farmer / fresh / pantry / gift /
+│                              coupons 各自有 inline <style>（自包含 .jf-* / .ct-* / .legal-*
+│                              / .hub-* / .cp-* 區塊，不放 styles.css）
 │
 ├─ js/
 │  ├─ loader.js                稻穗 loading 動畫（head 同步載入）
 │  ├─ mobile-nav.js            手機漢堡抽屜（自動注入到 nav）
-│  ├─ nav-actions.js           搜尋 / 購物車 / 登入 overlay
+│  ├─ nav-actions.js           搜尋 / 購物車 drawer / 登入 modal
 │  ├─ tfa-youtube.js           YouTube Lite Embed（.tfa-yt / .tfa-yt-card）
+│  ├─ pd-manual.js             商品敘述圖 lightbox（鍵盤+觸控）
 │  └─ （待寫：api.js / auth.js / cart.js / seller-uploader.js）
 │
 ├─ images/                     圖片素材（已優化到 17 MB 內）
 ├─ scripts/
-│  └─ optimize-images.js       Node 批次優化（sharp）
+│  ├─ optimize-images.js       Node 批次優化（sharp）
+│  ├─ inject-seo.js            SEO meta 批次注入器（idempotent）
+│  └─ gen-hub-pages.js         fresh/pantry/gift 從 fresh.html 模板產出（一次性）
+│
+│  ── SEO 必備檔（commit 858d89b）──
+├─ robots.txt
+├─ sitemap.xml                 22 條 URL（之後 Laravel 動態產）
+├─ favicon.svg                 朱紅圓角方塊 + 稻穗
+├─ manifest.json               PWA manifest
 │
 ├─ docs/                       ★ 開發文件
 │  ├─ README.md
@@ -77,7 +90,9 @@ tfa-redesign/
 │  ├─ 06-changelog.md
 │  ├─ 07-farmer-marketplace.md
 │  ├─ 08-media-strategy.md
-│  └─ 09-templating-feasibility.md
+│  ├─ 09-templating-feasibility.md
+│  ├─ 10-cms-architecture.md
+│  └─ 12-seo-playbook.md
 │
 ├─ .claude/
 │  └─ launch.json              Claude Code 本地 server 設定

@@ -37,7 +37,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  前端                                                          │
-│  ├─ 18 頁 HTML / CSS / JS（含 contact.html 統一聯絡頁）         │
+│  ├─ 24 頁 HTML / CSS / JS（含 contact / privacy / fresh / pantry / gift / coupons）│
 │  ├─ UI 互動、動畫、RWD                                         │
 │  ├─ 串接 API（fetch）                                          │
 │  ├─ Form 即時驗證（UX）                                        │

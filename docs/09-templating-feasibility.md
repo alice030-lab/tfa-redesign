@@ -177,9 +177,8 @@ farmers ADD seal_text VARCHAR(20)
 
 ### 🟢 容易
 
-- Hero（圖庫 / 規格選擇 / 加購）
+- Hero（圖庫 / 規格選擇 / 加購、購買人數 pill）
 - Spec Table（規格 / 保存 / 認證）
-- Reviews（評價 + 摘要 + 列表）
 - Related Products
 - Product Video
 
@@ -319,7 +318,7 @@ CREATE TABLE product_manual_images (
 > 沒有富文本，就沒辦法產出真正像 demo 那種編輯精緻的內容頁。
 
 ### 拖曳排序
-- farmer_qas / farmer_galleries / farmer_glances / traceability_steps 都要支援拖曳調順序
+- farmer_qas / farmer_galleries / farmer_glances / product_manual_images 都要支援拖曳調順序
 - Laravel 後台用 `nestablejs` / Filament 內建的 sortable
 
 ### 印章斷字預覽
@@ -375,18 +374,21 @@ CREATE TABLE product_manual_images (
 ```
 做得到（標準）：
   ─ 90% 的 farmer / product 欄位
-  ─ 圖片、商品、評價、影片關聯
+  ─ 圖片、商品、影片關聯
   
 做得到但要寫額外子表：
-  ─ farmer_qas         （訪談）
-  ─ farmer_galleries   （農場一日 + items）
-  ─ farmer_glances     （策展數字條）
-  ─ product_traceability_steps  （履歷時間軸）
+  ─ farmer_qas             （訪談）
+  ─ farmer_galleries       （農場一日 + items）
+  ─ farmer_glances         （策展數字條）
+  ─ product_manual_images  （商品敘述一頁式圖）
 
 需要編輯後台升級：
   ─ 富文本編輯器（含自訂按鈕）
   ─ 拖曳排序
 
 放棄做模板（已決策拿掉）：
-  ─ farmer-detail 的 SVG 手繪地圖
+  ─ farmer-detail 的 SVG 手繪地圖（2026-04-29）
+  ─ farmer-detail 的 LOCATION 整個區塊（2026-04-29）
+  ─ product-detail 的 Traceability Timeline（2026-04-29）
+  ─ product-detail 的評價系統 → 改顯示「N 位顧客買過」（2026-04-29）
 ```
