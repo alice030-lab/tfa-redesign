@@ -25,6 +25,46 @@
 
 ---
 
+## 2026-04-30 — 新增 Claude Skill 封裝專案規範
+
+**作者：** 前端  
+**影響面：** 開發環境 only（不影響線上網站）  
+**異動類型：** Non-breaking（新增工具）
+
+### 變更內容
+- 新增 `.claude/skills/tfa-redesign/SKILL.md`（350+ 行）
+- 觸發描述（YAML frontmatter description）涵蓋：
+  - 路徑關鍵字：tfa-redesign / tfa.com.tw
+  - 業務關鍵字：台灣鮮農 / TFA / 農友夥伴 / 節氣選品
+  - 技術關鍵字：Laravel Filament / Films Shorts / promo-tile / 稻穗 loader
+- 內容架構（13 章）：
+  §0  永遠先做的 4 件事（讀 README → changelog → tokens → 確認任務性質）
+  §1  專案身份（人的 IP / 200+ 農友 / 18 縣市）
+  §2  技術棧速查
+  §3  Design tokens（顏色 / 字型 / 斷點 / z-index 表）
+  §4  CSS 命名前綴（19 個前綴的 scope 表）
+  §5  JavaScript 規範（IIFE / state-driven / a11y）
+  §6  過去踩過的 13 個坑（從 changelog 萃取）
+  §7  已決策「不做」的事項（避免重做評價系統 / 履歷 / 地圖等）
+  §8  媒體處理規則
+  §9  SEO 必做事項
+  §10 Pre-flight Checklist
+  §11 文件指引（深入閱讀順序）
+  §12 取得專案狀態的快指令
+  §13 一句話總結
+
+### 用法
+- 任何工作開始前，Claude（或新加入工程師）先讀此 SKILL.md
+- 30 秒內理解設計語言、避免重複踩坑、避免重做已決策不做事項
+- docs/README.md 加上指引
+
+### 為什麼要用 Skill 而不只放 docs/
+- Skill 的 frontmatter 帶 description，可被自動觸發
+- 「精選版」設計：只放高頻用、強規則
+- 完整資料仍在 docs/，Skill 只負責「30 秒帶入狀態」
+
+---
+
 ## 2026-04-30 — 文件對齊：清理移除功能的殘留內容
 
 **作者：** 前端  

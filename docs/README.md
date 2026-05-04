@@ -18,6 +18,10 @@
 | `10-cms-architecture.md` | **後端必讀** | 後台 CMS 架構建議：Laravel Filament v3 + Spatie 套件 |
 | `12-seo-playbook.md` | **永久 SOP** | SEO 工作手冊：5 步驟流程 + 元素逐項解析 + 常見坑 + 工具清單 |
 
+也可參考 `.claude/skills/tfa-redesign/SKILL.md` — 本專案的 Claude Skill，
+彙整 design tokens / 命名前綴 / 踩坑紀錄 / 已決策不做事項，
+讓 Claude / 新加入者 30 秒理解設計語言。
+
 ## 推薦閱讀順序
 
 **新加入的後端同仁：**
